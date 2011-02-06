@@ -1,0 +1,32 @@
+List of Controls:
+================
+*Containers:
+----------
+Window
+Phone (iPhone, etc)
+----------
+*Shapes
+----------
+Rectangle
+Rounded Rectangle
+Elipse
+----------
+*Buttons
+----------
+Button
+Checkbox
+Radio Button
+----------
+*Text
+----------
+Label
+Paragraph
+Text Box
+Text Area
+----------
+*Misc
+----------
+Progress Bar
+Link
+Menu Bar
+Note

@@ -1,0 +1,145 @@
+/* overide jQuery UI */
+.ui-resizable-handle {
+  z-index: auto !important;
+}
+/* context menu */
+.contextMenuImg {
+  height: 16px;
+  width: 16px;
+}
+/* for all widgets */
+.widget {
+  position: absolute;
+  text-align: center;
+  cursor: move;
+  border-color: black;
+  background-color: white;
+  overflow: hidden;
+}
+/* for specific widgets */
+/* containers */
+.window {
+  border-style: solid;
+  border-top-width: 10px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-right-width: 2px;
+  height: 200px;
+  width: 200px;
+}
+.phone {
+  border-style: solid;
+  border-top-width: 20px;
+  border-bottom-width: 20px;
+  border-left-width: 2px;
+  border-right-width: 2px;
+  height: 140px;
+  width: 100px;
+}
+/* shapes */
+.rectangle {
+  border-style: solid;
+  border-width: 1px;
+  height: 20px;
+  width: 50px;
+}
+.rounded-rectangle {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10%;
+  height: 20px;
+  width: 50px;
+}
+.elipse {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50%;
+  height: 20px;
+  width: 50px;
+}
+/* buttons */
+.button {
+  border-style: solid;
+  border-width: 2px;
+  -webkit-box-shadow: 0px 0px 4px gray;
+  border-radius: 15%;
+  height: 20px;
+  width: 50px;
+}
+.checkbox {
+  border-style: solid;
+  border-width: 2px;
+  -webkit-box-shadow: 0px 0px 4px gray;
+  border-radius: 5%;
+  color: transparent;
+  width: 10px !important;
+  height: 10px !important;
+}
+.radio {
+  border-style: solid;
+  border-width: 2px;
+  -webkit-box-shadow: 0px 0px 4px gray;
+  border-radius: 50%;
+  color: transparent;
+  width: 10px !important;
+  height: 10px !important;
+}
+/* text */
+.label {
+  text-align: left;
+  white-space: nowrap;
+  height: 1em;
+  width: auto;
+}
+.paragraph {
+  text-align: left;
+  height: auto;
+  width: auto;
+}
+.textbox {
+  border-style: inset;
+  text-align: left;
+  white-space: nowrap;
+  height: 1.2em;
+  width: 75px
+}
+.textarea {
+  text-align: left;
+  height: auto;
+  border-style: inset;
+}
+/* misc */
+.progress {
+  border-style: groove;
+  border-width: 2px;
+  border-radius: 20px;
+  height: 20px;
+  width: 75px;
+}
+.link {
+  text-align: left;
+  height: auto;
+  width: auto;
+  text-decoration: underline;
+  color: blue;
+}
+.menu {
+  border-style: solid;
+  border-width: 2px;
+  text-align: left;
+  white-space: nowrap;
+  height: 1.2em;
+  width: auto;
+}
+.note {
+  border-style: solid;
+  border-color: orange;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  height: 200px;
+  width: 200px;
+  background: -webkit-gradient(linear,
+    left top, left bottom, from(#FFFF66), to(#FFFF99));
+}
