@@ -1,0 +1,19 @@
+<%= javascript_include_tag "canvas" %>
+<style type="text/css">
+html {
+  overflow: auto;
+}
+</style>
+<!-- canvas -->
+<div id="canvas"></div>
+<!-- context menu -->
+<div class="contextMenu" id="contextMenu">
+  <ul>
+    <li id="edit"><img class="contextMenuImg" src="/images/pencil.svg" /> Edit</li>
+    <li id="delete"><img class="contextMenuImg" src="/images/delete.svg" /> Delete</li>
+    <li id="front"> Bring to Front</li>
+    <li id="forward"> Bring Forward</li>
+    <li id="backward"> Send Backward</li>
+    <li id="back"> Sent to Back</li>
+  </ul>
+</div>

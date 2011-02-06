@@ -1,0 +1,29 @@
+<%= javascript_include_tag "editor" %>
+<div class="toolbox">
+  <button id="clearBtn">Clear Canvas</button>
+  <select id="controlBox">
+    <option value="window">Window</option>
+    <option value="phone">Phone</option>
+    <option value="rectangle">Rectangle</option>
+    <option value="rounded-rectangle">Rounded Rectangle</option>
+    <option value="elipse">Elipse</option>
+    <option value="button">Button</option>
+    <option value="checkbox">Checkbox</option>
+    <option value="radio">Radio Button</option>
+    <option value="label">Label</option>
+    <option value="paragraph">Paragraph</option>
+    <option value="textbox">Text Box</option>
+    <option value="textarea">Text Area</option>
+    <option value="progress">Progress Bar</option>
+    <option value="link">Link</option>
+    <option value="menu">Menu Bar</option>
+    <option value="note">Sticky Note</option>
+  </select>
+  <button id="addBtn">Add</button>
+  <button id="undoBtn">Undo</button>
+  <button id="redoBtn">Redo</button>
+</div>
+<div class="canvas" id="canvas">
+  <iframe class="canvasFrame" src="/home/canvas" name="canvasFrame">
+  </iframe>
+</div>

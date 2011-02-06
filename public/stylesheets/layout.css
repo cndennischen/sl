@@ -1,0 +1,10 @@
+.background {
+  background-color: LightSkyBlue;
+}
+.mainContent {
+  width: auto;
+  height: auto;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+}
