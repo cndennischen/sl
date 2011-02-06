@@ -29,4 +29,3 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # end
 
 gem 'signet'
-gem 'ruby-openid', :require => 'openid'
