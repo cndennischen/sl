@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  validates_presence_of :userId
+  validate_presence_of :identity_url
   has_many :sketches
 end
