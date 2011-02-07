@@ -1,9 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  userId: MyString
-  sketches: MyString
+  provider: MyString
+  uid: MyString
+  name: MyString
 
 two:
-  userId: MyString
-  sketches: MyString
+  provider: MyString
+  uid: MyString
+  name: MyString

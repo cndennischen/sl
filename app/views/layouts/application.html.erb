@@ -7,6 +7,14 @@
   <%= csrf_meta_tag %>
 </head>
 <body class="background">
+  <div class="header">
+    <% if current_user %>
+      Welcome <%= current_user.name %>!
+      <%= link_to "Sign Out", signout_path %>
+    <% else %>
+      <%= link_to "Sign In With Your Google Account", "/auth/google" %>
+    <% end %>
+  </div>
   <div class="mainContent">
     <%= yield %>
   </div>

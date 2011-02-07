@@ -10,17 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206183358) do
-
-  create_table "sketches", :force => true do |t|
-    t.string   "name"
-    t.string   "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110207200403) do
 
   create_table "users", :force => true do |t|
-    t.string   "userId"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
     t.string   "sketches"
     t.datetime "created_at"
     t.datetime "updated_at"
