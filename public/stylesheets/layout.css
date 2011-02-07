@@ -1,7 +1,11 @@
 .background {
   background-color: LightSkyBlue;
 }
-.mainContent {
+#user {
+  float: right;
+  margin-right: 50px;
+}
+#content {
   position: absolute;
   left: 50px;
   right: 50px;
