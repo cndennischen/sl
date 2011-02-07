@@ -1,6 +1,8 @@
 var undoStack = [];
 var redoStack = [];
 
+$(document).ready(load);
+
 $(init);
 
 function init() {
@@ -116,6 +118,7 @@ function add(className, text, style) {
 function action() {
   //add the current state to the undo stack
   undoStack.push(getData());
+  save();
 }
 function undo() {
   //check if there's anything to undo
@@ -127,6 +130,7 @@ function undo() {
   var state = undoStack.pop();
   //restore to the previous state
   setData(state);
+  save();
 }
 function redo() {
   //check if there's anything to redo
@@ -138,6 +142,7 @@ function redo() {
   var state = redoStack.pop();
   //restore to the next state
   setData(state);
+  save();
 }
 function save(name) {
   //save the current state to localStorage
