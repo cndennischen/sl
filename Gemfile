@@ -30,4 +30,3 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'signet'
 gem 'omniauth'
-gem 'json'

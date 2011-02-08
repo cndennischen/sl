@@ -1,1 +1,24 @@
-Welcome!
+<% if current_user %>
+<h1>Your Sketches</h1>
+<% sketches = current_user.sketches %>
+<% if sketches.length > 0 %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% sketches.each do |sketch| %>
+  <tr>
+    <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
+    </tr>
+  <% end %>
+</table>
+<% else %>
+<h3>No Sketches!</h3>
+<% end %>
+<%= link_to 'New Sketch', "/new" %>
+<% else %>
+Welcome to SimpleSketch! Please <%= link_to "sign in", signin_path %> to see your sketches.
+<% end %>
