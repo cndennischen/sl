@@ -3,6 +3,14 @@ class HomeController < ApplicationController
   def index
   end
   
+  def getSketch(id)
+    # get the users sketches
+    data = JSON.parse(current_user.sketches)
+    if result.has_key? "id"
+      return data["id"]
+    end
+  end
+  
   private
 
   def require_login
@@ -14,14 +22,6 @@ class HomeController < ApplicationController
   
   def logged_in?
     !!current_user
-  end
-  
-  def getSketch(id)
-    # get the users sketches
-    data = JSON.parse(current_user.sketches)
-    if result.has_key? "id"
-      return data["id"]
-    end
   end
   
 end
