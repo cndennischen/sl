@@ -1,6 +1,7 @@
 <%= javascript_include_tag "editor" %>
 <script type="text/javascript">
-localStorage["data"]=#{getSketch(params[:id])};
+data = getSketch(params[:id])
+localStorage["data"]=#{data};
 </script>
 <div class="toolbox">
   <button id="clearBtn">Clear Canvas</button>
