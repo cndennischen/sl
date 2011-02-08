@@ -1,6 +1,10 @@
 <%= javascript_include_tag "editor" %>
+<% data = getSketch(params[:id]) %>
+<% if data == nil %>
+  <% flash[:error] = "The selected sketch doesn't exist" %>
+  <% redirect_to root_url %>
+<% end %>
 <script type="text/javascript">
-data = getSketch(params[:id])
 localStorage["data"]=#{data};
 </script>
 <div class="toolbox">
