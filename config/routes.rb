@@ -1,10 +1,11 @@
 SimpleSketch::Application.routes.draw do  
-  match "edit/:id" => "home#editor"
+  match "edit/:sketchID" => "home#editor"
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
   match "/signin" => redirect("/auth/google")
-  match "/new" => "home#new_sketch"
+  match "/new/:name" => "home#new_sketch"
+  match "/delete/:id" => "home#delete_sketch"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

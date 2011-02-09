@@ -12,6 +12,7 @@ function clear() {
   frames["canvasFrame"].action();
   //clear the canvas
   frames["canvasFrame"].clear();
+	frames["canvasFrame"].save();
 }
 
 function add() {
@@ -19,6 +20,7 @@ function add() {
   //add the selected type of widget to the canvas
   frames["canvasFrame"].add($("#controlBox").val(), $("#controlBox option:selected").text(), "");
   frames["canvasFrame"].init();
+	frames["canvasFrame"].save();
 }
 
 function undo() {

@@ -25,13 +25,15 @@ function init() {
     .draggable({
       containment: "body",
       grid: [ 10, 10 ],
-      start: action
+      start: action,
+      stop: save
     })
     .resizable({
       minHeight: 20,
       minWidth: 20,
       grid: 10,
-      start: action
+      start: action,
+      stop: save
     })
     .contextMenu("contextMenu", {
       bindings: {
@@ -63,12 +65,14 @@ function editWidget(widget) {
   action();
   //set the widget's text
   $(widget).children(".text").html(newText);
+  save();
 }
 
 function delWidget(widget) {
   action();
   //delete widget
   $(widget).remove();
+  save();
 }
 
 function front(widget) {
@@ -77,6 +81,7 @@ function front(widget) {
   $(widget).insertAfter($(".widget:last"));
   //re-order widgets
   order();
+	save();
 }
 
 function forward(widget) {
@@ -85,6 +90,7 @@ function forward(widget) {
   $(widget).insertAfter($(widget).next(".widget"));
   //re-order widgets
   order();
+	save();
 }
 
 function backward(widget) {
@@ -93,6 +99,7 @@ function backward(widget) {
   $(widget).insertBefore($(widget).prev(".widget"));
   //re-order widgets
   order();
+	save();
 }
 
 function back(widget) {
@@ -101,6 +108,7 @@ function back(widget) {
   $(widget).insertBefore($(".widget:first"));
   //re-order widgets
   order();
+	save();
 }
 function order() {
   //order widgets
@@ -118,7 +126,6 @@ function add(className, text, style) {
 function action() {
   //add the current state to the undo stack
   undoStack.push(getData());
-  save();
 }
 function undo() {
   //check if there's anything to undo
@@ -130,7 +137,7 @@ function undo() {
   var state = undoStack.pop();
   //restore to the previous state
   setData(state);
-  save();
+	save();
 }
 function redo() {
   //check if there's anything to redo
@@ -142,7 +149,7 @@ function redo() {
   var state = redoStack.pop();
   //restore to the next state
   setData(state);
-  save();
+	save();
 }
 function save(name) {
   //save the current state to localStorage
@@ -156,7 +163,7 @@ function load() {
   redoStack = [];
 }
 function getData() {
-  //returns the contents of the canvas in JSON format
+	//returns the contents of the canvas in JSON format
   var widgets = {};
   $(".widget").each(function(i) {
     var widget = {};

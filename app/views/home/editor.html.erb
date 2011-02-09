@@ -1,6 +1,16 @@
 <%= javascript_include_tag "editor" %>
+<% id = Integer(params[:sketchID]) %>
+<% data = getSketch(id) %>
+<% if data == nil %>
+  <script type="text/javascript">
+  //stop window from continuing to load, redirecting anyway
+  window.stop();
+  //redirect to root
+  window.location = "/";
+  </script>
+<% end %>
 <script type="text/javascript">
-localStorage["data"]=#{data};
+localStorage["data"]=<%= data %>;
 </script>
 <div class="toolbox">
   <button id="clearBtn">Clear Canvas</button>

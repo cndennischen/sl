@@ -1,3 +1,14 @@
+<script type="text/javascript">
+function create() {  
+  var url = "new/";
+  url += $("#newTxt").val();
+  //redirect browser to url for creating sketches
+  f = document.forms["newForm"];
+  f.action = url;
+  f.onsubmit = null;
+  f.submit();
+}
+</script>
 <% if current_user %>
 <h1>Your Sketches</h1>
 <% sketches = current_user.sketches %>
@@ -12,13 +23,16 @@
   <% sketches.each do |sketch| %>
   <tr>
     <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
-    </tr>
+    <td><%= link_to "Delete", "/delete/#{sketch.id}" %></td>
+  </tr>
   <% end %>
 </table>
 <% else %>
 <h3>No Sketches!</h3>
 <% end %>
-<%= link_to 'New Sketch', "/new" %>
+<form id="newForm" onsubmit="create()">
+  <input type="text" id="newTxt" /><input type="submit" text="add" />
+</form>
 <% else %>
 Welcome to SimpleSketch! Please <%= link_to "sign in", signin_path %> to see your sketches.
 <% end %>
