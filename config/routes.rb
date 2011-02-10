@@ -1,7 +1,7 @@
 SimpleSketch::Application.routes.draw do  
   match "edit/:sketchID" => "home#editor"
-
   match "/auth/:provider/callback" => "sessions#create"
+  match "/auth/failure" => "sessions#auth_error"
   match "/signout" => "sessions#destroy", :as => :signout
   match "/signin" => redirect("/auth/google")
   match "/new/:name" => "home#new_sketch"

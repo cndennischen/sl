@@ -10,4 +10,10 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => "Signed out!"
   end
+
+  def auth_error
+    flash[:error] = "An error occured while signing you in: #{params[:message]}"
+    redirect_to root_url
+  end
+
 end

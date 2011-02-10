@@ -1,4 +1,12 @@
 <script type="text/javascript">
+function validate() {
+  if ($("#newTxt").val().match(/^[a-zA-Z0-9_-]+$/)) {
+    create();
+  } else {
+    $("#newTxt").addClass("field_with_errors");
+    $("#validationErrors").show();
+  }
+}
 function create() {  
   var url = "new/";
   url += $("#newTxt").val();
@@ -14,12 +22,12 @@ function create() {
 <% sketches = current_user.sketches %>
 <% if sketches.length > 0 %>
 <table>
-  <tr>
+  <!--<tr>
     <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
-  </tr>
+  </tr>-->
   <% sketches.each do |sketch| %>
   <tr>
     <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
@@ -30,7 +38,10 @@ function create() {
 <% else %>
 <h3>No Sketches!</h3>
 <% end %>
-<form id="newForm" onsubmit="create()">
+<form id="newForm" onsubmit="validate()">
+  <div id="validationErrors" hidden="hidden">
+    <p>Only letters, numbers, hyphens and underscores are allowed</p>
+  </div
   <input type="text" id="newTxt" /><input type="submit" text="add" />
 </form>
 <% else %>
