@@ -1,10 +1,18 @@
 <script type="text/javascript">
 function validate() {
-  if ($("#newTxt").val().match(/^[a-zA-Z0-9_-]+$/)) {
-    create();
-  } else {
+  if ($("#newTxt").val() == "") {
     $("#newTxt").addClass("field_with_errors");
+    $("#validationErrors").hide();
+    $("#nullErrors").show();
+    return false;
+  } else if (!$("#newTxt").val().match(/^[a-zA-Z0-9_-]+$/)) {
+    $("#newTxt").addClass("field_with_errors");
+    $("#nullErrors").hide();
     $("#validationErrors").show();
+    return false;
+  } else {
+    create();
+    return true;
   }
 }
 function create() {  
@@ -18,7 +26,7 @@ function create() {
 }
 </script>
 <% if current_user %>
-<h1>Your Sketches</h1>
+<fieldset><legend>Your Sketches</legend>
 <% sketches = current_user.sketches %>
 <% if sketches.length > 0 %>
 <table>
@@ -36,13 +44,16 @@ function create() {
   <% end %>
 </table>
 <% else %>
-<h3>No Sketches!</h3>
+<b>No Sketches! Create a new one below to get started.</b>
 <% end %>
-<form id="newForm" onsubmit="validate()">
-  <div id="validationErrors" hidden="hidden">
-    <p>Only letters, numbers, hyphens and underscores are allowed</p>
-  </div
-  <input type="text" id="newTxt" /><input type="submit" text="add" />
+</fieldset>
+<div id="nullErrors" style="display:none;color:red">Please enter a name</div>
+<div id="validationErrors" style="display:none;color:red">Only letters, numbers, hyphens and underscores are allowed</div>
+<form id="newForm" onsubmit="return validate()">
+<fieldset>
+<legend>New Sketch</legend>
+  <input type="text" id="newTxt" /><input type="submit" value="New Sketch" />
+</fieldset>
 </form>
 <% else %>
 Welcome to SimpleSketch! Please <%= link_to "sign in", signin_path %> to see your sketches.
