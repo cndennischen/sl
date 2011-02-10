@@ -28,5 +28,6 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 #   gem 'webrat'
 # end
 
-gem 'signet'
+gem 'signet', :require => 'signet/oauth_1/client'
 gem 'omniauth'
+gem 'json', :require => 'json'
