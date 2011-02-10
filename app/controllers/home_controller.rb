@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 
   def require_login
     unless logged_in?
-      flash[:error] = "You must be logged in to create, edit or delete sketches"
+      flash[:error] = "You must be signed in to create, edit or delete sketches"
       redirect_to root_url
     end
   end

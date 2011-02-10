@@ -4,7 +4,13 @@ module HomeHelper
     sketch = Sketch.find(id)
     # check if the sketch exists
     if sketch
-      return sketch.content
+      # make sure the sketch belongs to the current user
+      if sketch.user_id = current_user.id
+        return sketch.content
+      else
+        flash[:error] = "You don't own the selected sketch"
+        return nil
+      end
     else
       flash[:error] = "The selected sketch doesn't exist"
       return nil
