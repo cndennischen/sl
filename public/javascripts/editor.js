@@ -6,6 +6,13 @@ function init() {
   $("#addBtn").button().click(add);
   $("#undoBtn").button().click(undo);
   $("#redoBtn").button().click(redo);
+  $("#renameBtn").button().click(rename);
+  //set up rename dialog
+  $("#renameDialog").dialog({
+    autoOpen: false,
+    modal: true,
+    title: "Rename Sketch"
+  });
 }
 
 function clear() {
@@ -31,4 +38,25 @@ function undo() {
 function redo() {
   //redo last undo action
   frames["canvasFrame"].redo();
+}
+
+function rename() {
+  $("#renameDialog").dialog("open");
+}
+
+function validateRename() {
+  if ($("#newTxt").val() == "") {
+    $("#newTxt").addClass("field_with_errors");
+    $("#validationErrors").hide();
+    $("#nullErrors").show();
+    return false;
+  } else if (!$("#newTxt").val().match(/^[a-zA-Z0-9_-]+$/)) {
+    $("#newTxt").addClass("field_with_errors");
+    $("#nullErrors").hide();
+    $("#validationErrors").show();
+    return false;
+  } else {
+    create();
+    return true;
+  }
 }

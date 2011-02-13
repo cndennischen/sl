@@ -1,11 +1,23 @@
 <%= javascript_include_tag "editor" %>
+<script type="text/javascript">
+function create() {  
+  var url = "/rename/";
+  url += <%= params[:sketchID] %> + "/"
+  url += $("#newTxt").val();
+  //redirect browser to url for creating sketches
+  f = document.forms["renameForm"];
+  f.action = url;
+  f.onsubmit = null;
+  f.submit();
+}
+</script>
 <% id = Integer(params[:sketchID]) %>
 <% data = getSketch(id) %>
 <% if data == nil %>
   <script type="text/javascript">
   //stop window from continuing to load, redirecting anyway
   window.stop();
-  //redirect to root
+  //redirect to root url
   window.location = "/";
   </script>
 <% end %>
@@ -35,6 +47,16 @@ localStorage["data"]=<%= data %>;
   <button id="addBtn">Add</button>
   <button id="undoBtn">Undo</button>
   <button id="redoBtn">Redo</button>
+  <span style="font-size:large;border-style:solid"><%= sketchName(id) %></span>
+  <button id="renameBtn">Rename</button>
+  <div id="renameDialog">
+    <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
+    <div id="validationErrors" style="display:none;color:red">Only letters, numbers, hyphens and underscores are allowed</div>
+    <form id="renameForm" onsubmit="return validateRename()">
+      <input id="newTxt" type="text" value="<%= sketchName(id) %>" />
+      <input type="submit" value="Rename" />
+    </form>
+  </div>
 </div>
 <div class="canvas" id="canvas">
   <iframe class="canvasFrame" src="/canvas.html" name="canvasFrame">

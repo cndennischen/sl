@@ -5,7 +5,7 @@ module HomeHelper
     # check if the sketch exists
     if sketch
       # make sure the sketch belongs to the current user
-      if sketch.user_id = current_user.id
+      if sketch.user_id == current_user.id
         return sketch.content
       else
         flash[:error] = "You don't own the selected sketch"
@@ -16,15 +16,10 @@ module HomeHelper
       return nil
     end
   end
-=begin
-    # get the user's sketches
-    data = current_user.sketches
-		if data[id]
-      return data[id].content
-    else
-      flash[:error] = "The selected sketch doesn't exist"
-      return nil
-    end
+
+  def sketchName(id)
+    # get name of the sketch with the specified id
+    Sketch.find(id).name
   end
-=end
+
 end

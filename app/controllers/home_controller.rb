@@ -8,8 +8,29 @@ class HomeController < ApplicationController
     redirect_to "/edit/#{s.id}"
   end
 
+  def rename_sketch
+    s = Sketch.find(params[:id])
+    # make sure the sketch belongs to the current user
+    if s.user_id != current_user.id
+      flash[:error] = "You don't own the selected sketch"
+      redirect_to root_url
+      return
+    end
+    s.name = params[:newName]
+    s.save
+    redirect_to "/edit/#{s.id}"
+  end
+
   def delete_sketch
-    Sketch.destroy(params[:id])
+    s = Sketch.find(params[:id])
+    # make sure the sketch belongs to the current user
+    if s.user_id != current_user.id
+      flash[:error] = "You don't own the selected sketch"
+      redirect_to root_url
+      return
+    end
+    s.destroy
+    flash[:notice] = "Sketch deleted!"
     redirect_to root_url
   end
   
@@ -17,7 +38,7 @@ class HomeController < ApplicationController
 
   def require_login
     unless logged_in?
-      flash[:error] = "You must be signed in to create, edit or delete sketches"
+      flash[:error] = "You must be signed in to work with sketches"
       redirect_to root_url
     end
   end
