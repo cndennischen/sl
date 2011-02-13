@@ -38,7 +38,7 @@ class HomeController < ApplicationController
 
   def require_login
     unless logged_in?
-      flash[:error] = "You must be signed in to work with sketches"
+      flash[:error] = "You must be signed in to access that page"
       redirect_to root_url
     end
   end
