@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :sketches
+  has_many :sketches, :dependent => :destroy
   
   def self.create_with_omniauth(auth)
     create! do |user|

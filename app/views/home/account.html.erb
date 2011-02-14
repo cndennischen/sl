@@ -1,9 +1,19 @@
 <script type="text/javascript">
 $(function() {
   $("#cancelDialog").dialog({
+      width: 400,
+      height: 250,
       autoOpen: false,
-      modal: true
-      //TODO: add buttons
+      modal: true,
+      buttons: {
+        "Cancel": function() {
+          $(this).dialog("close");
+        },
+        "I understand, cancel my account": function() {
+          window.location = "/account/cancel?confirmed=true"
+          $(this).dialog("close");
+        }
+      }
     });
   $("#cancelAccountBtn").button().click(function() {
     $("#cancelDialog").dialog("open");
@@ -17,6 +27,7 @@ $(function() {
 </fieldset>
 <div id="cancelDialog">
 If you cancel your account, all of your sketches will be lost. This cannot be undone.
+Your account will be cancelled at the end of the billing term. You will not be billed again.
 If you want a cheaper plan, you can downgrade your account instead.
-Are you sure you want to delete your account?
+Are you sure you want to cancel your account?
 </div>
