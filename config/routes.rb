@@ -1,10 +1,11 @@
 SimpleSketch::Application.routes.draw do  
-  match "/edit/:sketchID" => "home#editor"
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#auth_error"
   match "/signout" => "sessions#destroy", :as => :signout
   match "/signin" => redirect("/auth/google")
   match "/new/:name" => "home#new_sketch"
+  match "/edit/:sketchID" => "home#editor"
+  match "/save/:id" => "home#save_sketch"
   match "/rename/:id/:newName" => "home#rename_sketch"
   match "/delete/:id" => "home#delete_sketch"
   match "/account" => "home#account"

@@ -65,3 +65,7 @@ function validateRename() {
 function back() {
   window.location = "/"
 }
+
+function saved() {
+  $("#saved").fadeIn("fast").fadeOut("medium");
+}

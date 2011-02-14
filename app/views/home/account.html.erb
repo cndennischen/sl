@@ -1,12 +1,22 @@
+<script type="text/javascript">
+$(function() {
+  $("#cancelDialog").dialog({
+      autoOpen: false,
+      modal: true
+      //TODO: add buttons
+    });
+  $("#cancelAccountBtn").button().click(function() {
+    $("#cancelDialog").dialog("open");
+  });
+});
+</script>
 <h1>Account</h1>
-<form id="accountForm">
-<fieldset>
-  <legend>Account Info</legend>
-  <label for="name">Name:</label>
-  <input type="text" id="name" value="<%= current_user.name %>" />
-</fieldset>
 <fieldset>
   <legend>Subscription</legend>
-  TODO: add subscription options
+  <button id="cancelAccountBtn">Cancel Account</button>
 </fieldset>
-</form>
+<div id="cancelDialog">
+If you cancel your account, all of your sketches will be lost. This cannot be undone.
+If you want a cheaper plan, you can downgrade your account instead.
+Are you sure you want to delete your account?
+</div>

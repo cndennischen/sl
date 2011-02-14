@@ -7,6 +7,20 @@ class HomeController < ApplicationController
     s = current_user.sketches.create!(:name => params[:name], :content => "{}")
     redirect_to "/edit/#{s.id}"
   end
+  
+  def save_sketch
+    s = Sketch.find(params[:id])
+    # make sure the sketch belongs to the current user
+    if s.user_id != current_user.id
+      flash[:error] = "You don't own the selected sketch"
+      redirect_to root_url
+      return
+    end
+    # set the content of the sketch
+    s.content = params[:data]
+    s.save
+    render :nothing => true
+  end
 
   def rename_sketch
     s = Sketch.find(params[:id])

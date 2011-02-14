@@ -152,8 +152,17 @@ function redo() {
 	save();
 }
 function save(name) {
-  //save the current state to localStorage
-  localStorage["data"] = JSON.stringify(getData());
+  //get the id of the sketch from the url
+  id = parent.document.location.href.split("/").pop();
+  //save the current state
+  $.ajax({
+      url: "/save/" + id,
+      type: "POST",
+      data: ({ data: JSON.stringify(getData()) }),
+      success: function() {
+        parent.saved();
+      }
+  });
 }
 function load() {
   //load the saved state from localStorage

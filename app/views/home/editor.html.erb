@@ -22,7 +22,7 @@ function create() {
   </script>
 <% end %>
 <script type="text/javascript">
-localStorage["data"]=<%= data %>;
+localStorage["data"] = '<%= data.html_safe %>';
 </script>
 <div class="toolbox">
   <button id="clearBtn">Clear Canvas</button>
@@ -50,6 +50,7 @@ localStorage["data"]=<%= data %>;
   <span style="font-size:large;border-style:solid"><%= sketchName(id) %></span>
   <button id="renameBtn">Rename</button>
   <button id="backBtn">Back</button>
+  <span id="saved" style="text-color:green;display:none">Saved</span>
   <!-- rename dialog -->
   <div id="renameDialog">
     <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
