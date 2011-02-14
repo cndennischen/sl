@@ -20,7 +20,7 @@ function create() {
   //redirect to root url
   window.location = "/";
   </script>
-<% end %>
+<% else %>
 <script type="text/javascript">
 localStorage["data"] = '<%= data.html_safe %>';
 </script>
@@ -50,7 +50,7 @@ localStorage["data"] = '<%= data.html_safe %>';
   <span style="font-size:large;border-style:solid"><%= sketchName(id) %></span>
   <button id="renameBtn">Rename</button>
   <button id="backBtn">Back</button>
-  <span id="saved" style="text-color:green;display:none">Saved</span>
+  <span id="saved" style="color:green;display:none">Saved</span>
   <!-- rename dialog -->
   <div id="renameDialog">
     <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
@@ -65,3 +65,4 @@ localStorage["data"] = '<%= data.html_safe %>';
   <iframe class="canvasFrame" src="/canvas.html" name="canvasFrame">
   </iframe>
 </div>
+<% end %>
