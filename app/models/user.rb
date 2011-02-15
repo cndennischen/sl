@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["user_info"]["name"]
       user.email = nil
+      user.plan = "free"
     end
   end
 

@@ -5,6 +5,7 @@ class CreateIpns < ActiveRecord::Migration
       t.integer :user_id
       t.string :status
       t.string :transaction_id
+      
       t.timestamps
     end
   end

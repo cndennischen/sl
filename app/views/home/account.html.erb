@@ -23,11 +23,27 @@ $(function() {
 <h1>Account</h1>
 <fieldset>
   <legend>Subscription</legend>
+  <% if current_user.plan == "free" %>
+    You are currently on the free plan. Upgrade your account to get more features.
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="SM8CTY27XF4HE">
+    <input type="hidden" name="custom" value="<%= current_user.id %>">
+    <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  <% else %>
+    You are on the paid plan.
+    <A HREF="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=XBZ7SZ9FMY4H2">
+    <IMG SRC="https://www.sandbox.paypal.com/en_US/i/btn/btn_unsubscribe_LG.gif" BORDER="0">
+    </A>
+  <% end %>
+  <br />
   <button id="cancelAccountBtn">Cancel Account</button>
 </fieldset>
 <div id="cancelDialog">
 If you cancel your account, all of your sketches will be lost. This cannot be undone.
-Your account will be cancelled at the end of the billing term. You will not be billed again.
-If you want a cheaper plan, you can downgrade your account instead.
+You will not be billed again.
+If you to move to the free plan, you can downgrade your account instead.
 Are you sure you want to cancel your account?
 </div>

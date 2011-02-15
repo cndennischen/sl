@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20110215125839) do
     t.integer  "user_id"
     t.string   "status"
     t.string   "transaction_id"
+    t.string   "notify_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110215125839) do
     t.string   "uid"
     t.string   "name"
     t.string   "email"
+    t.string   "plan"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
