@@ -23,7 +23,6 @@ function init() {
   //all widgets
   $(".widget")
     .draggable({
-      containment: "body",
       grid: [ 10, 10 ],
       start: action,
       stop: save
