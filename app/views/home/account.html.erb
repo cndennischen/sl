@@ -3,6 +3,7 @@
   <legend>Subscription</legend>
   <% if current_user.plan == "free" %>
     You are currently on the free plan. Click "Subscribe" to upgrade your account and get more features.
+    Note: it may take a few minutes for the upgrade to take effect.
     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
     <input type="hidden" name="cmd" value="_s-xclick">
     <input type="hidden" name="hosted_button_id" value="SM8CTY27XF4HE">
@@ -12,6 +13,7 @@
     </form>
   <% else %>
     You are on the paid plan. Click "Unsubscribe" to downgrade to the free plan.
+    Note: it may take a few minutes for the downgrade to take effect.
     <A HREF="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=XBZ7SZ9FMY4H2">
     <IMG SRC="https://www.sandbox.paypal.com/en_US/i/btn/btn_unsubscribe_LG.gif" BORDER="0">
     </A>
