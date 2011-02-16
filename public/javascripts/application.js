@@ -1,2 +1,4 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function() {
+  //fade out flashes
+  setTimeout('$("#flash_notice, #flash_error, #flash_alert").fadeOut(3000);', 5000);
+});
