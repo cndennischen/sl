@@ -48,21 +48,6 @@ class HomeController < ApplicationController
     redirect_to root_url
   end
   
-  def cancel_account
-    # make sure the user has confirmed cancellation
-    if !params[:confirmed] == true
-      redirect_to root_url
-    else
-      # delete the user account
-      current_user.destroy
-      # destroy the session
-      session[:user_id] = nil
-      # redirect back to the home page
-      flash[:notice] = "Your account has been cancelled. You will not be billed again."
-      redirect_to root_url
-    end
-  end
-  
   private
 
   def require_login

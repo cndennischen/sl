@@ -12,7 +12,7 @@ class Ipn < ActiveRecord::Base
     user.update_attributes(:email => params[:payer_email])
     # process different types of events
     user.update_attributes(:plan => "paid") if params[:txn_type] == "subscr_signup"
-    user.update_attributes(:plan => "free") if params[:txn_type] == "subscr_cancel" || "subscr_eot"
+    user.update_attributes(:plan => "free") if params[:txn_type] == "subscr_cancel"
   end
   
 end
