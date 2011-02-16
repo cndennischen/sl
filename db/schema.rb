@@ -15,8 +15,7 @@ ActiveRecord::Schema.define(:version => 20110215125839) do
   create_table "ipns", :force => true do |t|
     t.text     "params"
     t.integer  "user_id"
-    t.string   "status"
-    t.string   "transaction_id"
+    t.boolean  "okay"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
