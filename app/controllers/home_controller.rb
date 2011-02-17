@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :require_login, :except => [:index]
+  before_filter :require_login, :except => [:index, :signin]
   def index
   end
   
