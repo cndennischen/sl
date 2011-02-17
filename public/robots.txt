@@ -5,9 +5,13 @@
 # Disallow: /
 
 User-Agent: *
+Disallow: /notify
 Disallow: /new
 Disallow: /edit
+Disallow: /save
+Disallow: /rename
 Disallow: /delete
 Disallow: /auth
 Disallow: /signin
 Disallow: /signout
+Disallow: /account
