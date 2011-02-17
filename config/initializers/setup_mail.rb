@@ -1,3 +1,4 @@
+# set up ActionMailer smtp settings
 ActionMailer::Base.smtp_settings = {
   :address              => MAIL_CONFIG[:address],
   :port                 => MAIL_CONFIG[:port],

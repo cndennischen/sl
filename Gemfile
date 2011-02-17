@@ -30,4 +30,3 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'omniauth'
 gem "nifty-generators", :group => :development
-gem "mocha", :group => :test
