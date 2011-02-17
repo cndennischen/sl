@@ -77,7 +77,7 @@ function delWidget(widget) {
 function front(widget) {
   action();
   //bring to front
-  $(widget).insertAfter($(".widget:last"));
+  $(widget).appendTo($("#canvas"));
   //re-order widgets
   order();
 	save();
@@ -104,7 +104,7 @@ function backward(widget) {
 function back(widget) {
   action();
   //send to back
-  $(widget).insertBefore($(".widget:first"));
+  $(widget).prependTo("#canvas");
   //re-order widgets
   order();
 	save();
