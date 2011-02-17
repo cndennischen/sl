@@ -8,6 +8,9 @@
 </head>
 <body class="background">
   <div id="header">
+    <div id="title">
+      <%= link_to "Sketch Lab", root_path %>
+    </div>
     <div id="user">
       <% if current_user %>
         Welcome <%= current_user.name %>!

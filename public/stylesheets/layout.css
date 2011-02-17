@@ -1,6 +1,15 @@
 .background {
   background-color: LightSkyBlue;
 }
+#header {
+  margin-top: 15px;
+  width: 100%;
+}
+#title {
+  float: left;
+  margin-left: 50px;
+  font-size: x-large;
+}
 #user {
   float: right;
   margin-right: 50px;

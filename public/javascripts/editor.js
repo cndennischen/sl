@@ -7,7 +7,6 @@ function init() {
   $("#undoBtn").button().click(undo);
   $("#redoBtn").button().click(redo);
   $("#renameBtn").button().click(rename);
-  $("#backBtn").button().click(back);
   //set up rename dialog
   $("#renameDialog").dialog({
     autoOpen: false,
@@ -60,10 +59,6 @@ function validateRename() {
     create();
     return true;
   }
-}
-
-function back() {
-  window.location = "/"
 }
 
 function saved() {
