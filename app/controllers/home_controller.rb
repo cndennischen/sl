@@ -4,8 +4,13 @@ class HomeController < ApplicationController
   end
   
   def new_sketch
-    s = current_user.sketches.create!(:name => params[:name], :content => "{}")
-    redirect_to "/edit/#{s.id}"
+    if allow_new
+      s = current_user.sketches.create!(:name => params[:name], :content => "{}")
+      redirect_to "/edit/#{s.id}"
+    else
+      flash[:error] = "You cannot have more than one sketch on the free plan. Upgrade to the paid plan to have multiple sketches."
+      redirect_to root_url
+    end
   end
   
   def save_sketch
