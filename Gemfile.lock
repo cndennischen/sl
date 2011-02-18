@@ -82,8 +82,14 @@ GEM
       oa-enterprise (= 0.1.6)
       oa-oauth (= 0.1.6)
       oa-openid (= 0.1.6)
-    pdfkit (0.5.0)
     polyglot (0.3.1)
+    prawn (0.8.4)
+      prawn-core (>= 0.8.4, < 0.9)
+      prawn-layout (>= 0.8.4, < 0.9)
+      prawn-security (>= 0.8.4, < 0.9)
+    prawn-core (0.8.4)
+    prawn-layout (0.8.4)
+    prawn-security (0.8.4)
     pyu-ruby-sasl (0.0.3.2)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -127,6 +133,6 @@ PLATFORMS
 DEPENDENCIES
   nifty-generators
   omniauth
-  pdfkit
+  prawn
   rails (= 3.0.3)
   sqlite3-ruby

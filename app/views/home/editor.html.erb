@@ -12,7 +12,7 @@ function create() {
 }
 </script>
 <% id = Integer(params[:sketchID]) %>
-<% data = getSketch(id) %>
+<% data = current_user.sketches.find(id).content %>
 <% if data == nil %>
   <script type="text/javascript">
   //stop window from continuing to load, redirecting anyway
@@ -47,7 +47,7 @@ localStorage["data"] = '<%= data.html_safe %>';
   <button id="addBtn">Add</button>
   <button id="undoBtn">Undo</button>
   <button id="redoBtn">Redo</button>
-  <span style="font-size:large;border-style:solid"><%= sketchName(id) %></span>
+  <span style="font-size:large;border-style:solid"><%= current_user.sketches.find(id).name %></span>
   <button id="renameBtn">Rename</button>
   <span id="saved" style="color:green;display:none">Saved</span>
   <!-- rename dialog -->
@@ -55,7 +55,7 @@ localStorage["data"] = '<%= data.html_safe %>';
     <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
     <div id="validationErrors" style="display:none;color:red">Only letters, numbers, hyphens and underscores are allowed</div>
     <form id="renameForm" onsubmit="return validateRename()">
-      <input id="newTxt" type="text" value="<%= sketchName(id) %>" />
+      <input id="newTxt" type="text" value="<%= current_user.sketches.find(id).name %>" />
       <input type="submit" value="Rename" />
     </form>
   </div>

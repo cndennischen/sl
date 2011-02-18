@@ -9,6 +9,7 @@ SimpleSketch::Application.routes.draw do
   match "/save/:id" => "home#save_sketch"
   match "/rename/:id/:newName" => "home#rename_sketch"
   match "/delete/:id" => "home#delete_sketch"
+  match "/pdf/:id" => "home#to_pdf"
   match "/account" => "home#account"
   # The priority is based upon order of creation:
   # first created -> highest priority.
