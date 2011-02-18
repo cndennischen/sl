@@ -29,4 +29,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # end
 
 gem 'omniauth'
-gem "nifty-generators", :group => :development
+gem 'nifty-generators', :group => :development
+gem 'pdfkit'

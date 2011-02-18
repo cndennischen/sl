@@ -41,5 +41,8 @@ module SimpleSketch
     
     # Automatically load files from the lib folder
     config.autoload_paths << "#{Rails.root}/lib"
+    
+    # Use PDFKit middleware
+    config.middleware.use "PDFKit::Middleware", :print_media_type => true
   end
 end
