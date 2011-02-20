@@ -10,11 +10,15 @@ function validate() {
 }
 function destroy(id) {
   if (confirm("Are you sure you want to delete this sketch?")) {
-    $.ajax({
-      type: "POST",
-      url: "delete/",
-      data: { "id": id }
-    });
+    //dynamically create a form to delete the sketch
+    var f = document.createElement("form");
+    f.style.display = 'none';
+    f.method = "POST";
+    f.action = "delete";
+    var sketchId = f.createElement("input");
+    sketchId.type = "hidden";
+    sketchId.value = id;
+    f.submit();
   }
 }
 </script>
