@@ -15,9 +15,10 @@ function destroy(id) {
     f.style.display = 'none';
     f.method = "POST";
     f.action = "delete";
-    var sketchId = f.createElement("input");
+    var sketchId = document.createElement("input");
     sketchId.type = "hidden";
     sketchId.value = id;
+    f.appendChild(sketchId);
     f.submit();
   }
 }
