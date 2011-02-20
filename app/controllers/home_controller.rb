@@ -28,7 +28,7 @@ class HomeController < ApplicationController
   end
 
   def delete_sketch
-    s = current_user.sketches.find(params[:sketchId])
+    s = current_user.sketches.find(params[:id])
     s.destroy
     flash[:notice] = "Sketch deleted!"
     redirect_to root_url
