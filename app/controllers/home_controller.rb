@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_filter :require_login, :except => [:index, :signin]
-  
+  verify :method => :post, :except => [:index, :signin, :editor]
+
   def new_sketch
     if allow_new
       s = current_user.sketches.create!(:name => params[:name], :content => "{}")

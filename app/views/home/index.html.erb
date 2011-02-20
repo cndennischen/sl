@@ -5,28 +5,25 @@ function validate() {
     $("#validationErrors").hide();
     $("#nullErrors").show();
     return false;
-  } else if (!$("#newTxt").val().match(/^[a-zA-Z0-9_-]+$/)) {
-    $("#newTxt").addClass("field_with_errors");
-    $("#nullErrors").hide();
-    $("#validationErrors").show();
-    return false;
   } else {
     create();
-    return true;
+    return false;
   }
 }
 function create() {  
-  var url = "new/";
-  url += $("#newTxt").val();
-  //redirect browser to url for creating sketches
-  f = document.forms["newForm"];
-  f.action = url;
-  f.onsubmit = null;
-  f.submit();
+  $.ajax({
+    method: "POST",
+    url: "new/",
+    data: { "name": $("newTxt").val() }
+  });
 }
 function destroy(id) {
-  if (confirm("Are you sure you want to delete this sketch?"))
-    window.location = "/delete/" + id;
+  if (confirm("Are you sure you want to delete this sketch?")) {
+    $.ajax({
+      method: "POST",
+      url: "delete/",
+      data: { "id": id }
+  }
 }
 </script>
 <% if current_user %>
@@ -52,7 +49,6 @@ function destroy(id) {
 <% end %>
 </fieldset>
 <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
-<div id="validationErrors" style="display:none;color:red">Only letters, numbers, hyphens and underscores are allowed</div>
 <form id="newForm" onsubmit="return validate()">
 <fieldset>
 <legend>New Sketch</legend>
