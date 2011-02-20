@@ -30,8 +30,8 @@ function destroy(id) {
 <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
 <%= form_tag(new_url) do %>
   <%= text_field_tag(:name) %>
+  <%= submit_tag("New Sketch") %>
 <% end %>
-  <input type="text" id="newTxt" /><input type="submit" value="New Sketch" />
 </fieldset>
 <% else %>
 Welcome to Sketch Lab! Please <%= link_to "sign in", signin_path %> to see your sketches.
