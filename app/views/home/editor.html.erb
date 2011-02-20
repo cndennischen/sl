@@ -1,16 +1,15 @@
+<% id = Integer(params[:sketchID]) %>
+<% data = current_user.sketches.find(id).content %>
+<% title current_user.sketches.find(id).name %>
 <%= javascript_include_tag "editor" %>
 <script type="text/javascript">
 function rename() {  
   //dynamically create a form to rename the sketch
   $(document.body).append('<%= form_tag("/rename", :id => "renameHiddenForm") %>');
-  $("#renameHiddenForm").append('<input id="name" name="name" type="hidden" value="' + $("newTxt").val() + '" />');
+  $("#renameHiddenForm").append('<input id="name" name="name" type="hidden" value="' + $("#newTxt").val() + '" />');
+  $("#renameHiddenForm").append('<input id="id" name="id" type="hidden" value="' + <%= id %> + '" />');
   $("#renameHiddenForm").submit();
 }
-</script>
-<% id = Integer(params[:sketchID]) %>
-<% data = current_user.sketches.find(id).content %>
-<% title current_user.sketches.find(id).name %>
-<script type="text/javascript">
 localStorage["data"] = '<%= data.html_safe %>';
 </script>
 <div class="toolbox">
