@@ -10,8 +10,10 @@ function validate() {
 }
 function destroy(id) {
   if (confirm("Are you sure you want to delete this sketch?")) {
-    document.getElementById("id").value = id;
-    document.getElementById("deleteForm").submit();
+    //dynamically create a form to delete the sketch
+    $(document).append("<%= form_tag(:id => 'deleteForm') %>");
+    $("#deleteForm").attr("action", "/delete/" + id);
+    $("#deleteForm").submit();
   }
 }
 </script>
@@ -39,10 +41,6 @@ function destroy(id) {
   <%= submit_tag("New Sketch") %>
 <% end %>
 </fieldset>
-<!-- delete sketch hidden form -->
-<%= form_tag(delete_url, :id => "deleteForm", :style => "display:none") do %>
-  <%= hidden_field("id", "") %>
-<% end %>
 <% else %>
 Welcome to Sketch Lab! Please <%= link_to "sign in", signin_path %> to see your sketches.
 <% end %>
