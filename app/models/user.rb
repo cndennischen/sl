@@ -22,8 +22,7 @@ class User < ActiveRecord::Base
       :notify_url => notify_url,
       :hosted_button_id => APP_CONFIG[:upgrade_btn_id],
       :cert_id => APP_CONFIG[:paypal_cert_id],
-      :secret => APP_CONFIG[:paypal_secret],
-      :cmd => "_s-xclick"
+      :secret => APP_CONFIG[:paypal_secret]
     }
     encrypt_for_paypal(values)
   end
