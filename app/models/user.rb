@@ -18,11 +18,11 @@ class User < ActiveRecord::Base
   def paypal_encrypted(notify_url)
     values = {
       :business => APP_CONFIG[:seller_email],
-      :cmd => '_s-xclick',
       :custom => id,
       :notify_url => notify_url,
       :hosted_button_id => APP_CONFIG[:upgrade_btn_id],
-      :cert_id => APP_CONFIG[:paypal_cert_id]
+      :cert_id => APP_CONFIG[:paypal_cert_id],
+      :secret => APP_CONFIG[:paypal_secret]
     }
     encrypt_for_paypal(values)
   end
