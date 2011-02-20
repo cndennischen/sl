@@ -6,7 +6,7 @@
     You are currently on the free plan. Upgrade your account to get more features.
     Note: it may take a few minutes for the upgrade to take effect.
     <br /><br />
-    <% form_tag APP_CONFIG[:paypal_url] do %>
+    <%= form_tag APP_CONFIG[:paypal_url] do %>
       <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(notify_url) %>
       <input type="image" src="https://sketchlab.duostack.net/images/upgrade.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
     <% end %>
