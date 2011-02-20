@@ -25,15 +25,14 @@ function destroy(id) {
 <b>No Sketches! Create a new one below to get started.</b>
 <% end %>
 </fieldset>
+<fieldset>
+<legend>New Sketch</legend>
 <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
 <%= form_tag(new_url) do %>
   <%= text_field_tag(:name) %>
 <% end %>
-<fieldset>
-<legend>New Sketch</legend>
   <input type="text" id="newTxt" /><input type="submit" value="New Sketch" />
 </fieldset>
-</form>
 <% else %>
 Welcome to Sketch Lab! Please <%= link_to "sign in", signin_path %> to see your sketches.
 <% end %>
