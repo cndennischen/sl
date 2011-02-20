@@ -12,7 +12,7 @@ function validate() {
 }
 function create() {  
   $.ajax({
-    method: "POST",
+    type: "POST",
     url: "new/",
     data: { "name": $("newTxt").val() }
   });
@@ -20,7 +20,7 @@ function create() {
 function destroy(id) {
   if (confirm("Are you sure you want to delete this sketch?")) {
     $.ajax({
-      method: "POST",
+      type: "POST",
       url: "delete/",
       data: { "id": id }
     });
