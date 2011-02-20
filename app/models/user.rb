@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
       :cmd => '_s-xclick',
       :custom => id,
       :notify_url => notify_url,
-      :hosted_button_id => APP_CONFIG[:upgrade_btn_id]
+      :hosted_button_id => APP_CONFIG[:upgrade_btn_id],
       :cert_id => APP_CONFIG[:paypal_cert_id]
     }
     encrypt_for_paypal(values)
