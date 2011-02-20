@@ -11,7 +11,7 @@ function validate() {
 function destroy(id) {
   if (confirm("Are you sure you want to delete this sketch?")) {
     //dynamically create a form to delete the sketch
-    $(document.body).append('<%= form_tag("/delete", :id => "deleteForm") %>');
+    $(document.body).append('<%= form_tag("/delete", :id => "deleteHiddenForm") %>');
     $("#deleteForm").append('<input id="id" name="id" type="hidden" value="' + id + '" />');
     $("#deleteForm").submit();
   }

@@ -55,13 +55,6 @@ function validateRename() {
   }
 }
 
-function rename() {  
-  //dynamically create a form to rename the sketch
-  $(document.body).append('<%= form_tag("/rename", :id => "renameForm") %>');
-  $("#renameForm").append('<input id="name" name="name" type="hidden" value="' + $("newTxt").val() + '" />');
-  $("#renameForm").submit();
-}
-
 function saved() {
   $("#saved").fadeIn("fast").fadeOut("medium");
 }
