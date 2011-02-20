@@ -6,7 +6,7 @@
 function rename() {  
   //dynamically create a form to rename the sketch
   $(document.body).append('<%= form_tag("/rename", :id => "renameHiddenForm") %>');
-  $("#renameHiddenForm").append('<input id="name" name="name" type="hidden" value="' + $("#newTxt").val() + '" />');
+  $("#renameHiddenForm").append('<input id="newName" name="newName" type="hidden" value="' + $("#newTxt").val() + '" />');
   $("#renameHiddenForm").append('<input id="id" name="id" type="hidden" value="' + <%= id %> + '" />');
   $("#renameHiddenForm").submit();
 }
