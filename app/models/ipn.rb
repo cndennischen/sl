@@ -24,8 +24,10 @@ class Ipn < ActiveRecord::Base
     response = http.post("/cgi-bin/webscr", @query)
     # check if it is valid
     if response.body == "VERIFIED"
-      # check seller's email address
-      if params[:receiver_email] == APP_CONFIG[:seller_email]
+      # check params
+      if params[:receiver_email] == APP_CONFIG[:seller_email] &&
+          params[:secret] == APP_CONFIG[:paypal_secret] &&
+          params[:receiver_email] == APP_CONFIG[:seller_email]
         okay = true
       else
         okay = false

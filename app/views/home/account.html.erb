@@ -6,13 +6,17 @@
     You are currently on the free plan. Upgrade your account to get more features.
     Note: it may take a few minutes for the upgrade to take effect.
     <br /><br />
-    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+    <% form_tag APP_CONFIG[:paypal_url] do %>
+      <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(ipns_url) %>
+      <input type="image" src="https://sketchlab.duostack.net/images/upgrade.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <% end %>
+    <!--<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
     <input type="hidden" name="cmd" value="_s-xclick">
     <input type="hidden" name="custom" value="<%= current_user.id %>">
     <input type="hidden" name="hosted_button_id" value="LER8U8SPLCUN2">
     <input type="image" src="https://sketchlab.duostack.net/images/upgrade.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
     <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-    </form>
+    </form>-->
   <% else %>
     You are on the paid plan. Click "Downgrade" to downgrade to the free plan.
     Note: it may take a few minutes for the downgrade to take effect.
