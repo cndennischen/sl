@@ -6,16 +6,8 @@ function validate() {
     $("#nullErrors").show();
     return false;
   } else {
-    create();
-    return false;
+    return true;
   }
-}
-function create() {  
-  $.ajax({
-    type: "POST",
-    url: "new/",
-    data: { "name": $("newTxt").val() }
-  });
 }
 function destroy(id) {
   if (confirm("Are you sure you want to delete this sketch?")) {
@@ -32,12 +24,6 @@ function destroy(id) {
 <% sketches = current_user.sketches %>
 <% if sketches.length > 0 %>
 <table>
-  <!--<tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>-->
   <% sketches.each do |sketch| %>
   <tr>
     <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
@@ -50,7 +36,7 @@ function destroy(id) {
 <% end %>
 </fieldset>
 <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
-<form id="newForm" onsubmit="return validate()">
+<form id="newForm" action="/new/" method="post" onsubmit="return validate()">
 <fieldset>
 <legend>New Sketch</legend>
   <input type="text" id="newTxt" /><input type="submit" value="New Sketch" />
