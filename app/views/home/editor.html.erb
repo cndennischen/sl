@@ -34,7 +34,6 @@ localStorage["data"] = '<%= data.html_safe %>';
   <!-- rename dialog -->
   <div id="renameDialog">
     <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
-    <div id="validationErrors" style="display:none;color:red">Only letters, numbers, hyphens and underscores are allowed</div>
     <form id="renameForm" onsubmit="return validateRename()">
       <input id="newTxt" type="text" value="<%= @title %>" />
       <input type="submit" value="Rename" />
