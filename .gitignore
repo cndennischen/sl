@@ -5,3 +5,4 @@ tmp/**/*
 .settings.xml
 config/mail_config.yml
 config/app_config.yml
+certs/
