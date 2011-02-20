@@ -13,14 +13,7 @@ function create() {
 </script>
 <% id = Integer(params[:sketchID]) %>
 <% data = current_user.sketches.find(id).content %>
-<% if data == nil %>
-  <script type="text/javascript">
-  //stop window from continuing to load, redirecting anyway
-  window.stop();
-  //redirect to root url
-  window.location = "/";
-  </script>
-<% else %>
+<% title current_user.sketches.find(id).name %>
 <script type="text/javascript">
 localStorage["data"] = '<%= data.html_safe %>';
 </script>
@@ -47,7 +40,7 @@ localStorage["data"] = '<%= data.html_safe %>';
   <button id="addBtn">Add</button>
   <button id="undoBtn">Undo</button>
   <button id="redoBtn">Redo</button>
-  <span style="font-size:large;border-style:solid"><%= current_user.sketches.find(id).name %></span>
+  <span style="font-size:large;border-style:solid"><%= @title %></span>
   <button id="renameBtn">Rename</button>
   <span id="saved" style="color:green;display:none">Saved</span>
   <!-- rename dialog -->
@@ -55,7 +48,7 @@ localStorage["data"] = '<%= data.html_safe %>';
     <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
     <div id="validationErrors" style="display:none;color:red">Only letters, numbers, hyphens and underscores are allowed</div>
     <form id="renameForm" onsubmit="return validateRename()">
-      <input id="newTxt" type="text" value="<%= current_user.sketches.find(id).name %>" />
+      <input id="newTxt" type="text" value="<%= @title %>" />
       <input type="submit" value="Rename" />
     </form>
   </div>
@@ -64,4 +57,3 @@ localStorage["data"] = '<%= data.html_safe %>';
   <iframe class="canvasFrame" src="/canvas.html" name="canvasFrame">
   </iframe>
 </div>
-<% end %>
