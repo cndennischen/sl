@@ -10,7 +10,7 @@ function validate() {
 }
 function destroy(id) {
   if (confirm("Are you sure you want to delete this sketch?")) {
-    document.getElementById("id").value = id;
+    document.getElementById("sketchId").value = id;
     document.getElementById("deleteForm").submit();
   }
 }
@@ -41,7 +41,7 @@ function destroy(id) {
 </fieldset>
 <!-- delete sketch hidden form -->
 <%= form_tag(delete_url, :id => "deleteForm", :style => "display:none") do %>
-  <%= hidden_field("id", "") %>
+  <%= hidden_field("sketchId", "") %>
 <% end %>
 <% else %>
 Welcome to Sketch Lab! Please <%= link_to "sign in", signin_path %> to see your sketches.
