@@ -28,27 +28,9 @@ class HomeController < ApplicationController
 
   def delete_sketch
     s = current_user.sketches.find(params[:id])
-    # make sure the sketch belongs to the current user
-    if s.user_id != current_user.id
-      flash[:error] = "You don't own the selected sketch"
-      redirect_to root_url
-      return
-    end
     s.destroy
     flash[:notice] = "Sketch deleted!"
     redirect_to root_url
-  end
-
-  def to_pdf
-    s = current_user.sketches.find(params[:id])
-    # generate a pdf version of the sketch
-    pdfPath = "tmp/#{s.id}.pdf"
-    Prawn::Document.generate(pdfPath) do |pdf| 
-      pdf.text(s.name, :size => 16, :style => :bold)
-      pdf.move_down(15)
-    end
-    # send the file to the user
-    send_file pdfPath, :type => 'application/pdf'
   end
   
   private

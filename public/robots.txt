@@ -11,7 +11,6 @@ Disallow: /edit
 Disallow: /save
 Disallow: /rename
 Disallow: /delete
-Disallow: /pdf
 Disallow: /auth
 Disallow: /signin
 Disallow: /signout
