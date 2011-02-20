@@ -40,7 +40,7 @@ function destroy(id) {
 <% end %>
 </fieldset>
 <!-- delete sketch hidden form -->
-<%= form_tag(delete_url, :id => "deleteForm" :style => "display:none") do %>
+<%= form_tag(delete_url, :id => "deleteForm", :style => "display:none") do %>
   <%= hidden_field("id") %>
 <% end %>
 <% else %>
