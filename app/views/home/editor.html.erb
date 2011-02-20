@@ -1,12 +1,4 @@
 <%= javascript_include_tag "editor" %>
-<script type="text/javascript">
-function rename() {  
-  //dynamically create a form to rename the sketch
-  $(document.body).append('<%= form_tag("/rename", :id => "renameForm") %>');
-  $("#renameForm").append('<input id="name" name="name" type="hidden" value="' + $("newTxt").val() + '" />');
-  $("#renameForm").submit();
-}
-</script>
 <% id = Integer(params[:sketchID]) %>
 <% data = current_user.sketches.find(id).content %>
 <% title current_user.sketches.find(id).name %>
@@ -43,7 +35,7 @@ localStorage["data"] = '<%= data.html_safe %>';
   <div id="renameDialog">
     <div id="nullErrors" style="display:none;color:red">Please enter a name</div>
     <div id="validationErrors" style="display:none;color:red">Only letters, numbers, hyphens and underscores are allowed</div>
-    <form id="renameForm" onsubmit="rename()">
+    <form id="renameForm" onsubmit="return validateRename()">
       <input id="newTxt" type="text" value="<%= @title %>" />
       <input type="submit" value="Rename" />
     </form>

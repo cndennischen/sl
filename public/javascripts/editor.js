@@ -6,7 +6,7 @@ function init() {
   $("#addBtn").button().click(add);
   $("#undoBtn").button().click(undo);
   $("#redoBtn").button().click(redo);
-  $("#renameBtn").button().click(rename);
+  $("#renameBtn").button().click(openRenameDialog);
   //set up rename dialog
   $("#renameDialog").dialog({
     autoOpen: false,
@@ -40,25 +40,26 @@ function redo() {
   frames["canvasFrame"].redo();
 }
 
-function rename() {
+function openRenameDialog() {
   $("#renameDialog").dialog("open");
 }
 
 function validateRename() {
   if ($("#newTxt").val() == "") {
     $("#newTxt").addClass("field_with_errors");
-    $("#validationErrors").hide();
     $("#nullErrors").show();
     return false;
-  } else if (!$("#newTxt").val().match(/^[a-zA-Z0-9_-]+$/)) {
-    $("#newTxt").addClass("field_with_errors");
-    $("#nullErrors").hide();
-    $("#validationErrors").show();
+  }  else {
+    rename();
     return false;
-  } else {
-    create();
-    return true;
   }
+}
+
+function rename() {  
+  //dynamically create a form to rename the sketch
+  $(document.body).append('<%= form_tag("/rename", :id => "renameForm") %>');
+  $("#renameForm").append('<input id="name" name="name" type="hidden" value="' + $("newTxt").val() + '" />');
+  $("#renameForm").submit();
 }
 
 function saved() {
