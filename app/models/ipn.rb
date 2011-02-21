@@ -26,8 +26,7 @@ class Ipn < ActiveRecord::Base
     if response.body == "VERIFIED"
       # check params
       if params[:receiver_email] == APP_CONFIG[:seller_email] &&
-          params[:secret] == APP_CONFIG[:paypal_secret] &&
-          params[:receiver_email] == APP_CONFIG[:seller_email]
+          params[:secret] == APP_CONFIG[:paypal_secret]
         okay = true
       else
         okay = false
