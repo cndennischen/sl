@@ -30,4 +30,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'omniauth'
 gem 'nifty-generators', :group => :development
+gem 'mongrel', '1.2.0.pre2', :group => :development
 
