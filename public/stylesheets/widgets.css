@@ -140,6 +140,5 @@
   border-top-right-radius: 2px;
   height: 200px;
   width: 200px;
-  background: -webkit-gradient(linear,
-    left top, left bottom, from(#FFFF66), to(#FFFF99));
+  background: #FFFF66;
 }
