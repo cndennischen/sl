@@ -55,7 +55,7 @@ function init() {
 
 function editWidget(widget) {
   //get widget's current text
-  var currentText = $(widget).children(".text").html();
+  var currentText = $(widget).children(".text").text();
   //promt user to enter new text
   newText = prompt("Please enter new text", currentText);
   //check if null
@@ -63,7 +63,7 @@ function editWidget(widget) {
     return;
   action();
   //set the widget's text
-  $(widget).children(".text").html(newText);
+  $(widget).children(".text").text(newText);
   save();
 }
 
