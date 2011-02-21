@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   before_filter :require_login, :except => [:index, :signin]
-  verify :method => :post, :except => [:index, :signin, :editor]
+  verify :method => :post, :only => [:new_sketch, :save_sketch, :rename_sketch, :delete_sketch]
 
   def new_sketch
     if allow_new

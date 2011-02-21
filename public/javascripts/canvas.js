@@ -155,9 +155,9 @@ function save(name) {
   id = parent.document.location.href.split("/").pop();
   //save the current state
   $.ajax({
-      url: "/save/" + id,
+      url: "/save",
       type: "POST",
-      data: ({ data: JSON.stringify(getData()) }),
+      data: ({ id: id, data: JSON.stringify(getData()) }),
       success: function() {
         parent.saved();
       }

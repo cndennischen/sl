@@ -4,12 +4,12 @@ SimpleSketch::Application.routes.draw do
   match "/auth/failure" => "sessions#auth_error"
   match "/signout" => "sessions#destroy", :as => :signout
   match "/signin" => "home#signin"
+  match "/account" => "home#account"
   match "/new" => "home#new_sketch"
   match "/edit/:sketchID" => "home#editor"
   match "/save" => "home#save_sketch"
   match "/rename" => "home#rename_sketch"
   match "/delete" => "home#delete_sketch"
-  match "/account" => "home#account"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
