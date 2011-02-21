@@ -22,7 +22,7 @@ class HomeController < ApplicationController
 
   def rename_sketch
     s = current_user.sketches.find(params[:id])
-    s.name = params[:newName]
+    s.name = params[:name]
     s.save
     redirect_to "/edit/#{s.id}"
   end
@@ -38,8 +38,7 @@ class HomeController < ApplicationController
 
   def require_login
     unless logged_in?
-      flash[:error] = "You must be signed in to access that page"
-      redirect_to root_url
+      redirect_to signin_url
     end
   end
   

@@ -44,17 +44,6 @@ function openRenameDialog() {
   $("#renameDialog").dialog("open");
 }
 
-function validateRename() {
-  if ($("#newTxt").val() == "") {
-    $("#newTxt").addClass("field_with_errors");
-    $("#nullErrors").show();
-    return false;
-  }  else {
-    rename();
-    return false;
-  }
-}
-
 function saved() {
   $("#saved").fadeIn("fast").fadeOut("medium");
 }
