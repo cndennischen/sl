@@ -132,6 +132,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  builder
   hoptoad_notifier
   mongrel (= 1.2.0.pre2)
   nifty-generators
