@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   has_many :sketches, :dependent => :destroy
   has_many :ipns
-  
+
   validates_presence_of :provider, :uid, :name
   validates_uniqueness_of :uid
-  
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
@@ -26,11 +26,11 @@ class User < ActiveRecord::Base
     }
     encrypt_for_paypal(values)
   end
-  
+
   PAYPAL_CERT_PEM = File.read("#{Rails.root}/certs/paypal_cert.pem")
   APP_CERT_PEM = File.read("#{Rails.root}/certs/app_cert.pem")
   APP_KEY_PEM = File.read("#{Rails.root}/certs/app_key.pem")
-  
+
   def encrypt_for_paypal(values)
     # encrypt the values using OpenSSL
     signed = OpenSSL::PKCS7::sign(OpenSSL::X509::Certificate.new(APP_CERT_PEM), OpenSSL::PKey::RSA.new(APP_KEY_PEM, ''), values.map { |k, v| "#{k}=#{v}" }.join("\n"), [], OpenSSL::PKCS7::BINARY)

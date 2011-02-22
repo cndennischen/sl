@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20110215125839) do
     t.datetime "updated_at"
   end
 
+  add_index "ipns", ["user_id"], :name => "index_ipns_on_user_id"
+
   create_table "sketches", :force => true do |t|
     t.string   "name"
     t.string   "content"
@@ -27,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20110215125839) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sketches", ["user_id"], :name => "index_sketches_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "provider"

@@ -4,9 +4,11 @@ class CreateIpns < ActiveRecord::Migration
       t.text :params
       t.integer :user_id
       t.boolean :okay
-      
+
       t.timestamps
     end
+
+    add_index :ipns, :user_id
   end
 
   def self.down

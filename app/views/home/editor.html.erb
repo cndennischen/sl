@@ -4,7 +4,7 @@
 <%= javascript_include_tag "editor" %>
 <%= validates_sketch_names('rename') %>
 <script type="text/javascript">
-function rename() {  
+function rename() {
   //dynamically create a form to rename the sketch
   $(document.body).append('<%= form_tag("/rename", :id => "renameHiddenForm") %>');
   $("#renameHiddenForm").append('<input id="name" name="name" type="hidden" value="' + $("#name").val() + '" />');

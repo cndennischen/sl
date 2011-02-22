@@ -3,9 +3,9 @@ class Ipn < ActiveRecord::Base
   belongs_to :user
   serialize :params
   after_create :process_ipn
-  
+
   private
-  
+
   def process_ipn
     if validate_ipn
       # set the user's email address
@@ -15,7 +15,7 @@ class Ipn < ActiveRecord::Base
       user.update_attributes(:plan => "free") if params[:txn_type] == "subscr_cancel"
     end
   end
-  
+
   def validate_ipn
     # send a postback to paypal
     @query = 'cmd=_notify-validate'
@@ -34,7 +34,7 @@ class Ipn < ActiveRecord::Base
     else
       okay = false
     end
-    
+
     if okay == true
       return true
     else
@@ -42,7 +42,7 @@ class Ipn < ActiveRecord::Base
       Notifications.invalid_ipn(self).deliver
       return false
     end
-    
+
   end
-  
+
 end
