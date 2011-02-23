@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
 
   helper_method :current_user
   helper_method :allow_new
 
   private
 
-  def record_not_found
+  def not_found
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => nil
   end
 

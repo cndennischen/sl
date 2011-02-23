@@ -1,3 +1,5 @@
+var clipboard = new Object();
+
 $(init);
 
 function init() {
@@ -6,6 +8,7 @@ function init() {
   $("#addBtn").button().click(add);
   $("#undoBtn").button().click(undo);
   $("#redoBtn").button().click(redo);
+  $("#pasteBtn").button().click(paste);
   $("#renameBtn").button().click(openRenameDialog);
   //set up rename dialog
   $("#renameDialog").dialog({
@@ -38,6 +41,10 @@ function undo() {
 function redo() {
   //redo last undo action
   frames["canvasFrame"].redo();
+}
+
+function paste(widget) {
+  frames["canvasFrame"].pasteWidget();
 }
 
 function openRenameDialog() {

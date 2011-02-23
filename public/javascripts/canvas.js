@@ -37,11 +37,14 @@ function init() {
     .contextMenu("contextMenu", {
       bindings: {
         "edit": editWidget,
+        "cut": cutWidget,
+        "copy": copyWidget,
         "delete": delWidget,
         "front": front,
         "forward": forward,
         "backward": backward,
-        "back": back
+        "back": back,
+        "rotate": rotate
       }
     });
     
@@ -52,7 +55,6 @@ function init() {
   //z-index
   order();
 }
-
 function editWidget(widget) {
   //get widget's current text
   var currentText = $(widget).children(".text").text();
@@ -66,14 +68,30 @@ function editWidget(widget) {
   $(widget).children(".text").text(newText);
   save();
 }
-
+function cutWidget(widget) {
+  action();
+  //set the clipboard to the selected widget
+  setClipboard(widget);
+  //remove the widget from the canvas
+  $(widget).remove();
+  save();
+}
+function copyWidget(widget) {
+  //set the clipboard to the selected widget
+  setClipboard(widget);
+}
+function pasteWidget() {
+  action();
+  add(parent.clipboard.className, parent.clipboard.text, "");
+  init();
+  save();
+}
 function delWidget(widget) {
   action();
   //delete widget
   $(widget).remove();
   save();
 }
-
 function front(widget) {
   action();
   //bring to front
@@ -82,7 +100,6 @@ function front(widget) {
   order();
 	save();
 }
-
 function forward(widget) {
   action();
   //bring forward
@@ -91,7 +108,6 @@ function forward(widget) {
   order();
 	save();
 }
-
 function backward(widget) {
   action();
   //send backward
@@ -100,7 +116,6 @@ function backward(widget) {
   order();
 	save();
 }
-
 function back(widget) {
   action();
   //send to back
@@ -108,6 +123,19 @@ function back(widget) {
   //re-order widgets
   order();
 	save();
+}
+function rotate(widget) {
+  action();
+  //rotate the widget 90 degrees
+  if ($(widget).css("rotate") == "") {
+    currentRotation = 0;
+  } else {
+    //get the current rotation
+    currentRotation = parseInt($(widget).css("rotate"));
+  }
+  //add 90 degrees
+  $(widget).css("rotate",  currentRotation + 90);
+  save();
 }
 function order() {
   //order widgets
@@ -120,7 +148,7 @@ function clear() {
 }
 function add(className, text, style) {
   //add the widget to the canvas
-  $("#canvas").append("<div class=\"widget " + className + "\" style=\"" + style + "\"><div class=\"text\">" + text + "</div></div>");
+  $("#canvas").append("<div class='widget " + className + "' style='" + style + "'><div class='text'>" + text + "</div></div>");
 }
 function action() {
   //add the current state to the undo stack
@@ -176,7 +204,7 @@ function getData() {
   $(".widget").each(function(i) {
     var widget = {};
     //get the widget's information
-    widget["class"] = $(this).attr('class').split(' ')[1];
+    widget["class"] = $(this).attr("class").split(' ')[1];
     widget["text"] = $(this).children(".text").html();
     widget["style"] = $(this).attr("style");
     //add the widget to the list
@@ -193,4 +221,9 @@ function setData(data) {
     add(value["class"], value["text"], value["style"]);
   });
   init();
+}
+function setClipboard(widget) {
+  //set the clipboard to the passed widget
+  parent.clipboard.className = $(widget).attr("class").split(' ')[1];
+  parent.clipboard.text = $(widget).children(".text").html();
 }

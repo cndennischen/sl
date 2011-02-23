@@ -15,7 +15,7 @@ class HomeController < ApplicationController
 
   def save_sketch
     # set the content of the sketch
-    @sketch.content = params[:data]
+    @sketch.content = params[:data].gsub(/'/, "\\\\'")
     @sketch.save
     render :nothing => true
   end
@@ -33,31 +33,25 @@ class HomeController < ApplicationController
   end
 
   def export_sketch
-    # get a hash from the sketch's content
-    content = JSON.parse(@sketch.content)
-    # check which format the user wants the sketch in
-    case params[:format]
-    when 'svg'
-      svg(content)
+    format = params[:format]
+    # export the sketch to the selected format
+    case format
     when 'png'
-      png(content)
+      data = @sketch.to_png
     when 'jpeg'
-      jpeg(content)
+      data = @sketch.to_jpeg
+    when 'svg'
+      data = @sketch.to_svg
     when 'pdf'
-      # TODO: redirect to a url for getting the pdf version of the sketch
+      data = @sketch.to_pdf
+    else
+      return not_found
     end
+    # send the exported file to the user
+    send_data(data, :filename => "sketch.#{format}")
   end
 
   private
-
-  # Export to...
-
-  def svg(content)
-  end
-  def png(content)
-  end
-  def jpeg(content)
-  end
 
   # Before filters
 
