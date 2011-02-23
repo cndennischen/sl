@@ -10,6 +10,9 @@ function init() {
   $("#redoBtn").button().click(redo);
   $("#pasteBtn").button().click(paste);
   $("#renameBtn").button().click(openRenameDialog);
+  //set up shorcut keys
+  $(document).bind('keydown', 'ctrl+z', undo);
+  $(document).bind('keydown', 'ctrl+y', redo);
   //set up rename dialog
   $("#renameDialog").dialog({
     autoOpen: false,

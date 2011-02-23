@@ -81,8 +81,10 @@ function copyWidget(widget) {
   setClipboard(widget);
 }
 function pasteWidget() {
+  if (parent.clipboard.set != true)
+    return;
   action();
-  add(parent.clipboard.className, parent.clipboard.text, "");
+  add(parent.clipboard.className, parent.clipboard.text, parent.clipboard.style);
   init();
   save();
 }
@@ -226,4 +228,6 @@ function setClipboard(widget) {
   //set the clipboard to the passed widget
   parent.clipboard.className = $(widget).attr("class").split(' ')[1];
   parent.clipboard.text = $(widget).children(".text").html();
+  parent.clipboard.style = $(widget).attr("style");
+  parent.clipboard.set = true;
 }

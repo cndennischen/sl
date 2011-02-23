@@ -20,8 +20,9 @@ class Sketch < ActiveRecord::Base
     options = { :header_center => name }
     if user.plan == 'free'
       options[:footer_center] = 'Created with the Sketch Lab free plan (sketchlabhq.com)'
-      options[:header_font_size] = '24'
     end
+    options[:header_font_size] = '24'
+    # create a new PDFKit object with the set options
     pdf = PDFKit.new(to_html, options)
     pdf.stylesheets << "#{Rails.root}/public/stylesheets/widgets.css"
     pdf.to_pdf

@@ -1,7 +1,7 @@
 <% id = Integer(params[:sketchID]) %>
 <% data = current_user.sketches.find(id).content %>
 <% title current_user.sketches.find(id).name %>
-<%= javascript_include_tag "editor" %>
+<%= javascript_include_tag "jquery.hotkeys", "editor" %>
 <%= validates_sketch_names('rename') %>
 <script type="text/javascript">
 function rename() {
@@ -14,7 +14,7 @@ function rename() {
 localStorage["data"] = '<%= data.html_safe %>';
 </script>
 <div class="toolbox">
-  <button id="clearBtn">Clear Canvas</button>
+  <button title="Remove all widgets from the canvas" id="clearBtn">Clear Canvas</button>
   <select id="controlBox">
     <option value="window">Window</option>
     <option value="phone">Phone</option>
@@ -33,12 +33,12 @@ localStorage["data"] = '<%= data.html_safe %>';
     <option value="menu">Menu Bar</option>
     <option value="note">Sticky Note</option>
   </select>
-  <button id="addBtn">Add</button>
-  <button id="undoBtn">Undo</button>
-  <button id="redoBtn">Redo</button>
-  <button id="pasteBtn">Paste</button>
+  <button title="Add the selected type of widget to the canvas" id="addBtn">Add</button>
+  <button title="Undo the last action (Ctrl-Z)" id="undoBtn">Undo</button>
+  <button title="Redo the last undo (Ctrl-Y)" id="redoBtn">Redo</button>
+  <button title="Paste the object on the clipboard to the canvas"id="pasteBtn">Paste</button>
   <span style="font-size:large;border-style:solid"><%= @title %></span>
-  <button id="renameBtn">Rename</button>
+  <button title="Change the name of the current sketch" id="renameBtn">Rename</button>
   <span id="saved" style="color:green;display:none">Saved</span>
   <!-- rename dialog -->
   <div id="renameDialog">
