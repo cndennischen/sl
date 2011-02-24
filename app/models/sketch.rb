@@ -38,8 +38,6 @@ class Sketch < ActiveRecord::Base
     JSON.parse(content).each do |key, value|
       html += "<div class='widget #{value['class']}' style='#{value['style']}'><div class='text'>#{value['text']}</div></div>"
     end
-    # add JavaScript code as a workaround for the lack of css percentage support
-    html += "<script type='text/javascript' src='#{Rails.root}/public/javascripts/percent-to-px.js'></script>"
 
     # return the generated html
     html
