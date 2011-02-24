@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
       :business => APP_CONFIG[:seller_email],
       :custom => id,
       :notify_url => notify_url,
-      :hosted_button_id => APP_CONFIG[:upgrade_btn_id],
       :cert_id => APP_CONFIG[:paypal_cert_id],
       :secret => APP_CONFIG[:paypal_secret]
     }

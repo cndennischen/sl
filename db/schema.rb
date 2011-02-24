@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110215125839) do
+ActiveRecord::Schema.define(:version => 20110224172716) do
 
   create_table "ipns", :force => true do |t|
     t.text     "params"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20110215125839) do
 
   create_table "sketches", :force => true do |t|
     t.string   "name"
-    t.string   "content"
+    t.text     "content",    :limit => 255
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
