@@ -34,9 +34,9 @@ localStorage["data"] = '<%= data.html_safe %>';
     <option value="note">Sticky Note</option>
   </select>
   <button title="Add the selected type of widget to the canvas" id="addBtn">Add</button>
-  <button title="Undo the last action (Ctrl-Z)" id="undoBtn">Undo</button>
-  <button title="Redo the last undo (Ctrl-Y)" id="redoBtn">Redo</button>
-  <button title="Paste the object on the clipboard to the canvas (Ctrl-V)"id="pasteBtn">Paste</button>
+  <button title="Undo the last action" id="undoBtn">Undo</button>
+  <button title="Redo the last undo" id="redoBtn">Redo</button>
+  <button title="Paste the object on the clipboard to the canvas"id="pasteBtn">Paste</button>
   <span style="font-size:large;border-style:solid"><%= @title %></span>
   <button title="Change the name of the current sketch" id="renameBtn">Rename</button>
   <span id="saved" style="color:green;display:none">Saved</span>
