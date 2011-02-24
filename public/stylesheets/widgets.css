@@ -46,6 +46,8 @@
 .rounded-rectangle {
   border-style: solid;
   border-width: 1px;
+  -moz-border-radius: 10%;
+  -webkit-border-radius: 10%;
   border-radius: 10%;
   height: 20px;
   width: 50px;
@@ -53,6 +55,8 @@
 .elipse {
   border-style: solid;
   border-width: 1px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
   height: 20px;
   width: 50px;
@@ -61,7 +65,11 @@
 .button {
   border-style: solid;
   border-width: 2px;
+  -moz-box-shadow: 0px 0px 4px gray;
   -webkit-box-shadow: 0px 0px 4px gray;
+  box-shadow: 0px 0px 4px gray;
+  -moz-border-radius: 15%;
+  -webkit-border-radius: 15%;
   border-radius: 15%;
   height: 20px;
   width: 50px;
@@ -69,7 +77,11 @@
 .checkbox {
   border-style: solid;
   border-width: 2px;
+  -moz-box-shadow: 0px 0px 4px gray;
   -webkit-box-shadow: 0px 0px 4px gray;
+  box-shadow: 0px 0px 4px gray;
+  -moz-border-radius: 5%;
+  -webkit-border-radius: 5%;
   border-radius: 5%;
   color: transparent;
   width: 10px !important;
@@ -78,7 +90,11 @@
 .radio {
   border-style: solid;
   border-width: 2px;
+  -moz-box-shadow: 0px 0px 4px gray;
   -webkit-box-shadow: 0px 0px 4px gray;
+  box-shadow: 0px 0px 4px gray;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
   color: transparent;
   width: 10px !important;
@@ -112,6 +128,8 @@
 .progress {
   border-style: groove;
   border-width: 2px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
   border-radius: 20px;
   height: 20px;
   width: 75px;
