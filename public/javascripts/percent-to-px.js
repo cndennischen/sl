@@ -1,1 +1,1 @@
-//get css percent values and replace them with pixel values
+//This code gets css percent values and replaces them with pixel values

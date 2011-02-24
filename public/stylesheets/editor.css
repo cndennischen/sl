@@ -9,6 +9,7 @@
   top: 5px;
   height: 35px;
   text-align: left;
+  overflow: auto;
 }
 .canvas {
   position: absolute;

@@ -4,15 +4,12 @@ $(init);
 
 function init() {
   //set up toolbox events
-  $("#clearBtn").button().click(clear);
-  $("#addBtn").button().click(add);
-  $("#undoBtn").button().click(undo);
-  $("#redoBtn").button().click(redo);
-  $("#pasteBtn").button().click(paste);
-  $("#renameBtn").button().click(openRenameDialog);
-  //set up shorcut keys
-  $(document).bind('keydown', 'ctrl+z', undo);
-  $(document).bind('keydown', 'ctrl+y', redo);
+  $("#clearBtn").button({ icons: {primary: "ui-icon-trash"} }).click(clear);
+  $("#addBtn").button({ icons: {primary: "ui-icon-plusthick"} }).click(add);
+  $("#undoBtn").button({ icons: {primary: "ui-icon-arrowreturnthick-1-w"} }).click(undo);
+  $("#redoBtn").button({ icons: {primary: "ui-icon-arrowreturnthick-1-e"} }).click(redo);
+  $("#pasteBtn").button({ icons: {primary: "ui-icon-clipboard"} }).click(paste);
+  $("#renameBtn").button({ icons: {primary: "ui-icon-pencil"} }).click(openRenameDialog);
   //set up rename dialog
   $("#renameDialog").dialog({
     autoOpen: false,

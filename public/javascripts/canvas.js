@@ -55,6 +55,17 @@ function init() {
   //z-index
   order();
 }
+function load() {
+  //set up shorcut keys
+  $(document).bind('keydown', 'ctrl+z', undo);
+  $(document).bind('keydown', 'ctrl+y', redo);
+  $(document).bind('keydown', 'ctrl+v', pasteWidget);
+  //load the saved state from localStorage
+  setData(JSON.parse(localStorage["data"]));
+  //clear the undo and redo stacks
+  undoStack = [];
+  redoStack = [];
+}
 function editWidget(widget) {
   //get widget's current text
   var currentText = $(widget).children(".text").text();
@@ -192,13 +203,6 @@ function save(name) {
         parent.saved();
       }
   });
-}
-function load() {
-  //load the saved state from localStorage
-  setData(JSON.parse(localStorage["data"]));
-  //clear the undo and redo stacks
-  undoStack = [];
-  redoStack = [];
 }
 function getData() {
 	//returns the contents of the canvas in JSON format
