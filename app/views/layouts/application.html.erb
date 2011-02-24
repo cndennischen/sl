@@ -27,6 +27,10 @@
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
     <%= yield %>
+    <noscript>
+      <!-- tell the user to enable JavaScript -->
+      <%= content_tag :div, "Please enable JavaScript. Sketch Lab will not perform correctly without it.", :id => "flash_notice" %>
+    </noscript>
   </div>
 <!-- UserVoice tab widget -->
 <script type="text/javascript">
