@@ -57,9 +57,9 @@ function init() {
 }
 function load() {
   //set up shorcut keys
-  $("#canvas").bind('keypress', 'ctrl+z', undo);
-  $("#canvas").bind('keypress', 'ctrl+y', redo);
-  $("#canvas").bind('keypress', 'ctrl+v', pasteWidget);
+  $(document).bind('keypress', 'ctrl+z', undo);
+  $(document).bind('keypress', 'ctrl+y', redo);
+  $(document).bind('keypress', 'ctrl+v', pasteWidget);
   //load the saved state from localStorage
   setData(JSON.parse(localStorage["data"]));
   //clear the undo and redo stacks
