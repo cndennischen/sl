@@ -100,6 +100,7 @@ GEM
     rack-openid (1.2.0)
       rack (>= 1.1.0)
       ruby-openid (>= 2.1.8)
+    rack-rewrite (1.0.2)
     rack-test (0.5.7)
       rack (>= 1.0)
     rails (3.0.3)
@@ -142,6 +143,7 @@ DEPENDENCIES
   nifty-generators
   omniauth
   pdfkit
+  rack-rewrite
   rails (= 3.0.3)
   rmagick
   sqlite3-ruby

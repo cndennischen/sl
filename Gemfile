@@ -37,4 +37,5 @@ gem 'builder'
 gem 'pdfkit'
 gem 'rmagick', :require => 'RMagick'
 gem 'json'
+gem 'rack-rewrite'
 
