@@ -53,3 +53,6 @@ localStorage["data"] = '<%= data.html_safe %>';
   <iframe class="canvasFrame" src="/canvas.html" name="canvasFrame">
   </iframe>
 </div>
+<footer id="export">
+  Download as: <%= link_to "PDF", "/export/#{id}/pdf" %>, <%= link_to "PNG", "/export/#{id}/png" %>, <%= link_to "JPEG", "/export/#{id}/jpg" %>
+</footer>

@@ -36,7 +36,7 @@ class HomeController < ApplicationController
     format = params[:format]
     # export the sketch to the selected format
     case format
-    when 'png', 'jpg', 'svg'
+    when 'png', 'jpg'
       data = @sketch.to_img(format)
     when 'pdf'
       data = @sketch.to_pdf
