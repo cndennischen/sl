@@ -36,4 +36,5 @@ gem 'hoptoad_notifier'
 gem 'builder'
 gem 'pdfkit'
 gem 'rmagick', :require => 'RMagick'
+gem 'json'
 
