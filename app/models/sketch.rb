@@ -6,7 +6,9 @@ class Sketch < ActiveRecord::Base
   def to_img(format)
     # create an image from the pdf with RMagick
     img = Magick::ImageList::new(to_pdf)
-    #TODO: return the image in the specified format, ready to be sent to the user
+    # return the image in the specified format, ready to be sent to the user
+    img.format = format
+    img.to_blob
   end
 
   def to_pdf
