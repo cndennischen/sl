@@ -107,6 +107,11 @@
   height: 1em;
   width: auto;
 }
+.paragraph {
+  text-align: left;
+  height: auto;
+  width: auto;
+}
 .textbox {
   border-style: inset;
   text-align: left;

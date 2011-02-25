@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-SketchLab::Application.load_tasks
+SimpleSketch::Application.load_tasks
