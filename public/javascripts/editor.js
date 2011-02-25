@@ -28,7 +28,13 @@ function clear() {
 function add() {
   frames["canvasFrame"].action();
   //add the selected type of widget to the canvas
-  frames["canvasFrame"].add($("#controlBox").val(), $("#controlBox option:selected").text(), "");
+  var type = $("#controlBox").val();
+  var text = $("#controlBox option:selected").text();
+  //only make default text if it's not a checkbox or radio button, bec. they don't have text
+  if (type == "checkbox" || type == "radio") {
+    text = "";
+  }
+  frames["canvasFrame"].add(type, text, "");
   frames["canvasFrame"].init();
 	frames["canvasFrame"].save();
 }
