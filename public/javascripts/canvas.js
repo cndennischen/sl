@@ -49,7 +49,7 @@ function init() {
     });
     
   //not resizable
-  $(".label, .paragraph, .radio, .checkbox, .link, .menu")
+  $(".label, .radio, .checkbox, .link, .menu")
     .resizable("destroy");
   
   //z-index

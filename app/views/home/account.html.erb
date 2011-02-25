@@ -8,7 +8,21 @@
     <br /><br />
     <%= form_tag APP_CONFIG[:paypal_url] do %>
       <%= hidden_field_tag :cmd, "_s-xclick" %>
-      <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(notify_url) %>
+      <%= hidden_field_tag :upload, "1" %>
+      <%= hidden_field_tag :business, APP_CONFIG[:seller_email] %>
+      <%= hidden_field_tag :item_name, "omitted" %>
+      <%= hidden_field_tag :a1, "0" %>
+      <%= hidden_field_tag :p1, "30" %>
+      <%= hidden_field_tag :t1, "D" %>
+      <%= hidden_field_tag :a3, APP_CONFIG[:price] %>
+      <%= hidden_field_tag :p3, "1" %>
+      <%= hidden_field_tag :t3, "M" %>
+      <%= hidden_field_tag :no_note, "1" %>
+      <%= hidden_field_tag :custom, "1" %>
+      <%= hidden_field_tag :notify_url, notify_url %>
+      <%= hidden_field_tag :currency_code, "USD" %>
+      <%= hidden_field_tag :secret, "secret" %>
+      <!--<%= hidden_field_tag :encrypted, current_user.paypal_encrypted(notify_url) %>-->
       <input type="image" src="https://sketchlab.duostack.net/images/upgrade.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
     <% end %>
   <% else %>

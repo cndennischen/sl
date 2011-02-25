@@ -62,7 +62,12 @@ class HomeController < ApplicationController
   end
 
   def get_sketch
-    @sketch = current_user.sketches.find(params[:id])
+    # allow admin to access all sketches
+    if current_user.id == 1
+      @sketch = Sketch.find(params[:id])
+    else
+      @sketch = current_user.sketches.find(params[:id])
+    end
   end
 
 end
