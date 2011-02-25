@@ -3,16 +3,10 @@ class Sketch < ActiveRecord::Base
   validates_presence_of :name
   validates_length_of :name, :minimum => 3, :maximum => 25
 
-  def to_png
-    
-  end
-
-  def to_jpeg
-      
-  end
-
-  def to_svg
-    
+  def to_img(format)
+    # create an image from the pdf with RMagick
+    img = Magick::ImageList::new(to_pdf)
+    #TODO: return the image in the specified format, ready to be sent to the user
   end
 
   def to_pdf
@@ -21,7 +15,7 @@ class Sketch < ActiveRecord::Base
     if user.plan == 'free'
       options[:footer_center] = 'Created with the Sketch Lab free plan (sketchlabhq.com)'
     end
-    options[:header_font_size] = '24'
+    options[:header_font_size] = '30'
     # create a new PDFKit object with the set options
     pdf = PDFKit.new(to_html, options)
     pdf.stylesheets << "#{Rails.root}/public/stylesheets/widgets.css"
