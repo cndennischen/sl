@@ -5,10 +5,10 @@ class Sketch < ActiveRecord::Base
 
   def to_img(format)
     # create an image from the pdf with RMagick
-    img = Magick::ImageList::new(to_pdf)
+    img = Magick::Image.from_blob(to_pdf)
     # return the image in the specified format, ready to be sent to the user
-    img.format = format
-    img.to_blob
+    img[0].format = format
+    img[0].to_blob
   end
 
   def to_pdf
@@ -21,7 +21,7 @@ class Sketch < ActiveRecord::Base
     # create a new PDFKit object with the set options
     pdf = PDFKit.new(to_html, options)
     pdf.stylesheets << "#{Rails.root}/public/stylesheets/widgets.css"
-    pdf.to_pdf
+    pdf.to_pdf.to_blob
   end
 
   private
