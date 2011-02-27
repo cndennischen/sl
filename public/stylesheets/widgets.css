@@ -4,12 +4,6 @@
     font-size: 14px;
   }
 }
-@media screen {
-  .widget {
-    font-size: 16px;
-    [if Opera] font-size: 14px;
-  }
-}
 /* overide jQuery UI */
 .ui-resizable-handle {
   z-index: auto !important;
