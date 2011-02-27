@@ -31,7 +31,7 @@ class Sketch < ActiveRecord::Base
   def to_html
     html = ""
     # iterate through widgets
-    JSON.parse(("'" + content + "'").gsub('\"', '"')).each do |key, value|
+    JSON.parse((content).gsub('\"', '"')).each do |key, value|
       html += "<div class='widget #{value['class']}' style='#{value['style']}'><div class='text'>#{value['text']}</div></div>"
     end
 
