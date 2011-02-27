@@ -1,4 +1,4 @@
-SimpleSketch::Application.routes.draw do
+SketchLab::Application.routes.draw do
   match "/notify" => "ipns#create"
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#auth_error"
