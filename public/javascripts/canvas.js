@@ -47,9 +47,14 @@ function init() {
         "rotate": rotate
       }
     });
+
+  //browser specific
+  if (window.opera) {
+    $(".widget").css("font-size", "12px !important");
+  }
     
   //not resizable
-  $(".label, .paragraph, .radio, .checkbox, .link, .menu")
+  $(".label, .link, .menu")
     .resizable("destroy");
   
   //z-index
