@@ -1,3 +1,9 @@
+/* for PDFKit */
+@media print {
+  .widget {
+    font-size: 14px;
+  }
+}
 /* overide jQuery UI */
 .ui-resizable-handle {
   z-index: auto !important;
