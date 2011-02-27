@@ -4,6 +4,11 @@
     font-size: 14px;
   }
 }
+@media screen {
+  .widget {
+    font-size: 16px;
+  }
+}
 /* overide jQuery UI */
 .ui-resizable-handle {
   z-index: auto !important;
