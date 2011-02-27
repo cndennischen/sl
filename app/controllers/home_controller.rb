@@ -3,6 +3,15 @@ class HomeController < ApplicationController
   before_filter :get_sketch, :only => [:save_sketch, :rename_sketch, :delete_sketch, :export_sketch]
   verify :method => :post, :only => [:new_sketch, :save_sketch, :rename_sketch, :delete_sketch]
 
+  def index
+  end
+
+  def signin
+  end
+
+  def editor
+  end
+
   def new_sketch
     if allow_new
       @sketch = current_user.sketches.create!(:name => params[:name], :content => "{}")
