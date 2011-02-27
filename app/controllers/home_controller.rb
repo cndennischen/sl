@@ -53,6 +53,7 @@ class HomeController < ApplicationController
 
   def require_login
     unless logged_in?
+      flash[:notice] = 'Please sign in to access that page'
       redirect_to signin_url
     end
   end
