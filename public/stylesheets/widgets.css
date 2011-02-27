@@ -6,7 +6,7 @@
 }
 @media screen {
   .widget {
-    font-size: 16px;
+    font-size: 16px !important;
   }
 }
 /* overide jQuery UI */
