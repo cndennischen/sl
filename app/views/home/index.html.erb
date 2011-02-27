@@ -10,6 +10,19 @@ function destroy(id) {
 }
 </script>
 <% if current_user %>
+  <!-- advertise paid plan to free users -->
+  <% if current_user.plan == "free" %>
+    <div id="ad">
+      Upgrade to the paid plan to:
+      <ul>
+        <li>Have multiple sketches</li>
+        <li>Remove footer from exported sketches</li>
+        <li>And much more!</li>
+      </ul>
+      <%= link_to "Upgrade now!", account_path %>
+    </div>
+  <% end %>
+  <div id="sketches">
   <fieldset><legend>Your Sketches</legend>
   <% sketches = current_user.sketches %>
   <% if sketches.length > 0 %>
@@ -25,6 +38,7 @@ function destroy(id) {
     <b>No Sketches! Create a new one below to get started.</b>
   <% end %>
   </fieldset>
+  </div>
   <fieldset>
   <legend>New Sketch</legend>
   <%= sketch_name_validation_errors %>
