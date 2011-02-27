@@ -8,8 +8,6 @@ class Ipn < ActiveRecord::Base
 
   def process_ipn
     if validate_ipn
-      # set the user's email address
-      user.update_attributes(:email => params[:payer_email])
       # process different types of events
       user.update_attributes(:plan => "paid") if params[:txn_type] == "subscr_signup"
       user.update_attributes(:plan => "free") if params[:txn_type] == "subscr_cancel"
