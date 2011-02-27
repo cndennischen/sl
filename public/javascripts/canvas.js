@@ -47,13 +47,6 @@ function init() {
         "rotate": rotate
       }
     });
-
-  //browser specific
-  if (window.opera) {
-    $(".widget").css("font-size", "12px !important");
-  } else {
-    $(".widget").css("font-size", "16px !important");
-  }
     
   //not resizable
   $(".label, .link, .menu")
