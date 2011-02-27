@@ -10,29 +10,29 @@ function destroy(id) {
 }
 </script>
 <% if current_user %>
-<fieldset><legend>Your Sketches</legend>
-<% sketches = current_user.sketches %>
-<% if sketches.length > 0 %>
-<table>
-  <% sketches.each do |sketch| %>
-  <tr>
-    <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
-    <td>(<%= link_to_function "Delete", "destroy(#{sketch.id})" %>)</td>
-  </tr>
+  <fieldset><legend>Your Sketches</legend>
+  <% sketches = current_user.sketches %>
+  <% if sketches.length > 0 %>
+    <table>
+      <% sketches.each do |sketch| %>
+        <tr>
+          <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
+          <td>(<%= link_to_function "Delete", "destroy(#{sketch.id})" %>)</td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <b>No Sketches! Create a new one below to get started.</b>
   <% end %>
-</table>
+  </fieldset>
+  <fieldset>
+  <legend>New Sketch</legend>
+  <%= sketch_name_validation_errors %>
+  <%= form_tag(new_url, :onSubmit => 'return validate();') do %>
+    <%= text_field_tag(:name) %>
+    <%= submit_tag("New Sketch") %>
+  <% end %>
+  </fieldset>
 <% else %>
-<b>No Sketches! Create a new one below to get started.</b>
-<% end %>
-</fieldset>
-<fieldset>
-<legend>New Sketch</legend>
-<%= sketch_name_validation_errors %>
-<%= form_tag(new_url, :onSubmit => 'return validate();') do %>
-  <%= text_field_tag(:name) %>
-  <%= submit_tag("New Sketch") %>
-<% end %>
-</fieldset>
-<% else %>
-Welcome to Sketch Lab! Please <%= link_to "sign in", signin_path %> to see your sketches.
+  Welcome to Sketch Lab! Please <%= link_to "sign in", signin_path %> to see your sketches.
 <% end %>
