@@ -1,6 +1,7 @@
 <% id = Integer(params[:sketchID]) %>
-<% data = current_user.sketches.find(id).content %>
-<% title current_user.sketches.find(id).name %>
+<% @sketch = current_user.sketches.find(id) %>
+<% data = @sketch.content %>
+<% title @sketch.name %>
 <%= javascript_include_tag "editor" %>
 <%= validates_sketch_names('rename') %>
 <script type="text/javascript">
@@ -11,7 +12,7 @@ function rename() {
   $("#renameHiddenForm").append('<input id="id" name="id" type="hidden" value="' + <%= id %> + '" />');
   $("#renameHiddenForm").submit();
 }
-localStorage["data"] = '<%= data.html_safe %>';
+localStorage["data"] = '<%= "'" + data.html_safe + "'" %>';
 </script>
 <div class="toolbox">
   <button title="Remove all widgets from the canvas" id="clearBtn">Clear Canvas</button>
