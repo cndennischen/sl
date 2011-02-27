@@ -21,8 +21,6 @@
   border-color: black;
   background-color: white;
   overflow: hidden;
-  [if Opera] font-size: 12px !important;
-  [if ! Opera] font-size: 16px !important;
 }
 /* for specific widgets */
 /* containers */
