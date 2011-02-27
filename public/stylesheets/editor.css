@@ -1,8 +1,14 @@
+button {
+  font-size: 16px;
+}
 .toolbox {
   position: absolute;
   border-style: solid;
   border-color: orange;
   border-width: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
   border-radius: 5px;
   left: 5px;
   right: 5px;
@@ -16,6 +22,9 @@
   border-style: solid;
   border-color: orange;
   border-width: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
   border-radius: 5px;
   left: 5px;
   right: 5px;
