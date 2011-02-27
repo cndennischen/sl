@@ -1,5 +1,5 @@
 button {
-  font-size: 62.5% !important;
+  font-size: 12px !important;
 }
 .toolbox {
   position: absolute;
@@ -13,7 +13,7 @@ button {
   left: 5px;
   right: 5px;
   top: 5px;
-  height: 35px;
+  height: 30px;
   text-align: left;
   overflow: auto;
 }
@@ -37,7 +37,7 @@ button {
   border-style: none;
 }
 #controlBox {
-  font-size: large;
+  font-size: 16px;
 }
 footer {
   position: absolute;
