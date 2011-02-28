@@ -1,18 +1,15 @@
-<% id = Integer(params[:sketchID]) %>
-<% @sketch = current_user.sketches.find(id) %>
-<% data = @sketch.content %>
 <% title @sketch.name %>
-<%= javascript_include_tag "editor" %>
+<%= javascript_include_tag 'editor' %>
 <%= validates_sketch_names('rename') %>
 <script type="text/javascript">
 function rename() {
   //dynamically create a form to rename the sketch
   $(document.body).append('<%= form_tag("/rename", :id => "renameHiddenForm") %>');
   $("#renameHiddenForm").append('<input id="name" name="name" type="hidden" value="' + $("#name").val() + '" />');
-  $("#renameHiddenForm").append('<input id="id" name="id" type="hidden" value="' + <%= id %> + '" />');
+  $("#renameHiddenForm").append('<input id="id" name="id" type="hidden" value="' + <%= @sketch.id %> + '" />');
   $("#renameHiddenForm").submit();
 }
-localStorage["data"] = '<%= data.html_safe %>';
+localStorage["data"] = '<%= @sketch.content.html_safe %>';
 </script>
 <div class="toolbox">
   <button title="Remove all widgets from the canvas" id="clearBtn">Clear Canvas</button>
@@ -55,5 +52,5 @@ localStorage["data"] = '<%= data.html_safe %>';
   </iframe>
 </div>
 <footer id="export">
-  Download as: <%= link_to "PDF", "/export/#{id}/pdf" %>, <%= link_to "PNG", "/export/#{id}/png" %>, <%= link_to "JPEG", "/export/#{id}/jpg" %>
+  Download as: <%= link_to "PDF", "/export/#{@sketch.id}/pdf" %>, <%= link_to "PNG", "/export/#{@sketch.id}/png" %>, <%= link_to "JPEG", "/export/#{@sketch.id}/jpg" %>
 </footer>

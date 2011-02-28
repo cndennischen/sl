@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def editor
+    @sketch = current_user.sketches.find(params[:sketchID])
   end
 
   def new_sketch
