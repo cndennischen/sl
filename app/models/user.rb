@@ -22,19 +22,9 @@ class User < ActiveRecord::Base
     sketches.create!(:name => "Start Here", :content => content)
   end
 
-  def paypal_encrypted(notify_url)
+  def paypal_encrypted
     values = {
-      :business => APP_CONFIG[:seller_email],
-      :item_name => "Sketch Lab",
-      :a1 => 0,
-      :p1 => 30,
-      :t1 => "D",
-      :a3 => APP_CONFIG[:price],
-      :p3 => 1,
-      :t3 => "M",
-      :no_note => 1,
       :custom => id,
-      :notify_url => notify_url,
       :cert_id => APP_CONFIG[:paypal_cert_id],
       :secret => APP_CONFIG[:paypal_secret]
     }
