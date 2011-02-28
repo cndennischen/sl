@@ -1,11 +1,16 @@
 class HomeController < ApplicationController
-  before_filter :require_login, :except => [:index, :signin]
+  before_filter :require_login, :except => [:index, :signin, :upgraded]
   before_filter :get_sketch, :only => [:save_sketch, :rename_sketch, :delete_sketch, :export_sketch]
 
   def index
   end
 
   def signin
+  end
+
+  def upgraded
+    flash[:notice] = "Thank you for upgrading your account! Please wait a few minutes for the upgrade to take effect."
+    redirect_to root_url
   end
 
   def editor
