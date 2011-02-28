@@ -6,11 +6,11 @@ SketchLab::Application.routes.draw do
   match "/signin" => "home#signin"
   match "/account" => "home#account"
   match "/new" => "home#new_sketch", :via => :post
-  match "/edit/:sketchID" => "home#editor"
-  match "/save" => "home#save_sketch", :via => :post
-  match "/rename" => "home#rename_sketch", :via => :post
-  match "/delete" => "home#delete_sketch", :via => :post
-  match "/export/:id/:format" => "home#export_sketch"
+  match "/edit/:sketchID" => "home#editor", :constraints => { :sketchID => /\d+/ }
+  match "/save" => "home#save_sketch", :via => :post, :constraints => { :id => /\d+/ }
+  match "/rename" => "home#rename_sketch", :via => :post, :constraints => { :id => /\d+/ }
+  match "/delete" => "home#delete_sketch", :via => :post, :constraints => { :id => /\d+/ }
+  match "/export/:id/:format" => "home#export_sketch", :constraints => { :id => /\d+/ }
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

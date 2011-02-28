@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   before_filter :require_login, :except => [:index, :signin]
   before_filter :get_sketch, :only => [:save_sketch, :rename_sketch, :delete_sketch, :export_sketch]
-  verify :method => :post, :only => [:new_sketch, :save_sketch, :rename_sketch, :delete_sketch]
 
   def index
   end
