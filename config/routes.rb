@@ -5,11 +5,11 @@ SketchLab::Application.routes.draw do
   match "/signout" => "sessions#destroy", :as => :signout
   match "/signin" => "home#signin"
   match "/account" => "home#account"
-  match "/new" => "home#new_sketch"
+  match "/new" => "home#new_sketch", :via => :post
   match "/edit/:sketchID" => "home#editor"
-  match "/save" => "home#save_sketch"
-  match "/rename" => "home#rename_sketch"
-  match "/delete" => "home#delete_sketch"
+  match "/save" => "home#save_sketch", :via => :post
+  match "/rename" => "home#rename_sketch", :via => :post
+  match "/delete" => "home#delete_sketch", :via => :post
   match "/export/:id/:format" => "home#export_sketch"
   # The priority is based upon order of creation:
   # first created -> highest priority.
