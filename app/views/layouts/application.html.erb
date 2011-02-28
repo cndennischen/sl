@@ -1,3 +1,19 @@
+<!-------------------------------------------------------------------------
+Copyright (C) 2011  Heigh Tech LLC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +47,12 @@
       <%= content_tag :div, "Please enable JavaScript in your browser. Sketch Lab will not perform correctly without it.", :id => "flash_error" %>
     </noscript>
     <%= yield %>
+  </div>
+  <div id="footer">
+    <small>
+    &copy; 2011 Heigh Tech LLC<br />
+    <%= link_to "Source Code", "https://github.com/Heigh-Tech/sl" %>
+    </small>
   </div>
 <!-- UserVoice tab widget -->
 <script type="text/javascript">

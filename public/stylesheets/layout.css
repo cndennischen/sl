@@ -42,6 +42,14 @@
   overflow-y: auto;
   overflow-x: auto;
 }
+#footer {
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  bottom: 15px;
+  text-align: center;
+  line-height: 110%;
+}
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
