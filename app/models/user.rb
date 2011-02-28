@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   has_many :ipns
   after_create :add_sketch_demo
 
-  validates_presence_of :provider, :uid, :name
-  validates_uniqueness_of :uid
+  validates_presence_of :provider, :uid, :name, :email
+  validates_uniqueness_of :uid, :email
 
   def self.create_with_omniauth(auth)
     create! do |user|

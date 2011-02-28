@@ -1,6 +1,10 @@
 <% title "Account" %>
 <h1><%= @title %></h1>
 <fieldset>
+  <legend>Information</legend>
+  Email: <% current_user.email %>
+</fieldset>
+<fieldset>
   <legend>Subscription</legend>
   <% if current_user.plan == "free" %>
     You are currently on the free plan. Upgrade your account to get more features.
