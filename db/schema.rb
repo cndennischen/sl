@@ -10,21 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110224172716) do
-
-  create_table "ipns", :force => true do |t|
-    t.text     "params"
-    t.integer  "user_id"
-    t.boolean  "okay"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "ipns", ["user_id"], :name => "index_ipns_on_user_id"
+ActiveRecord::Schema.define(:version => 20110208144448) do
 
   create_table "sketches", :force => true do |t|
     t.string   "name"
-    t.text     "content",    :limit => 255
+    t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -37,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20110224172716) do
     t.string   "uid"
     t.string   "name"
     t.string   "email"
-    t.string   "plan"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
