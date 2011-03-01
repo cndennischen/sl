@@ -8,8 +8,6 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    add_index :sketches
   end
 
   def self.down
