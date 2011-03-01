@@ -15,32 +15,15 @@ class Ipn < ActiveRecord::Base
   end
 
   def validate_ipn
-    # send a postback to paypal
-    @query = 'cmd=_notify-validate'
-    params.each_pair {|key, value| @query = @query + '&' + key + '=' + value}
-    http = Net::HTTP.new(APP_CONFIG[:paypal_domain], 80)
-    response = http.post("/cgi-bin/webscr", @query)
-    # check if it is valid
-    if response.body == "VERIFIED"
-      # check params
-      if params[:receiver_email] == APP_CONFIG[:seller_email] &&
-          params[:secret] == APP_CONFIG[:paypal_secret]
-        okay = true
-      else
-        okay = false
-      end
-    else
-      okay = false
-    end
-
-    if okay == true
-      return true
+    # check params
+    if params[:receiver_email] == APP_CONFIG[:seller_email] &&
+        params[:secret] == APP_CONFIG[:paypal_secret]
+      return true;
     else
       # send email notification
       Notifications.invalid_ipn(self).deliver
       return false
     end
-
   end
 
 end
