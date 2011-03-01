@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["user_info"]["name"]
       user.email = auth["user_info"]["email"]
-      user.plan = "free"
     end
   end
 
@@ -21,7 +20,14 @@ class User < ActiveRecord::Base
     sketches.create!(:name => "Start Here", :content => content)
   end
 
-  def refresh_plan
+  def plan
+    # cache the plan
+    @plan ||= accessLevel
+  end
+
+  private
+
+  def accessLevel
     # send a request to the Google Chrome Licensing API to check the user's status
     appId  = 'delppejinhhpcmimgfchjkbkpanhjkdj'
     userId = CGI::escape(uid)
@@ -36,11 +42,10 @@ class User < ActiveRecord::Base
     )
     # get the accessLevel from the json response
     if JSON.parse(response[2][0])["accessLevel"] == "FULL"
-      plan = 'paid'
+      return 'paid'
     else
-      plan = 'free'
+      return 'free'
     end
-    save!
   end
 
 end

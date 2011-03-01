@@ -8,6 +8,9 @@ class HomeController < ApplicationController
   def signin
   end
 
+  def account
+  end
+
   def upgraded
     flash[:notice] = "Thank you for upgrading your account! Please wait a few minutes for the upgrade to take effect."
     redirect_to root_url
