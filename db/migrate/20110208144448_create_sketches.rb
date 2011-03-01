@@ -2,13 +2,13 @@ class CreateSketches < ActiveRecord::Migration
   def self.up
     create_table :sketches do |t|
       t.string :name
-      t.string :content
+      t.text :content
 			t.integer :user_id
 
       t.timestamps
     end
 
-    add_index :sketches, :user_id
+    add_index :user_id
   end
 
   def self.down

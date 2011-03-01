@@ -5,10 +5,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :uid
       t.string :name
       t.string :email
-      t.string :plan
 
       t.timestamps
     end
+
+    add_index :sketches
   end
 
   def self.down
