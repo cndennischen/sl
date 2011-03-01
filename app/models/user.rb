@@ -21,4 +21,26 @@ class User < ActiveRecord::Base
     sketches.create!(:name => "Start Here", :content => content)
   end
 
+  def refresh_plan
+    # send a request to the Google Chrome Licensing API to check the user's status
+    appId  = 'delppejinhhpcmimgfchjkbkpanhjkdj'
+    userId = CGI::escape(uid)
+    client = Signet::OAuth1::Client.new(
+      :client_credential_key => 'anonymous',
+      :client_credential_secret => 'anonymous',
+      :token_credential_key => APP_CONFIG[:token_credential_key],
+      :token_credential_secret => APP_CONFIG[:token_credential_secret]
+    )
+    response = client.fetch_protected_resource(
+      :uri => "https://www.googleapis.com/chromewebstore/v1/licenses/#{appId}/#{userId}"
+    )
+    # get the accessLevel from the json response
+    if JSON.parse(response[2][0])["accessLevel"] == "FULL"
+      plan = 'paid'
+    else
+      plan = 'free'
+    end
+    save!
+  end
+
 end

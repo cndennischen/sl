@@ -33,9 +33,9 @@ gem 'nifty-generators', :group => :development
 # use mongrel because webrick has trouble with the long openid urls
 gem 'mongrel', '1.2.0.pre2', :group => :development
 gem 'hoptoad_notifier'
-gem 'builder'
 gem 'pdfkit'
 gem 'rmagick', :require => 'RMagick'
 gem 'json'
 gem 'rack-rewrite'
+gem 'signet', :require => 'signet/oauth_1/client'
 
