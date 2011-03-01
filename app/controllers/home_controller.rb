@@ -11,11 +11,6 @@ class HomeController < ApplicationController
   def account
   end
 
-  def upgraded
-    flash[:notice] = "Thank you for upgrading your account! Please wait a few minutes for the upgrade to take effect."
-    redirect_to root_url
-  end
-
   def editor
     @sketch = current_user.sketches.find(params[:sketchID])
   end
