@@ -2,19 +2,19 @@
 <h1><%= @title %></h1>
 <fieldset>
   <legend>Information</legend>
-  <b>Name:</b> <%= current_user.name %><br />
-  <b>Email:</b> <%= current_user.email %>
+  <b>Name:</b> <%= @name %><br />
+  <b>Email:</b> <%= @email %>
 </fieldset>
 <fieldset>
   <legend>Subscription</legend>
-  <% if current_user.plan == "free" %>
-    You are currently on the free plan. Upgrade your account to get more features.
-    Note: it may take a few minutes for the upgrade to take effect.
+  <% if @plan == "paid" %>
+    You are currently on the paid plan. Click "Downgrade" to downgrade to the free plan.
+    Note: it may take a few minutes for the downgrade to take effect.
     <br />
     
   <% else %>
-    You are on the paid plan. Click "Downgrade" to downgrade to the free plan.
-    Note: it may take a few minutes for the downgrade to take effect.
+    You are currently on the <%= @plan %> plan. Upgrade your account to get more features.
+    Note: it may take a few minutes for the upgrade to take effect.
     <br />
     
   <% end %>

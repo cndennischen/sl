@@ -9,6 +9,9 @@ class HomeController < ApplicationController
   end
 
   def account
+    @name = current_user.name
+    @email = current_user.email
+    @plan = current_user.plan
   end
 
   def editor

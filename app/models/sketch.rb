@@ -14,8 +14,8 @@ class Sketch < ActiveRecord::Base
   def to_pdf
     # create the html and convert it to a pdf with pdfkit
     options = { :header_center => name }
-    if user.plan == 'free'
-      options[:footer_center] = 'Created with the Sketch Lab free plan (sketchlabhq.com)'
+    if user.plan != 'paid'
+      options[:footer_center] = "Created with the Sketch Lab #{user.plan} plan (sketchlabhq.com)"
     end
     options[:header_font_size] = '20'
     # create a new PDFKit object with the set options
