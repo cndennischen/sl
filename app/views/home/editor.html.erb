@@ -38,6 +38,7 @@ localStorage["data"] = '<%= @sketch.content.html_safe %>';
   <span style="font-size:large;border-style:solid"><%= @title %></span>
   <button title="Change the name of the current sketch" id="renameBtn">Rename</button>
   <span id="saved" style="color:green;display:none">Saved</span>
+  <span id="saveFailed" style="color:red;display:none">Save Failed</span>
   <!-- rename dialog -->
   <div id="renameDialog">
     <%= sketch_name_validation_errors %>

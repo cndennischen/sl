@@ -60,3 +60,7 @@ function openRenameDialog() {
 function saved() {
   $("#saved").fadeIn("fast").fadeOut("medium");
 }
+
+function saveFailed() {
+  $("#saveFailed").fadeIn("fast").fadeOut("medium");
+}

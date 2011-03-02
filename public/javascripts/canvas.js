@@ -197,6 +197,9 @@ function save(name) {
       data: ({ id: id, data: JSON.stringify(getData()) }),
       success: function() {
         parent.saved();
+      },
+      error: function() {
+        parent.saveFailed();
       }
   });
 }
