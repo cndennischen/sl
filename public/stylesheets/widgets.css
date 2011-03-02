@@ -4,6 +4,13 @@
     font-size: 14px !important;
   }
 }
+/* for webkit browsers */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .widget {
+    font-size: 16px !important;
+  }
+}
+
 /* overide jQuery UI */
 .ui-resizable-handle {
   z-index: auto !important;
@@ -21,6 +28,7 @@
   border-color: black;
   background-color: white;
   overflow: hidden;
+  font-size: 12px;
 }
 /* for specific widgets */
 /* containers */
@@ -158,6 +166,11 @@
 .note {
   border-style: solid;
   border-color: orange;
+  /* cross browser */
+  -ms-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  /* css3 */
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 25px;
   border-top-left-radius: 2px;
