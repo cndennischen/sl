@@ -1,7 +1,7 @@
 /* for PDFKit */
 @media print {
   .widget {
-    font-size: 14px;
+    font-size: 14px !important;
   }
 }
 /* overide jQuery UI */
