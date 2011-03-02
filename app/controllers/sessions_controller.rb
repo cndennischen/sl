@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
   def auth_error
     flash[:error] = "An error occured while signing you in: #{params[:message]}"
-    redirect_to root_url
+    redirect_to signin_url
   end
 
 end

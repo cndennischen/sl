@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :require_login, :except => [:index, :signin, :upgraded]
+  before_filter :require_login, :except => [:index, :signin]
   before_filter :get_sketch, :only => [:save_sketch, :rename_sketch, :delete_sketch, :export_sketch]
 
   def index
@@ -20,8 +20,13 @@ class HomeController < ApplicationController
 
   def new_sketch
     if allow_new
-      @sketch = current_user.sketches.create!(:name => params[:name], :content => "{}")
-      redirect_to "/edit/#{@sketch.id}"
+      begin
+        @sketch = current_user.sketches.create!(:name => params[:name], :content => "{}")
+        redirect_to "/edit/#{@sketch.id}"
+      rescue
+        flash[:error] = "Error creating sketch: #{$!}"
+        redirect_to root_url
+      end
     else
       flash[:error] = "You cannot have more than one sketch on the free plan. Upgrade to the paid plan to have multiple sketches."
       redirect_to root_url
