@@ -9,7 +9,7 @@ module HomeHelper
 }
 </style>
 <div id="nullError" class="validationError">Please enter a name</div>
-<div id="lengthError" class="validationError">Sketch name must be between 3 and 25 characters</div>
+<div id="lengthError" class="validationError">Sketch name cannot be more than 25 characters</div>
 HTML
     html.html_safe
   end
@@ -24,7 +24,7 @@ function validate() {
     $("#lengthError").hide();
     $("#nullError").show();
     return false;
-  } else if ($("#name").val().length < 3 || $("#name").val().length > 25) {
+  } else if ($("#name").val().length > 25) {
     $("#name").addClass("field_with_errors");
     $("#nullError").hide();
     $("#lengthError").show();
