@@ -8,12 +8,6 @@ $(init);
 function init() {
   /* -- set up widgets and event handlers -- */
   
-  //preserve aspect ratio when resizing
-  $(".radio, .checkbox")
-    .resizable({
-  	  aspectRatio: 1/1
-    });
-  
   //resizable horizontal only
   $(".textbox")
     .resizable({
@@ -49,7 +43,7 @@ function init() {
     });
     
   //not resizable
-  $(".label, .link, .menu")
+  $(".label, .link, .menu, .checkbox, .radio")
     .resizable("destroy");
   
   //z-index
@@ -69,8 +63,10 @@ function load() {
         //check what type of widget it is
         if ($(globalWidget).hasClass("checkbox") || $(globalWidget).hasClass("radio")) {
           //checkbox / radio btn
-          if ($("#checked").val())
-            $(globalWidget).children(".text").text() = "&9745;";
+          if ($("#checked").attr("checked") == true)
+            $(globalWidget).children(".text").text("✓");
+          else
+            $(globalWidget).children(".text").text("");
         } else {
           //other widgets
           $(globalWidget).children(".text").text($("#widgetTxt").val());
@@ -117,7 +113,7 @@ function editWidget(widget) {
     //checkbox / radio btn
     $("#widgetTxt, #widgetTxtLbl").hide();
     $("#checked, #checkedLbl").show();
-    $("#checked").val($(widget).children(".text").text() == "&9745;");
+    $("#checked").attr("checked", ($(widget).children(".text").text() == "✓"));
   } else {
     //other widgets
     $("#widgetTxt, #widgetTxtLbl").show();
