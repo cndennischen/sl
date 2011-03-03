@@ -119,15 +119,13 @@ button {
 .label {
   text-align: left;
   white-space: nowrap;
-  height: 1em;
   width: auto;
 }
 .textbox {
   border-style: inset;
   text-align: left;
   white-space: nowrap;
-  height: 1.2em;
-  width: 75px
+  width: 75px;
 }
 .textarea {
   text-align: left;
@@ -156,7 +154,6 @@ button {
   border-width: 2px;
   text-align: left;
   white-space: nowrap;
-  height: 1.2em;
   width: auto;
 }
 .note {
