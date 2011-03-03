@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="/stylesheets/jquery-ui-1.8.7.custom.css" />
+  <link rel="stylesheet" href="/stylesheets/colorpicker.css" />
   <link rel="stylesheet" href="/stylesheets/widgets.css" />
   <style type="text/css">
   html {
@@ -13,12 +14,24 @@
   <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
   <script type="text/javascript" src="/javascripts/jquery.contextmenu.js"></script>
   <script type="text/javascript" src="/javascripts/jquery.rotate.js"></script>
+  <script type="text/javascript" src="/javascripts/colorpicker.js"></script>
   <script type="text/javascript" src="/javascripts/canvas.js"></script>
   <title></title>
 </head>
 <body>
 <!-- canvas -->
 <div id="canvas"></div>
+<!-- edit dialog -->
+<div id="editDialog">
+  <label for="widgetTxt" id="widgetTxtLbl">Text:</label>
+  <input type="text" id="widgetTxt" />
+  <label for="checked" id="checkedLbl">Checked:</label>
+  <input type="checkbox" id="checked" />
+  <label for="forecolor">Foreground:</label>
+  <input type="text" id="forecolor" />
+  <label for="backcolor">Background:</label>
+  <input type="text" id="backcolor" />
+</div>
 <!-- context menu -->
 <div class="contextMenu" id="contextMenu">
   <ul>

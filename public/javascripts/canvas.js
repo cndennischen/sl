@@ -56,6 +56,55 @@ function init() {
   order();
 }
 function load() {
+  //set up the edit dialog
+  $("#editDialog").dialog({
+    autoOpen: false,
+    modal: true,
+    width: 400,
+    height: 240,
+    title: "Edit Widget",
+    buttons: {
+      "OK": function() {
+        action();
+        //check what type of widget it is
+        if ($(globalWidget).hasClass("checkbox") || $(globalWidget).hasClass("radio")) {
+          //checkbox / radio btn
+          if ($("#checked").val())
+            $(globalWidget).children(".text").text() = "&9745;";
+        } else {
+          //other widgets
+          $(globalWidget).children(".text").text($("#widgetTxt").val());
+        }
+        //colors
+        $(globalWidget).css("color", $("#forecolor").val());
+        $(globalWidget).css("background-color", $("#backcolor").val());
+        save();
+        //close the dialog
+        $(this).dialog("close");
+      },
+      "Cancel": function() {
+        //close the dialog
+        $(this).dialog("close");
+      }
+    }
+  });
+  //color pickers
+  $("#forecolor").ColorPicker({
+    onChange: function(hsb, hex, rgb, el) {
+      $("#forecolor").val("#" + hex);
+    },
+    onBeforeShow: function () {
+		  $(this).ColorPickerSetColor(this.value);
+	  }
+  });
+  $("#backcolor").ColorPicker({
+    onChange: function(hsb, hex, rgb, el) {
+      $("#backcolor").val("#" + hex);
+    },
+    onBeforeShow: function () {
+		  $(this).ColorPickerSetColor(this.value);
+	  }
+  });
   //load the saved state from localStorage
   setData(JSON.parse(localStorage["data"]));
   //clear the undo and redo stacks
@@ -63,17 +112,25 @@ function load() {
   redoStack = [];
 }
 function editWidget(widget) {
-  //get widget's current text
-  var currentText = $(widget).children(".text").text();
-  //promt user to enter new text
-  newText = prompt("Please enter new text", currentText);
-  //check if null
-  if (newText == null)
-    return;
-  action();
-  //set the widget's text
-  $(widget).children(".text").text(newText);
-  save();
+  //check what type of widget it is
+  if ($(widget).hasClass("checkbox") || $(widget).hasClass("radio")) {
+    //checkbox / radio btn
+    $("#widgetTxt, #widgetTxtLbl").hide();
+    $("#checked, #checkedLbl").show();
+    $("#checked").val($(widget).children(".text").text() == "&9745;");
+  } else {
+    //other widgets
+    $("#widgetTxt, #widgetTxtLbl").show();
+    $("#widgetTxt").val($(widget).children(".text").text());
+    $("#checked, #checkedLbl").hide();
+  }
+  //colors
+  $("#forecolor").val(rgbToHex($(widget).css("color")));
+  $("#backcolor").val(rgbToHex($(widget).css("background-color")));
+  //make a global variable so the widget can be accessed from the dialog
+  globalWidget = widget;
+  //open the dialog
+  $("#editDialog").dialog("open");
 }
 function cutWidget(widget) {
   action();
@@ -233,4 +290,16 @@ function setClipboard(widget) {
   parent.clipboard.text = $(widget).children(".text").html();
   parent.clipboard.style = $(widget).attr("style");
   parent.clipboard.set = true;
+}
+function rgbToHex(rgb)
+{
+  if (rgb.search("rgb") == -1) {
+    return rgb;
+  } else {
+    rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+    function hex(x) {
+      return ("0" + parseInt(x).toString(16)).slice(-2);
+    }
+    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]); 
+  }
 }
