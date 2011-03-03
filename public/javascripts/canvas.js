@@ -137,7 +137,7 @@ function editWidget(widget) {
     $("#widgetTxt").val($(widget).children(".text").text());
     $("#checked, #checkedLbl").hide();
     //style
-    $("#bold").attr("checked", ($(widget).css("font-weight") == "bold"));
+    $("#bold").attr("checked", ($(widget).css("font-weight") == 700 || $(widget).css("font-weight") == "bold"));
     $("#italic").attr("checked", ($(widget).css("font-style") == "italic"));
     $("#underline").attr("checked", ($(widget).css("text-decoration") == "underline"));
   }
