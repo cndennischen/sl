@@ -43,7 +43,8 @@ function init() {
     })
     .dblclick(function() {
       editWidget(this);
-    });
+    })
+    .attr("title", "Double-click to edit");
     
   //not resizable
   $(".label, .link, .menu, .checkbox, .radio")
