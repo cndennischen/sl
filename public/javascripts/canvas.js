@@ -63,13 +63,30 @@ function load() {
         //check what type of widget it is
         if ($(globalWidget).hasClass("checkbox") || $(globalWidget).hasClass("radio")) {
           //checkbox / radio btn
-          if ($("#checked").attr("checked") == true)
+          if ($("#checked").attr("checked") == true) {
             $(globalWidget).children(".text").text("✓");
-          else
+          } else {
             $(globalWidget).children(".text").text("");
+          }
         } else {
           //other widgets
           $(globalWidget).children(".text").text($("#widgetTxt").val());
+          //style
+          if ($("#bold").attr("checked") == true) {
+            $(globalWidget).css("font-weight", "bold");
+          } else {
+            $(globalWidget).css("font-weight", "");
+          }
+          if ($("#italic").attr("checked") == true) {
+            $(globalWidget).css("font-style", "italic");
+          } else {
+            $(globalWidget).css("font-style", "");
+          }
+          if ($("#underline").attr("checked") == true) {
+            $(globalWidget).css("text-decoration", "underline");
+          } else {
+            $(globalWidget).css("text-decoration", "");
+          }
         }
         //colors
         $(globalWidget).css("color", $("#forecolor").val());
@@ -111,14 +128,18 @@ function editWidget(widget) {
   //check what type of widget it is
   if ($(widget).hasClass("checkbox") || $(widget).hasClass("radio")) {
     //checkbox / radio btn
-    $("#widgetTxt, #widgetTxtLbl").hide();
+    $("#widgetTxt, #widgetTxtLbl, #bold, #boldLbl, #italic, #italicLbl, #underline, #underlineLbl").hide();
     $("#checked, #checkedLbl").show();
     $("#checked").attr("checked", ($(widget).children(".text").text() == "✓"));
   } else {
     //other widgets
-    $("#widgetTxt, #widgetTxtLbl").show();
+    $("#widgetTxt, #widgetTxtLbl, #bold, #boldLbl, #italic, #italicLbl, #underline, #underlineLbl").show();
     $("#widgetTxt").val($(widget).children(".text").text());
     $("#checked, #checkedLbl").hide();
+    //style
+    $("#bold").attr("checked", ($(widget).css("font-weight") == "bold"));
+    $("#italic").attr("checked", ($(widget).css("font-style") == "italic"));
+    $("#underline").attr("checked", ($(widget).css("text-decoration") == "underline"));
   }
   //colors
   $("#forecolor").val(rgbToHex($(widget).css("color")));
