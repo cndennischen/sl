@@ -40,6 +40,9 @@ function init() {
         "back": back,
         "rotate": rotate
       }
+    })
+    .dblclick(function() {
+      editWidget(this);
     });
     
   //not resizable
