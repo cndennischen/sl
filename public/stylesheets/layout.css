@@ -1,6 +1,10 @@
 .background {
   background-color: LightSkyBlue;
 }
+.validationError {
+  display: none;
+  color: red;
+}
 #ad {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;

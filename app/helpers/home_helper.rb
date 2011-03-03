@@ -2,12 +2,6 @@ module HomeHelper
   def sketch_name_validation_errors
     # create the html validation errors
     html = <<HTML
-<style type="text/css">
-.validationError {
-  display: none;
-  color: red;
-}
-</style>
 <div id="nullError" class="validationError">Please enter a name</div>
 <div id="lengthError" class="validationError">Sketch name cannot be more than 25 characters</div>
 HTML
