@@ -2,7 +2,7 @@
 <%= form_tag do %>
   <p>Are you sure you want to cancel your account? All of your sketches will be permanently deleted. You cannot undo this action.</p>
   <%= label_tag(:confirm, "Yes, I'm sure I want to cancel my account.") %>
-  <$= check_box_tag(:confirm) %>
+  <%= check_box_tag(:confirm) %>
   <%= submit_tag("Cancel Account", :style => "color:red") %>
   or <%= link_to "cancel", account_path %>
 <% end %>
