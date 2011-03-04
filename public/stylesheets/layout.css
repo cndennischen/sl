@@ -1,5 +1,6 @@
-#faq a, #faq p, h1 {
+.question, #faq p, h1 {
   margin: 0.25em 0;
+  display: block;
 }
 .background {
   background-color: LightSkyBlue;
