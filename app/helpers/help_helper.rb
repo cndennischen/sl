@@ -4,6 +4,6 @@ module HelpHelper
     html = ''
     html += '<a href="#">' + q + '</a>'
     html += '<p>' + a + '</p>'
-    html
+    html.html_safe
   end
 end
