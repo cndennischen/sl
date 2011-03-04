@@ -22,9 +22,9 @@ class HomeController < ApplicationController
     if current_user.plan != "paid" and params[:confirmed]
       begin
         current_user.destroy!
-        logger.warn("Error deleting account: #{$!}")
         flash[:notice] = "Your account has been deleted."
       rescue
+        logger.warn("Error deleting account: #{$!}")
         flash[:error] = "An error occurred while trying to delete your account. Please try again soon."
       end
       redirect_to root_url
