@@ -1,4 +1,8 @@
 SketchLab::Application.routes.draw do
+  get "help/index"
+
+  get "help/faq"
+
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#auth_error"
   match "/signout" => "sessions#destroy", :as => :signout
