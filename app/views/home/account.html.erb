@@ -1,3 +1,8 @@
+<style type="text/css">
+.cancelAccountLink {
+  color: red;
+}
+</style>
 <% title "Account" %>
 <h1><%= @title %></h1>
 <fieldset>
@@ -19,5 +24,5 @@
     
   <% end %>
   <br />
-  <button id="cancelAccountBtn">Cancel Account</button>
+  <%= link_to "Cancel Account", cancel_account_path, :class => "cancelAccountLink" %>
 </fieldset>
