@@ -11,4 +11,4 @@ Faq.create(:question => 'Can I upgrade and downgrade my account at any time',
            :answer => 'Of course you can! Just go to the <a href="/account">account</a> page.');
            
 Faq.create(:question => 'Do you offer free student accounts',
-           :answer => 'We sure do. Please <a href="http://support.sketchlabhq.com">submit a support ticket</a> to request one.');
+           :answer => 'We sure do. Please <a href="http://sketchlab.mojohelpdesk.com/mytickets/create">submit a support ticket</a> to request one.');
