@@ -1,4 +1,6 @@
 SketchLab::Application.routes.draw do
+  devise_for :admins
+
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#auth_error"
   match "/signout" => "sessions#destroy", :as => :signout
