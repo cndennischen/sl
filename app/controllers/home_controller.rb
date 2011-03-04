@@ -15,14 +15,21 @@ class HomeController < ApplicationController
   end
   
   def delete_account
-    # only delete account on POST request and if user is not on paid plan
-    if request.request_method == :post and current_user.plan != "paid"
-      if params["confirmed"] == 1
-        # TODO: destroy cuurrent user
-        render :nothing => true
-      else
-        redirect_to account_path
+  end
+  
+  def destroy_account
+    # only delete account if user is not on paid plan
+    if current_user.plan != "paid" and params[:confirmed]
+      begin
+        current_user.destroy!
+      rescue
+        flash[:error] = "An error occurred while trying to delete your account. Please try again soon."
       end
+      flash[:notice] = "Your account has been deleted."
+      redirect_to root_url
+    else
+      flash[:notice] = "Please check the confirmation check box"
+      redirect_to account_path
     end
   end
 

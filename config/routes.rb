@@ -5,6 +5,7 @@ SketchLab::Application.routes.draw do
   match "/signin" => "home#signin"
   match "/account" => "home#account"
   match "/account/delete" => "home#delete_account", :as => "delete_account"
+  match "/account/destroy" => "home#destroy_account", :as => "destroy_account", :via => :post
   match "/new" => "home#new_sketch", :via => :post
   match "/edit/:sketchID" => "home#editor", :constraints => { :sketchID => /\d+/ }
   match "/save" => "home#save_sketch", :via => :post, :constraints => { :id => /\d+/ }
