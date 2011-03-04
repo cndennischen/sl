@@ -1,8 +1,4 @@
 SketchLab::Application.routes.draw do
-  get "help/index"
-
-  get "help/faq"
-
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#auth_error"
   match "/signout" => "sessions#destroy", :as => :signout
@@ -14,6 +10,8 @@ SketchLab::Application.routes.draw do
   match "/rename" => "home#rename_sketch", :via => :post, :constraints => { :id => /\d+/ }
   match "/delete" => "home#delete_sketch", :via => :post, :constraints => { :id => /\d+/ }
   match "/export/:id/:format" => "home#export_sketch", :constraints => { :id => /\d+/ }
+  match "/help" => "help#index"
+  match "/faq" => "help#faq"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
