@@ -13,6 +13,17 @@ class HomeController < ApplicationController
     @email = current_user.email
     @plan = current_user.plan
   end
+  
+  def delete_account
+    if post?
+      if params[:confirmed]
+        # TODO: destroy cuurrent user
+        render :nothing => true
+      else
+        redirect_to account_path
+      end
+    end
+  end
 
   def editor
     @sketch = current_user.sketches.find(params[:sketchID])
