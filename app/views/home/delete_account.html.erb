@@ -1,10 +1,14 @@
 <% title "Delete Account" %>
-<%= form_tag do %>
-  <p>Are you sure you want to delete your account?
-  All of your sketches will be permanently deleted. You cannot undo this action.</p>
-  <%= check_box_tag(:confirmed) %>
-  <%= label_tag(:confirmed, "Yes, I'm sure I want to delete my account.") %>
-  <br />
-  <%= submit_tag("Delete Account", :style => "color:red") %>
-  or <%= link_to "cancel", account_path %>
+<% if current_user.plan == "paid" %>
+  Please <%= link_to "downgrade", account_path %> to the free plan before deleting your account.
+<% else %>
+  <%= form_tag do %>
+    <p>Are you sure you want to delete your account?
+    All of your sketches will be permanently deleted. You cannot undo this action.</p>
+    <%= check_box_tag(:confirmed) %>
+    <%= label_tag(:confirmed, "Yes, I'm sure I want to delete my account.") %>
+    <br />
+    <%= submit_tag("Delete Account", :style => "color:red") %>
+    or <%= link_to "cancel", account_path %>
+  <% end %>
 <% end %>

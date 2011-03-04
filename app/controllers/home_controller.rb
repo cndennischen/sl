@@ -15,7 +15,8 @@ class HomeController < ApplicationController
   end
   
   def delete_account
-    if post?
+    # only delete account on POST request and if user is not on paid plan
+    if request.request_method == :post and current_user.plan != "paid"
       if params[:confirmed]
         # TODO: destroy cuurrent user
         render :nothing => true
