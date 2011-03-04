@@ -6,9 +6,4 @@ class HelpControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get faq" do
-    get :faq
-    assert_response :success
-  end
-
 end
