@@ -30,7 +30,6 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
       <%= link_to "Sketch Lab", root_path %>
     </div>
     <div id="user">
-      <%= link_to "Help", help_path %>
       <% if current_user %>
         Welcome <%= current_user.name %>!
         <%= link_to "Account", account_path %>
@@ -38,6 +37,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
       <% else %>
         <%= link_to "Sign In / Sign Up", signin_path %>
       <% end %>
+      <%= link_to "Help", help_path %>
     </div>
   </div>
   <div id="content">
