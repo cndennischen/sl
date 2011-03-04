@@ -12,6 +12,10 @@ function init() {
 <h2>FAQ</h2>
 <p>Click a question to expand the answer</p>
 <div id="faq">
-<%= faq "Testing", "Testing, Testing, 123" %>
+<!-- TODO: add a search form -->
+<!-- loop through the FAQ's and display them -->
+<% @faqs.each do |q| %>
+  <%= faq q.question, q.answer %>
+<% end %>
 </div>
 <p>Still have a question? Visit our support site at <%= link_to "support.sketchlabhq.com", "http://support.sketchlabhq.com" %>.
