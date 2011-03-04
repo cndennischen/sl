@@ -1,4 +1,17 @@
 <% title "Help" %>
+<script type="text/javascript">
+$(init);
+function init() {
+  //expand FAQ answers on click
+  $("faq a").click(function() {
+    $(this).next().toggle("slow");
+    return false;
+  }).next().hide();
+}
+</script>
 <h2>FAQ</h2>
-
+<p>Click a question to expand the answer</p>
+<div id="faq">
+<%= faq "Testing", "Testing, Testing, 123" %>
+</div>
 <p>Still have a question? Visit our support site at <%= link_to "support.sketchlabhq.com", "http://support.sketchlabhq.com" %>.
