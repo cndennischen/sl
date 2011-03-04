@@ -1,4 +1,4 @@
-.question, #faq p, h1 {
+.question, #faq p, h1, h2 {
   margin: 0.25em 0;
   display: block;
 }
