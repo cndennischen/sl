@@ -15,3 +15,6 @@ Faq.create(:question => 'Do you offer free student accounts',
 
 Faq.create(:question => 'Can I cancel my account',
            :answer => 'You can cancel your account by going to the <a href="/account">account</a> page and clicking "Delete Account". If you are on the paid plan, you will need to downgrade to the free plan first.')
+
+# Create an Admin to edit database records. Make sure to change the password later
+Admin.create!({:email => "admin@sketchlabhq.com", :password => "password", :password_confirmation => "password" })
