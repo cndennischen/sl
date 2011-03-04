@@ -21,7 +21,10 @@ class HomeController < ApplicationController
     # only delete account if user is not on paid plan
     if current_user.plan != "paid" and params[:confirmed]
       begin
-        current_user.destroy!
+        # destroy the user
+        current_user.destroy
+        # sign out
+        session[:user_id] = nil
         flash[:notice] = "Your account has been deleted."
       rescue
         logger.warn("Error deleting account: #{$!}")
