@@ -16,10 +16,10 @@ class HomeController < ApplicationController
     @email = current_user.email
     @plan = current_user.plan
   end
-  
+
   def delete_account
   end
-  
+
   def destroy_account
     # only delete account if user is not on paid plan
     if current_user.plan != "paid" and params[:confirmed]

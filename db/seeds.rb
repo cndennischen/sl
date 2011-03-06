@@ -9,7 +9,7 @@
 # Create the FAQ questions
 Faq.create(:question => 'Can I upgrade and downgrade my account at any time',
            :answer => 'Of course you can! Go to the <a href="/account">account</a> page for more details.')
-           
+
 Faq.create(:question => 'Do you offer free student accounts',
            :answer => 'We sure do. Please <a href="http://sketchlab.mojohelpdesk.com/mytickets/create">submit a support ticket</a> to request one.')
 
