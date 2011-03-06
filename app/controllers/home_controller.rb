@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
   def signin
   end
-  
+
   def contributing
   end
 
