@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
       session[:user_id] = nil
       flash[:error] = "Could not find your user account"
       redirect_to root_url
+      return nil
     end
   end
 
