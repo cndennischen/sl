@@ -52,5 +52,5 @@ function destroy(id) {
   <% end %>
   </fieldset>
 <% else %>
-  Welcome to Sketch Lab! Please <%= link_to "sign in", signin_path %> to see your sketches.
+  render "#{Rails.root}/public/info.html"
 <% end %>
