@@ -15,6 +15,7 @@ SketchLab::Application.routes.draw do
   match "/delete" => "home#delete_sketch", :via => :post, :constraints => { :id => /\d+/ }
   match "/export/:id/:format" => "home#export_sketch", :constraints => { :id => /\d+/ }
   match "/help" => "help#index"
+  match "/contributing" => "home#contributing"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

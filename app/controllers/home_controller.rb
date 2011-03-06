@@ -1,11 +1,14 @@
 class HomeController < ApplicationController
-  before_filter :require_login, :except => [:index, :signin]
+  before_filter :require_login, :except => [:index, :signin, :contributing]
   before_filter :get_sketch, :only => [:save_sketch, :rename_sketch, :delete_sketch, :export_sketch]
 
   def index
   end
 
   def signin
+  end
+  
+  def contributing
   end
 
   def account
