@@ -52,5 +52,5 @@ function destroy(id) {
   <% end %>
   </fieldset>
 <% else %>
-  render "#{Rails.root}/public/info.html"
+  <%= render :file => "#{Rails.root}/public/info.html" %>
 <% end %>
