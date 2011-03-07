@@ -6,6 +6,7 @@
   "2": {
     "q": "Do I need a credit card to sign up",
     "a": "No. You only need a credit card if you upgrade to the paid plan."
+  },
   "3": {
     "q": "Do you offer free student accounts",
     "a": "We sure do. Please <a href='http://sketchlab.mojohelpdesk.com/mytickets/create'>submit a support ticket</a> to request one."
