@@ -28,8 +28,7 @@ class User < ActiveRecord::Base
   private
 
   def accessLevel
-    case kind
-    when nil
+    if kind.blank?
       # send a request to the Google Chrome Licensing API to check the user's status
       appId  = 'delppejinhhpcmimgfchjkbkpanhjkdj'
       userId = CGI::escape(uid)
@@ -48,8 +47,8 @@ class User < ActiveRecord::Base
       else
         return 'free'
       end
-    when 'student'
-      return 'student'
+    else
+      return kind
     end
   end
 
