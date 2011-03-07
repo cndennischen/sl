@@ -1,0 +1,18 @@
+{
+  "1": {
+    "q": "Can I upgrade and downgrade my plan at any time",
+    "a": "Of course you can! Go to the <a href='/account'>account</a> page for more details."
+  },
+  "2": {
+    "q": "Do you offer free student accounts",
+    "a": "We sure do. Please <a href='http://sketchlab.mojohelpdesk.com/mytickets/create'>submit a support ticket</a> to request one."
+  },
+  "3": {
+    "q": "Can I cancel my account",
+    "a": "You can cancel your account by going to the <a href='/account'>account</a> page and clicking \"Delete Account\". If you are on the paid plan, you will need to downgrade to the free plan first."
+  },
+  "4": {
+    "q": "How can I help improve Sketch Lab",
+    "a": "Thank you for your interest in Sketch Lab! Please see the <a href='/contributing'>Contributing</a> page for instructions."
+  }
+}
