@@ -7,6 +7,9 @@ class HelpController < ApplicationController
     if @name == 'faq'
       @faqs = Faq.search(params[:search])
     end
+    if @name == 'index'
+      return redirect_to help_path
+    end
     begin
       render @name, :layout => true
     rescue ActionView::MissingTemplate
