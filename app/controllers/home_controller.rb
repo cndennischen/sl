@@ -16,6 +16,15 @@ class HomeController < ApplicationController
     @email = current_user.email
     @plan = current_user.plan
   end
+  
+  def update_account
+    current_user.name = params[:name]
+    if current_user.save
+      redirect_to account_path, :notice => "Account updated!"
+    else
+      redirect_to account_path, :error => "An error occured while trying to update your account. Please try again in a few minutes."
+    end
+  end
 
   def delete_account
   end
@@ -31,7 +40,7 @@ class HomeController < ApplicationController
         flash[:notice] = "Your account has been deleted."
       rescue
         logger.warn("Error deleting account: #{$!}")
-        flash[:error] = "An error occurred while trying to delete your account. Please try again soon."
+        flash[:error] = "An error occurred while trying to delete your account. Please try again in a few minutes."
       end
       redirect_to root_url
     else

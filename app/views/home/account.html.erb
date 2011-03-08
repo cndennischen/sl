@@ -2,8 +2,14 @@
 <h1><%= @title %></h1>
 <fieldset>
   <legend>Information</legend>
-  <b>Name:</b> <%= @name %><br />
-  <b>Email:</b> <%= @email %>
+  <%= form_tag(update_account_path) do %>
+    <b><%= label_tag :name %></b>
+    <%= text_field_tag :name, @name %>
+    <br />
+    <b>Email:</b> <%= @email %>
+    <br />
+    <%= submit_tag "Update", :disable_with => "Please Wait...", :style => "margin-left:0" %>
+  <% end %>
 </fieldset>
 <fieldset>
   <legend>Subscription</legend>

@@ -5,6 +5,7 @@ javascripts:
     - public/javascripts/jquery.js
     - public/javascripts/jquery-ui.js
     - public/javascripts/rails.js
+    - public/javascripts/application.js
   editor:
     - public/javascripts/editor.js
 
