@@ -24,10 +24,14 @@ function destroy(id) {
   <% end %>
   <div id="sketches">
   <fieldset><legend>Your Sketches</legend>
-  <% sketches = current_user.sketches %>
-  <% if sketches.length > 0 %>
+  <!-- Search Form -->
+  <%= form_tag root_url, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+  <% if @sketches.length > 0 %>
     <table>
-      <% sketches.each do |sketch| %>
+      <% @sketches.each do |sketch| %>
         <tr>
           <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
           <td>(<%= link_to_function "Delete", "destroy(#{sketch.id})" %>)</td>
@@ -35,7 +39,11 @@ function destroy(id) {
       <% end %>
     </table>
   <% else %>
-    <b>No Sketches! Create a new one below to get started.</b>
+    <% if current_user.sketches.count == 0 %>
+      <b>No Sketches! Create a new one below to get started.</b>
+    <% else %>
+      No items match your search.
+    <% end %>
   <% end %>
   </fieldset>
   </div>

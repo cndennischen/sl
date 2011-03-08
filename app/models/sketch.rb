@@ -2,6 +2,14 @@ class Sketch < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :name
   validates_length_of :name, :maximum => 25
+  
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
 
   def to_img(format)
     # create an image from the pdf with RMagick

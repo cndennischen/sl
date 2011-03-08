@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   before_filter :get_sketch, :only => [:save_sketch, :rename_sketch, :delete_sketch, :export_sketch]
 
   def index
+    @sketches = Sketch.search(params[:search])
   end
 
   def signin
