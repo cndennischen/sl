@@ -1,5 +1,5 @@
 <% title @sketch.name %>
-<%= javascript_include_tag 'editor' %>
+<%= include_javascripts :editor %>
 <%= validates_sketch_names('rename') %>
 <script type="text/javascript">
 function rename() {
