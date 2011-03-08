@@ -1,10 +1,12 @@
 class HelpController < ApplicationController
   def index
-    @faqs = Faq.search(params[:search])
   end
   
   def kb
     @name = params[:article]
+    if @name == 'faq'
+      @faqs = Faq.search(params[:search])
+    end
     begin
       render @name, :layout => true
     rescue ActionView::MissingTemplate

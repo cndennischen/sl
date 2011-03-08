@@ -1,0 +1,29 @@
+<% title @name.capitalize %>
+<h1><%= @title %></h1>
+<script type="text/javascript">
+$(init);
+function init() {
+  //expand FAQ answers on click
+  $(".question").click(function() {
+    $(this).next().toggle("slow");
+    return false;
+  }).next().hide();
+}
+</script>
+<p>Click a question to expand the answer</p>
+<div id="faq">
+<!-- Search Form for paid users -->
+<%= form_tag "/help/faq", :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<!-- loop through the FAQ's and display them -->
+<% if @faqs.count < 1 %>
+  <p>No items match your search</p>
+<% end %>
+<% @faqs.each do |q| %>
+  <%= faq q.question, q.answer %>
+<% end %>
+</div>
