@@ -12,7 +12,7 @@ function init() {
 <h2>FAQ</h2>
 <p>Click a question to expand the answer</p>
 <div id="faq">
-<!-- Search Form -->
+<!-- Search Form for paid users -->
 <%= form_tag help_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>

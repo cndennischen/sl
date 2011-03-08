@@ -15,8 +15,9 @@ function destroy(id) {
     <div id="ad">
       Upgrade to the paid plan to:
       <ul>
-        <li>Have multiple sketches</li>
-        <li>Remove footer from exported sketches</li>
+        <li><%= link_to raw("Have <i>unlimited</i> sketches"), "/help/quotas" %></li>
+        <li><%= link_to "Remove footer from exported sketches", "/help/sketch%20footer" %></li>
+        <li><%= link_to "Easily find your sketches", "/help/searching" %></li>
         <li>And much more!</li>
       </ul>
       <%= link_to "Upgrade now!", account_path %>
@@ -24,10 +25,12 @@ function destroy(id) {
   <% end %>
   <div id="sketches">
   <fieldset><legend>Your Sketches</legend>
-  <!-- Search Form -->
-  <%= form_tag root_url, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+  <!-- Search Form for paid users -->
+  <% if current_user.plan != 'free' %>
+    <%= form_tag root_url, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
   <% end %>
   <% if @sketches.length > 0 %>
     <table>
