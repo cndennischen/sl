@@ -1,6 +1,6 @@
 class HelpController < ApplicationController
   def index
-    @faqs = Faq.all
+    @faqs = Faq.search(params[:search])
   end
   
   def kb
