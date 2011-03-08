@@ -18,5 +18,9 @@
   "5": {
     "q": "How can I help improve Sketch Lab",
     "a": "Thank you for your interest in Sketch Lab! Please see the <a href='/contributing'>Contributing</a> page for instructions."
+  },
+  "6": {
+    "q": "Can I download my sketches",
+    "a": "You can download your sketches as PDF documents or as PNG or JPEG images. See <a href='/help/exporting'>this tutorial</a> for more information."
   }
 }

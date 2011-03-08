@@ -6,16 +6,17 @@ SketchLab::Application.routes.draw do
   match "/signout" => "sessions#destroy", :as => :signout
   match "/signin" => "home#signin"
   match "/account" => "home#account"
-  match "/account/update" => "home#update_account", :as => "update_account", :via => :post
+  post "/account/update" => "home#update_account", :as => "update_account"
   match "/account/delete" => "home#delete_account", :as => "delete_account"
-  match "/account/destroy" => "home#destroy_account", :as => "destroy_account", :via => :post
-  match "/new" => "home#new_sketch", :via => :post
+  post "/account/destroy" => "home#destroy_account", :as => "destroy_account"
+  post "/new" => "home#new_sketch"
   match "/edit/:sketchID" => "home#editor", :constraints => { :sketchID => /\d+/ }
-  match "/save" => "home#save_sketch", :via => :post, :constraints => { :id => /\d+/ }
-  match "/rename" => "home#rename_sketch", :via => :post, :constraints => { :id => /\d+/ }
-  match "/delete" => "home#delete_sketch", :via => :post, :constraints => { :id => /\d+/ }
+  post "/save" => "home#save_sketch", :constraints => { :id => /\d+/ }
+  post "/rename" => "home#rename_sketch", :constraints => { :id => /\d+/ }
+  post "/delete" => "home#delete_sketch", :constraints => { :id => /\d+/ }
   match "/export/:id/:format" => "home#export_sketch", :constraints => { :id => /\d+/ }
   match "/help" => "help#index"
+  match "/help/:article" => "help#kb"
   match "/contributing" => "home#contributing"
   # The priority is based upon order of creation:
   # first created -> highest priority.
