@@ -1,3 +1,5 @@
+embed_assets: on
+
 javascripts:
   defaults:
     - public/javascripts/jquery.js
