@@ -40,6 +40,7 @@ GEM
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    closure-compiler (1.0.0)
     daemons (1.0.10)
     devise (1.1.7)
       bcrypt-ruby (~> 2.1.2)
@@ -57,6 +58,9 @@ GEM
     httpadapter (0.2.1)
       addressable (~> 2.2.0)
     i18n (0.5.0)
+    jammit (0.6.0)
+      closure-compiler (>= 0.1.0)
+      yui-compressor (>= 0.9.1)
     json (1.5.1)
     mail (2.2.15)
       activesupport (>= 2.3.6)
@@ -151,6 +155,7 @@ GEM
     tzinfo (0.3.24)
     warden (1.0.3)
       rack (>= 1.0.0)
+    yui-compressor (0.9.4)
 
 PLATFORMS
   ruby
@@ -158,6 +163,7 @@ PLATFORMS
 DEPENDENCIES
   devise
   hoptoad_notifier
+  jammit
   json
   mongrel (= 1.2.0.pre2)
   nifty-generators
