@@ -41,3 +41,4 @@ gem 'signet', :require => 'signet/oauth_1/client'
 gem 'devise' # Devise must be required before RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'jammit', :require => 'jammit'
+gem "ruby-debug19", :group => :development

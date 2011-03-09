@@ -22,8 +22,17 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
   <%= include_stylesheets :all, :media => "all" %>
   <%= hoptoad_javascript_notifier %>
   <%= include_javascripts :defaults %>
+  <% if @canvas %>
+    <%= include_javascripts :canvas %>
+    <style type="text/css">
+    html {
+      overflow: auto;
+    }
+    </style>
+  <% end %>  
   <%= csrf_meta_tag %>
 </head>
+<% if !@canvas %>
 <body class="background">
   <div id="header">
     <div id="title">
@@ -80,4 +89,9 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 </script>
 <!-- end UserVoice tab widget -->
 </body>
+<% else %>
+  <body>
+  <%= yield %>
+  </body>
+<% end %>
 </html>

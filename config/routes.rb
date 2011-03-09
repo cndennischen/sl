@@ -11,6 +11,7 @@ SketchLab::Application.routes.draw do
   post "/account/destroy" => "home#destroy_account", :as => "destroy_account"
   post "/new" => "home#new_sketch"
   match "/edit/:sketchID" => "home#editor", :constraints => { :sketchID => /\d+/ }
+  match "/canvas" => "home#canvas"
   post "/save" => "home#save_sketch", :constraints => { :id => /\d+/ }
   post "/rename" => "home#rename_sketch", :constraints => { :id => /\d+/ }
   post "/delete" => "home#delete_sketch", :constraints => { :id => /\d+/ }

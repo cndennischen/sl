@@ -67,6 +67,10 @@ class HomeController < ApplicationController
   def editor
     @sketch = current_user.sketches.find(params[:sketchID])
   end
+  
+  def canvas
+    @canvas = true # so the layout can know that it's the canvas
+  end
 
   def new_sketch
     if allow_new

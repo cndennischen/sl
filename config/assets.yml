@@ -8,8 +8,12 @@ javascripts:
     - public/javascripts/application.js
   editor:
     - public/javascripts/editor.js
+  canvas:
+    - public/javascripts/jquery.contextmenu.js
+    - public/javascripts/jquery.rotate.js
+    - public/javascripts/colorpicker.js
+    - public/javascripts/canvas.js
 
 stylesheets:
   all:
     - public/stylesheets/*.css
-

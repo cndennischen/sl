@@ -273,10 +273,20 @@ function save(name) {
       url: "/save",
       type: "POST",
       data: ({ id: id, data: JSON.stringify(getData()) }),
-      success: function() {
-        parent.saved();
+      beforeSend: function(xhr) {
+        //set the CSRF Token for Ajax requests
+        xhr.setRequestHeader('X-authenticity_token', $('meta[name="csrf-token"]').attr('content'));
+      },
+      success: function(data) {
+        //make sure we weren't redirected
+        if (data == ' ') {
+          parent.saved();
+        } else {
+          parent.saveFailed();
+        }
       },
       error: function() {
+        //ajax request failed
         parent.saveFailed();
       }
   });
