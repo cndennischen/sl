@@ -4,12 +4,36 @@ $(init);
 
 function init() {
   //set up toolbox events
-  $("#clearBtn").button({ icons: {primary: "ui-icon-trash"} }).click(clear);
-  $("#addBtn").button({ icons: {primary: "ui-icon-plusthick"} }).click(add);
-  $("#undoBtn").button({ icons: {primary: "ui-icon-arrowreturnthick-1-w"} }).click(undo);
-  $("#redoBtn").button({ icons: {primary: "ui-icon-arrowreturnthick-1-e"} }).click(redo);
-  $("#pasteBtn").button({ icons: {primary: "ui-icon-clipboard"} }).click(paste);
-  $("#renameBtn").button({ icons: {primary: "ui-icon-pencil"} }).click(openRenameDialog);
+  $("#clearBtn").button({
+    icons: {
+      primary: "ui-icon-trash"
+    }
+  }).click(clear);
+  $("#addBtn").button({
+    icons: {
+      primary: "ui-icon-plusthick"
+    }
+  }).click(add);
+  $("#undoBtn").button({
+    icons: {
+      primary: "ui-icon-arrowreturnthick-1-w"
+    }
+  }).click(undo);
+  $("#redoBtn").button({
+    icons: {
+      primary: "ui-icon-arrowreturnthick-1-e"
+    }
+  }).click(redo);
+  $("#pasteBtn").button({
+    icons: {
+      primary: "ui-icon-clipboard"
+    }
+  }).click(paste);
+  $("#renameBtn").button({
+    icons: {
+      primary: "ui-icon-pencil"
+    }
+  }).click(openRenameDialog);
   //set up rename dialog
   $("#renameDialog").dialog({
     autoOpen: false,
@@ -22,7 +46,7 @@ function clear() {
   frames["canvasFrame"].action();
   //clear the canvas
   frames["canvasFrame"].clear();
-	frames["canvasFrame"].save();
+  frames["canvasFrame"].save();
 }
 
 function add() {
@@ -36,7 +60,7 @@ function add() {
   }
   frames["canvasFrame"].add(type, text, "");
   frames["canvasFrame"].init();
-	frames["canvasFrame"].save();
+  frames["canvasFrame"].save();
 }
 
 function undo() {
