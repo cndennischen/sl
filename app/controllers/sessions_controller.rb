@@ -7,8 +7,13 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to signin_url, :notice => "Signed out!"
+    # only log out if a user is already logged in
+    if !current_user
+      redirect_to root_url
+    else
+      session[:user_id] = nil
+      redirect_to signin_url, :notice => "Signed out!"
+    end
   end
 
   def auth_error

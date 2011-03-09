@@ -7,24 +7,38 @@ class HomeController < ApplicationController
   end
 
   def signin
+    # go back home if user is already logged in
+    if current_user
+      redirect_to root_url
+    end
   end
 
   def contributing
   end
 
   def account
+    # declare instance variables
     @name = current_user.name
     @email = current_user.email
     @plan = current_user.plan
   end
   
   def update_account
-    current_user.name = params[:name]
-    if current_user.save
-      redirect_to account_path, :notice => "Account updated!"
+    # make sure the user specified a name
+    if !params[:name]
+      flash[:error] = "Please specify a name"
     else
-      redirect_to account_path, :error => "An error occured while trying to update your account. Please try again in a few minutes."
+      # update the user's name
+      current_user.name = params[:name]
+      # attempt to save the user
+      if current_user.save
+        flash[:notice] = "Account updated!"
+      else
+        flash[:error] = "An error occured while trying to update your account. Please try again in a few minutes."
+      end
     end
+    # go back to the account page
+    redirect_to account_path
   end
 
   def delete_account
@@ -108,14 +122,10 @@ class HomeController < ApplicationController
   # Before filters
 
   def require_login
-    unless logged_in?
+    unless current_user
       flash[:notice] = 'Please sign in to access that page'
       redirect_to signin_url
     end
-  end
-
-  def logged_in?
-    !!current_user
   end
 
   def get_sketch
