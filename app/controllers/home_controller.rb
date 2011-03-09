@@ -25,7 +25,7 @@ class HomeController < ApplicationController
   
   def update_account
     # make sure the user specified a name
-    if !params[:name]
+    if params[:name].blank?
       flash[:error] = "Please specify a name"
     else
       # update the user's name
