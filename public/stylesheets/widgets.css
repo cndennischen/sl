@@ -4,6 +4,12 @@
     font-size: 14px !important;
   }
 }
+/* for webkit browsers */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .widget {
+    font-size: 14px !important;
+  }
+}
 /* jQuery UI buttons */
 button {
   font-size: 14px !important;
