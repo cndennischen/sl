@@ -16,10 +16,14 @@
     "a": "You can cancel your account by going to the <a href='/account'>account</a> page and clicking \"Delete Account\". If you are on the paid plan, you will need to downgrade to the free plan first."
   },
   "5": {
+    "q": "What browsers do you support",
+    "a": "We currently support Mozilla Firefox 3.5+ and Google Chrome."
+  },
+  "6": {
     "q": "How can I help improve Sketch Lab",
     "a": "Thank you for your interest in Sketch Lab! Please see the <a href='/contributing'>Contributing</a> page for instructions."
   },
-  "6": {
+  "7": {
     "q": "Can I download my sketches",
     "a": "You can download your sketches as PDF documents or as PNG or JPEG images. See <a href='/help/exporting'>this tutorial</a> for more information."
   }
