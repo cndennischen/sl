@@ -18,27 +18,28 @@ gem 'rails'
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
-gem 'sqlite3-ruby', :require => 'sqlite3'
+# gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+group :development, :test do
+  gem 'nifty-generators'
+  # use mongrel because webrick has trouble with the long openid urls
+  gem 'mongrel', '1.2.0.pre2'
+  gem "ruby-debug19"
+  # use sqlite for development and testing, but MySQL for production
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
 
+gem 'rmagick', :require => 'RMagick'
 gem 'omniauth'
-gem 'nifty-generators', :group => :development
-# use mongrel because webrick has trouble with the long openid urls
-gem 'mongrel', '1.2.0.pre2', :group => :development
 gem 'hoptoad_notifier'
 gem 'pdfkit'
-gem 'rmagick', :require => 'RMagick'
 gem 'json'
 gem 'rack-rewrite'
 gem 'signet', :require => 'signet/oauth_1/client'
-gem 'devise' # Devise must be required before RailsAdmin
+gem 'devise' # Devise is needed for RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'jammit', :require => 'jammit'
-gem "ruby-debug19", :group => :development
