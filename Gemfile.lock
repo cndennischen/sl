@@ -53,7 +53,7 @@ GEM
     faraday (0.5.7)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
-      rack (>= 1.1.0, < 2)
+      rack (< 2, >= 1.1.0)
     gem_plugin (0.2.3)
     hoptoad_notifier (2.4.6)
       activesupport
@@ -194,7 +194,6 @@ DEPENDENCIES
   rails
   rails_admin!
   rmagick
-  rmagick-win32
   ruby-debug19
   signet
   sqlite3-ruby

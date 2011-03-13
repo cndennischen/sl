@@ -25,16 +25,18 @@ gem 'rails'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-  gem 'nifty-generators'
   # use mongrel because webrick has trouble with the long openid urls
   gem 'mongrel', '1.2.0.pre2'
-  gem "ruby-debug19"
   # use sqlite for development and testing, but MySQL for production
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
-gem 'rmagick', :require => 'RMagick', :platforms => :ruby
-gem 'rmagick-win32', :require => 'RMagick', :platforms => :mswin
+group :development do
+  gem 'nifty-generators', :group => :development
+  gem 'ruby-debug19', :group => :development
+end
+
+gem 'rmagick', :require => 'RMagick'
 gem 'omniauth'
 gem 'hoptoad_notifier'
 gem 'pdfkit'
