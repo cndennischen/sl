@@ -33,7 +33,8 @@ group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
-gem 'rmagick', :require => 'RMagick'
+gem 'rmagick', :require => 'RMagick', :platforms => :ruby
+gem 'rmagick-win32', :require => 'RMagick', :platforms => :mswin
 gem 'omniauth'
 gem 'hoptoad_notifier'
 gem 'pdfkit'
