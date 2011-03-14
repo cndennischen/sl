@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/jnicklas/capybara.git
+  revision: 6f2e8c547b6d27678eefc407976ef7296bec4627
+  specs:
+    capybara (0.4.1.1)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (>= 0.0.27)
+      xpath (~> 0.1.3)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: d07a2e42c4579151f2b9ddfaa06e7230038d0860
   specs:
@@ -42,18 +54,27 @@ GEM
     bcrypt-ruby (2.1.4)
     bcrypt-ruby (2.1.4-x86-mingw32)
     builder (2.1.2)
+    childprocess (0.1.7)
+      ffi (~> 0.6.3)
     closure-compiler (1.0.0)
     columnize (0.3.2)
+    configuration (1.2.0)
     daemons (1.0.10)
+    database_cleaner (0.6.5)
     devise (1.1.7)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
+    diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faraday (0.5.7)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
       rack (< 2, >= 1.1.0)
+    ffi (0.6.3)
+      rake (>= 0.8.7)
+    ffi (0.6.3-x86-mingw32)
+      rake (>= 0.8.7)
     gem_plugin (0.2.3)
     hoptoad_notifier (2.4.6)
       activesupport
@@ -66,6 +87,10 @@ GEM
       yui-compressor (>= 0.9.1)
     json (1.5.1)
     json (1.5.1-x86-mingw32)
+    json_pure (1.5.1)
+    launchy (0.4.0)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
     mail (2.2.15)
@@ -147,6 +172,19 @@ GEM
     rest-client (1.6.1)
       mime-types (>= 1.16)
     rmagick (2.13.1)
+    rspec (2.5.0)
+      rspec-core (~> 2.5.0)
+      rspec-expectations (~> 2.5.0)
+      rspec-mocks (~> 2.5.0)
+    rspec-core (2.5.1)
+    rspec-expectations (2.5.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.5.0)
+    rspec-rails (2.5.0)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      railties (~> 3.0)
+      rspec (~> 2.5.0)
     ruby-debug-base19 (0.11.24)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -161,6 +199,12 @@ GEM
     ruby_core_source (0.1.4)
       archive-tar-minitar (>= 0.5.2)
     rubyntlm (0.1.1)
+    rubyzip (0.9.4)
+    selenium-webdriver (0.1.3)
+      childprocess (~> 0.1.5)
+      ffi (~> 0.6.3)
+      json_pure
+      rubyzip
     signet (0.2.0)
       addressable (~> 2.2.1)
       httpadapter (~> 0.2.0)
@@ -175,6 +219,8 @@ GEM
     tzinfo (0.3.24)
     warden (1.0.3)
       rack (>= 1.0.0)
+    xpath (0.1.3)
+      nokogiri (~> 1.3)
     yui-compressor (0.9.4)
 
 PLATFORMS
@@ -182,10 +228,13 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  capybara!
+  database_cleaner
   devise
   hoptoad_notifier
   jammit
   json
+  launchy
   mongrel (= 1.2.0.pre2)
   nifty-generators
   omniauth
@@ -194,6 +243,7 @@ DEPENDENCIES
   rails
   rails_admin!
   rmagick
+  rspec-rails
   ruby-debug19
   signet
   sqlite3-ruby
