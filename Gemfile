@@ -27,9 +27,7 @@ gem 'rails'
 group :development, :test do
   # use mongrel because webrick has trouble with the long openid urls
   gem 'mongrel', '1.2.0.pre2'
-  # use sqlite for development and testing, but MySQL for production
-  gem 'sqlite3-ruby', :require => 'sqlite3'
-  # for testing
+  # for tests
   gem 'rspec-rails'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
   gem 'launchy'
