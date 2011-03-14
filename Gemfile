@@ -29,6 +29,11 @@ group :development, :test do
   gem 'mongrel', '1.2.0.pre2'
   # use sqlite for development and testing, but MySQL for production
   gem 'sqlite3-ruby', :require => 'sqlite3'
+  # for testing
+  gem 'rspec-rails'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'launchy'
+  gem 'database_cleaner'
 end
 
 group :development do
