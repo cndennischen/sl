@@ -1,6 +1,6 @@
 class Sketch < ActiveRecord::Base
   belongs_to :user
-  validates_presence_of :name
+  validates_presence_of :name, :user_id
   validates_length_of :name, :maximum => 25
   
   def self.search(search)
