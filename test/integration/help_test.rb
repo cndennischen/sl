@@ -13,7 +13,6 @@ class HelpTest < ActionDispatch::IntegrationTest
   
   test "should list faqs" do
     get '/help/faq'
-    # TODO: Make sure faqs are listed
-    assert_response :success
+    assert_contains '#faq'
   end
 end
