@@ -3,6 +3,7 @@
 
 # make sure the app config file is present
 if !File.exists?('config/app_config.yml')
+  require 'fileutils'
   FileUtils.cp('../app_config.yml', 'config/')
 end
 
