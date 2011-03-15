@@ -11,8 +11,8 @@ class HelpTest < ActionDispatch::IntegrationTest
     assert_response 404
   end
   
-  test "should list faqs" do
+  test "should get faqs" do
     get '/help/faq'
-    assert_contains '#faq'
+    assert_response :success
   end
 end
