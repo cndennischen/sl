@@ -4,7 +4,7 @@
 .screenshot img {
   border: 1px solid #021a40;
 }
-.question, #faq p, h1, h2 {
+.question, .answer, h1, h2 {
   margin: 0.25em 0;
   display: block;
 }

@@ -15,4 +15,12 @@ class HelpTest < ActionDispatch::IntegrationTest
     get '/help/faq'
     assert_response :success
   end
+  
+  test "should search faqs" do
+    get '/help/faq?search=download'
+    assert_select 'a.question', 'Can I download my sketches?'
+    assert_select 'p.answer', 'You can download your sketches as PDF documents or as PNG or JPEG images. See this tutorial for more information.'
+    # make sure the search term is in the search box
+    assert_select '#search[value="download"]'
+  end
 end
