@@ -1,5 +1,6 @@
 class Faq < ActiveRecord::Base
   validates_presence_of :question, :answer
+  validates_uniqueness_of :question, :answer
   
   def self.search(search)
     if search

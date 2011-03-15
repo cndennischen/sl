@@ -3,8 +3,8 @@ SketchLab::Application.routes.draw do
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#auth_error"
-  match "/signout" => "sessions#destroy", :as => :signout
-  match "/signin" => "home#signin"
+  match "/signout" => "sessions#destroy", :as => 'signout'
+  match "/signin" => "home#signin", :as => 'signin'
   match "/account" => "home#account"
   post "/account/update" => "home#update_account", :as => "update_account"
   match "/account/delete" => "home#delete_account", :as => "delete_account"

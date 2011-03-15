@@ -27,6 +27,8 @@ gem 'sqlite3', :require => 'sqlite3'
 group :development, :test do
   # use mongrel because webrick has trouble with the long openid urls
   gem 'mongrel', '1.2.0.pre2'
+  # for tests
+  gem 'factory_girl_rails'
 end
 
 group :development do
