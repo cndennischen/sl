@@ -10,6 +10,9 @@ class HelpController < ApplicationController
     if @name == 'index'
       return redirect_to help_path
     end
+    if @name
+      @help_article = true
+    end
     begin
       render @name, :layout => true
     rescue ActionView::MissingTemplate

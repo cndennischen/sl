@@ -56,6 +56,9 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
       <!-- tell the user to enable JavaScript -->
       <%= content_tag :div, "Please enable JavaScript in your browser. Sketch Lab will not perform correctly without it.", :id => "flash_error" %>
     </noscript>
+    <% if @help_article %>
+      <%= link_to "Back to help", help_path %>
+    <% end %>
     <%= yield %>
   </div>
   <div id="footer">

@@ -174,7 +174,6 @@ GEM
     ruby_core_source (0.1.4)
       archive-tar-minitar (>= 0.5.2)
     rubyntlm (0.1.1)
-    selenium-client (1.2.18)
     signet (0.2.1)
       addressable (~> 2.2.1)
       httpadapter (~> 1.0.0)
@@ -209,6 +208,5 @@ DEPENDENCIES
   rails_admin!
   rmagick
   ruby-debug19
-  selenium-client
   signet
   sqlite3
