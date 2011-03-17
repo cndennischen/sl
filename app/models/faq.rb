@@ -4,7 +4,7 @@ class Faq < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('question LIKE ?', "%#{search}%")
+      where({:question.matches => "%#{search}%"} | {:answer.matches => "%#{search}%"})
     else
       scoped
     end
