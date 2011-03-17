@@ -29,7 +29,6 @@ group :development, :test do
   gem 'mongrel', '1.2.0.pre2'
   # for tests
   gem 'factory_girl_rails'
-  gem "selenium-client", :require => "selenium/client"
 end
 
 group :development do
