@@ -11,6 +11,11 @@ class HomeController < ApplicationController
     if current_user
       redirect_to root_url
     end
+    
+    respond_to do |format|
+      format.html
+      format.mobile { redirect_to root_url }
+    end
   end
 
   def contributing
