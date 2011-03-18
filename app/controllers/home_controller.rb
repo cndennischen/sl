@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     end
     
     respond_to do |format|
-      format.html
+      format.html
       format.mobile { redirect_to root_url }
     end
   end
