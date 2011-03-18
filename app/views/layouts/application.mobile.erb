@@ -1,25 +1,34 @@
-<html> 
+<!DOCTYPE html> 
 	<head> 
   <title>Sketch Lab - <%= @title || "User interface sketching tool" %></title>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+  <%= include_stylesheets :mobile %>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+  <%= include_javascripts :mobile %>
   <%= csrf_meta_tag %>
 </head> 
 <body> 
 
-<div data-role="page">
+<div data-role="page" data-theme="a">
 
 	<div data-role="header">
     <h1><%= @title || "Sketch Lab" %></h1>
 	</div><!-- /header -->
 
-	<div data-role="content">	
-    <p><%= yield %></p>		
+	<div data-role="content">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <noscript>
+      <!-- tell the user to enable JavaScript -->
+      <div id="flash_error">Please enable JavaScript in your browser. Sketch Lab will not perform correctly without it.</div>
+    </p>
+    <noscript><%= yield %></p>
 	</div><!-- /content -->
 
 	<div data-role="footer">
-    <h4>&copy; 2011 Heigh Tech LLC</h4>
+    <h4 style="font-size:small">&copy; 2011 Heigh Tech LLC</h4>
 	</div><!-- /footer -->
 </div><!-- /page -->
 

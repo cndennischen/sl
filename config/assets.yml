@@ -13,7 +13,11 @@ javascripts:
     - public/javascripts/jquery.rotate.js
     - public/javascripts/colorpicker.js
     - public/javascripts/canvas.js
+  mobile:
+    - public/javascripts/mobile/*.js
 
 stylesheets:
   all:
     - public/stylesheets/*.css
+  mobile:
+    - public/stylesheets/mobile/*.css
