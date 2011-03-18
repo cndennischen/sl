@@ -22,9 +22,13 @@
     <% end %>
     <noscript>
       <!-- tell the user to enable JavaScript -->
-      <div id="flash_error">Please enable JavaScript in your browser. Sketch Lab will not perform correctly without it.</div>
-    </p>
-    <noscript><%= yield %></p>
+      <div id="flash_error">Please enable JavaScript in your browser. Sketch Lab will not perform correctly without it.</div
+    </noscript>
+    <% if @help_article %>
+      <%= link_to "Back to help", help_path %>
+    <% end %>
+
+    <%= yield %>
 	</div><!-- /content -->
 
 	<div data-role="footer">
