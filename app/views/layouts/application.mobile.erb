@@ -1,0 +1,27 @@
+<html> 
+	<head> 
+  <title>Sketch Lab - <%= @title || "User interface sketching tool" %></title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+  <%= csrf_meta_tag %>
+</head> 
+<body> 
+
+<div data-role="page">
+
+	<div data-role="header">
+    <h1><%= @title || "Sketch Lab" %></h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+    <p><%= yield %></p>		
+	</div><!-- /content -->
+
+	<div data-role="footer">
+    <h4>&copy; 2011 Heigh Tech LLC</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>

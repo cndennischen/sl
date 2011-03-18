@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :allow_new
+  helper_method :mobile_device?
+
+  before_filter :prepare_for_mobile
 
   private
 
@@ -28,6 +31,19 @@ class ApplicationController < ActionController::Base
     else
       return true
     end
+  end
+
+  def mobile_device?
+    if session[:mobile_param]
+      session[:mobile_param] == "1"
+    else
+      request.user_agent =~ /Mobile|webOS/
+    end
+  end
+
+  def prepare_for_mobile
+    session[:mobile_param] = params[:mobile] if params[:mobile]
+    request.format = :mobile if mobile_device?
   end
 
 end
