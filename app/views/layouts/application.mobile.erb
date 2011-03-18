@@ -16,7 +16,7 @@
     <h1><%= @title || "Sketch Lab" %></h1>
 	</div><!-- /header -->
 
-	<div data-role="content">
+  <div data-role="content">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
