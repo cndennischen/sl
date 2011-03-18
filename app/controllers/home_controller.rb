@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     respond_to do |format|
       format.html
       format.mobile { redirect_to root_url }
-    end
+    end
   end
 
   def contributing
