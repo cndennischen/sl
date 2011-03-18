@@ -1,4 +1,8 @@
+<% if current_user %>
+<h2>Welcome <%= current_user.name %></h2>
+<% else %>
 <p>You need to sign in or sign up to edit sketches. With Sketch Lab, signing up
 and signing in is as easy as linking your Google account. Click the button below
 to get started.</p>
 <a href="/auth/google" rel="external" data-role="button">Sign in / Sign Up</a>
+<% end %>
