@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
+  rescue_from ActionView::MissingTemplate, :with => :not_found
 
   helper_method :current_user
   helper_method :allow_new
