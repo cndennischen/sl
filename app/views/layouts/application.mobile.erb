@@ -14,11 +14,7 @@
 
 	<div data-role="header">
     <h1><%= @title || "Sketch Lab" %></h1>
-    <% if current_user %>
-      <a href="/signout" class="ui-btn-right" data-direction="reverse" rel="external">Sign Out</a>
-    <% else %>
-      <a href="/auth/google" class="ui-btn-right" data-direction="reverse" rel="external">Sign In</a>
-    <% end %>
+    <a href="#account" class="ui-btn-right" data-direction="reverse">Account</a>
 	</div><!-- /header -->
 
   <div data-role="content">
