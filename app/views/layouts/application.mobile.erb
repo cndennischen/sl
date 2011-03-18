@@ -14,7 +14,7 @@
 
 	<div data-role="header">
     <h1><%= @title || "Sketch Lab" %></h1>
-    <a href="#account" class="ui-btn-right" data-direction="reverse">Account</a>
+    <a href="/" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 	</div><!-- /header -->
 
   <div data-role="content">
@@ -32,7 +32,15 @@
     <%= yield %>
 	</div><!-- /content -->
 
-	<div data-role="footer">
+  <div data-role="footer">
+    <div data-inline="true" style="text-align:center">
+      <% if current_user %>
+        <a href="/account" rel="external">Account</a>
+        <a href="/signout" rel="external">Sign Out</a>
+      <% else %>
+      <% link_to("Sign In", "/auth/google", :html => { :rel => "external" }) unless current_page? root_url %>
+      <% end %>
+    </div>
     <h4 style="font-size:small">&copy; 2011 Heigh Tech LLC</h4>
 	</div><!-- /footer -->
 </div><!-- /page -->
