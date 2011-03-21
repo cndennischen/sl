@@ -63,5 +63,22 @@ function destroy(id) {
   <% end %>
   </fieldset>
 <% else %>
+  <% content_for :css do %>
+    <style type="text/css">
+    h1 {
+      font-size: x-large;
+      text-align: center;
+      color: blue;
+    }
+    h2 {
+      font-size: large;
+      text-align: center;
+      color: green;
+    }
+    p {
+      text-align: justify;
+    }
+    </style>
+  <% end %>
   <%= render :file => "#{Rails.root}/public/info.html" %>
 <% end %>
