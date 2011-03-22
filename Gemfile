@@ -15,7 +15,6 @@ end
 group :development do
   gem 'nifty-generators', :group => :development
   gem 'ruby-debug19', :group => :development
-  gem 'jammit', :require => 'jammit'
 end
 
 gem 'rmagick', :require => 'RMagick'
@@ -27,4 +26,5 @@ gem 'rack-rewrite'
 gem 'signet', :require => 'signet/oauth_1/client'
 gem 'devise' # Devise is needed for RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'jammit', :require => 'jammit'
 gem "meta_where"
