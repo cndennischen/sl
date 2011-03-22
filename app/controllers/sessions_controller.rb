@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Signed Up!"
     end
     session[:user_id] = user.id
+    # go back to home page
     redirect_to root_url
   end
 
