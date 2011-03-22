@@ -23,33 +23,7 @@ function destroy(id) {
       <%= link_to "Upgrade now!", account_path %>
     </div>
   <% end %>
-  <div id="sketches">
-  <fieldset><legend>Your Sketches</legend>
-  <!-- Search Form for paid users -->
-  <% if current_user.plan != 'free' %>
-    <%= form_tag root_url, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", :name => nil %>
-    <% end %>
-  <% end %>
-  <% if @sketches.length > 0 %>
-    <table>
-      <% @sketches.each do |sketch| %>
-        <tr>
-          <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
-          <td>(<%= link_to_function "Delete", "destroy(#{sketch.id})" %>)</td>
-        </tr>
-      <% end %>
-    </table>
-  <% else %>
-    <% if current_user.sketches.count == 0 %>
-      <b>No Sketches! Create a new one below to get started.</b>
-    <% else %>
-      No items match your search.
-    <% end %>
-  <% end %>
-  </fieldset>
-  </div>
+  <%= render 'list' %>
   <fieldset>
   <legend>New Sketch</legend>
   <% if allow_new %>
