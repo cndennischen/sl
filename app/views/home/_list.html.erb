@@ -1,6 +1,6 @@
 <div id="sketches">
-  <fieldset><legend>Your Sketches</legend>
-  <!-- Search Form for paid users -->
+<fieldset><legend>Your Sketches</legend>
+<!-- Search Form for paid users -->
 <% if current_user.plan != 'free' %>
   <%= form_tag root_url, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
@@ -8,14 +8,14 @@
   <% end %>
 <% end %>
 <% if @sketches.length > 0 %>
-  <table>
-    <% @sketches.each do |sketch| %>
-      <tr>
-        <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
-        <td>(<%= link_to_function "Delete", "destroy(#{sketch.id})" %>)</td>
-      </tr>
-    <% end %>
-  </table>
+<table>
+  <% @sketches.each do |sketch| %>
+    <tr>
+      <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
+      <td>(<%= link_to_function "Delete", "destroy(#{sketch.id})" %>)</td>
+    </tr>
+  <% end %>
+</table>
 <% else %>
   <% if current_user.sketches.count == 0 %>
     <b>No Sketches! Create a new one below to get started.</b>
