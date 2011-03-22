@@ -8,4 +8,6 @@ if Faq.table_exists?
   JSON.parse(File.read("#{Rails.root}/config/faq.json")).each do |key, value|
     Faq.create(:question => value['q'], :answer => value['a'])
   end
+else
+  puts "Warning: Faq table doesn't exist!"
 end
