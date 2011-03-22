@@ -1,9 +1,9 @@
 <% title "Account" %>
 <%= form_tag(update_account_path) do %>
-  <b><%= label_tag :name %></b>
+  <%= label_tag :name, "Name:" %>
   <%= text_field_tag :name, @name %>
   <br />
-  <b>Email:</b> <%= @email %>
+  Email: <%= @email %>
   <br />
   <%= submit_tag "Update" %>
 <% end %>

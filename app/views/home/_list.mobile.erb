@@ -1,0 +1,11 @@
+<div id="sketches">
+  <% if @sketches.length > 0 %>
+    <ul id="sketchList" data-role="listview">
+      <% @sketches.each do |sketch| %>
+        <li><%= link_to sketch.name, "/edit/#{sketch.id}" %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <b>No Sketches! Go to the <%= link_to 'desktop version', root_url(:mobile => 0) %> to create a new one.</b>
+  <% end %>
+</div>

@@ -1,3 +1,7 @@
+$(document).bind("mobileinit", function(){
+  $.mobile.ajaxEnabled = false;
+});
+
 $(init);
 
 function init() {

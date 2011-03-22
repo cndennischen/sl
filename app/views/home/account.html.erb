@@ -3,7 +3,7 @@
 <fieldset>
   <legend>Information</legend>
   <%= form_tag(update_account_path) do %>
-    <b><%= label_tag :name %></b>
+    <b><%= label_tag :name, "Name:" %></b>
     <%= text_field_tag :name, @name %>
     <br />
     <b>Email:</b> <%= @email %>

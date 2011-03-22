@@ -1,10 +1,10 @@
 <% if current_user %>
-<h2>Welcome <%= current_user.name %></h2>
+  <%= render 'list' %>
 <% else %>
-<p>You need to sign in or sign up to edit sketches. With Sketch Lab, signing up
-and signing in is as easy as linking your Google account. Click the button below
-to get started.
-<%= link_to "Click Here", "TODO: URL to screencast on Youtube", :html => { :rel => "external" } %>
-to learn more about Sketch Lab.</p>
-<a href="/auth/google" rel="external" data-role="button">Sign in / Sign Up</a>
+  <p>You need to sign in or sign up to edit sketches. With Sketch Lab, signing up
+  and signing in is as easy as linking your Google account. Click the button below
+  to get started.
+  <%= link_to "Click Here", "TODO: URL to screencast on Youtube" %>
+  to learn more about Sketch Lab.</p>
+  <a href="/auth/google" data-role="button">Sign in / Sign Up</a>
 <% end %>
