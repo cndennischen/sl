@@ -7,6 +7,11 @@ if !File.exists?('config/app_config.yml')
   FileUtils.cp('../app_config.yml', 'config/')
 end
 
+if !File.exists?('config/initializers/secret_token.rb')
+  require 'fileutils'
+  FileUtils.cp('../secret_token.rb', 'config/initializers/')
+end
+
 APP_PATH = File.expand_path('../../config/application',  __FILE__)
 require File.expand_path('../../config/boot',  __FILE__)
 require 'rails/commands'
