@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: c5e380f351050a2790c5abb606a6e6c52155f47d
+  revision: 48b67c2d2493bfa7ac08aaab8667101261379eb2
   specs:
     rails_admin (0.0.2)
       builder (~> 2.1.0)
@@ -59,7 +59,7 @@ GEM
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
     gem_plugin (0.2.3)
-    hoptoad_notifier (2.4.7)
+    hoptoad_notifier (2.4.8)
       activesupport
       builder
     httpadapter (1.0.0)
