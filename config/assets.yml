@@ -16,7 +16,7 @@ javascripts:
   mobile:
     - public/javascripts/mobile/*.js
   mobilecanvas:
-    - public/stylesheets/mobile/canvas/canvas.js
+    - public/javascripts/mobile/canvas/canvas.js
 
 stylesheets:
   all:
