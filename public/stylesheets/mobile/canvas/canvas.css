@@ -1,7 +1,6 @@
 #canvas {
 	overflow: auto;
 	height: 200px;
-	resize: both;
 	position: relative;
 	zoom: 50%;
 }
