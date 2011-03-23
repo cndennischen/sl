@@ -7,6 +7,5 @@
 }
 .widget {
   cursor: auto !important;
-  color: black;
-  background-color: blue;
+  border-color: blue;
 }
