@@ -7,9 +7,9 @@
     <%= submit_tag "Search", :name => nil %>
   <% end %>
 <% end %>
-<% if @sketches.length > 0 %>
+<% if sketches.length > 0 %>
   <table>
-    <% @sketches.each do |sketch| %>
+    <% sketches.each do |sketch| %>
       <tr>
         <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
         <td>(<%= link_to_function "Delete", "destroy(#{sketch.id})" %>)</td>

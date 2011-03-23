@@ -23,7 +23,7 @@ function destroy(id) {
       <%= link_to "Upgrade now!", account_path %>
     </div>
   <% end %>
-  <%= render 'list' %>
+  <%= render 'list', :locals => { :sketches => @sketches } %>
   <fieldset>
   <legend>New Sketch</legend>
   <% if allow_new %>

@@ -1,5 +1,5 @@
 <% if current_user %>
-  <%= render 'list' %>
+  <%= render 'list', :locals => { :sketches => @sketches } %>
 <% else %>
   <p>You need to sign in or sign up to edit sketches. With Sketch Lab, signing up
   and signing in is as easy as linking your Google account. Click the button below
