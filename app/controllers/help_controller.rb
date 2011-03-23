@@ -1,7 +1,7 @@
 class HelpController < ApplicationController
   def index
   end
-  
+
   def kb
     @name = params[:article]
     if @name == 'faq'

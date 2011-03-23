@@ -35,7 +35,7 @@ class HomeController < ApplicationController
     @email = current_user.email
     @plan = current_user.plan
   end
-  
+
   def update_account
     # make sure the user specified a name
     if params[:name].blank?
@@ -80,7 +80,7 @@ class HomeController < ApplicationController
   def editor
     @sketch = current_user.sketches.find(params[:sketchID])
   end
-  
+
   def canvas
     @canvas = true # so the layout can know that it's the canvas
   end

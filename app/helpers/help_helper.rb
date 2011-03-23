@@ -5,7 +5,7 @@ module HelpHelper
     html += '<p class="answer">' + a + '</p>'
     html.html_safe
   end
-  
+
   def screenshot(num)
     # generates html code for a screenshot
     path = "/images/screenshots/#{num}.png"
