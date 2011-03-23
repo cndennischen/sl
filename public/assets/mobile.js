@@ -1,1 +1,1 @@
-$(document).bind("mobileinit",function(){$.extend($.mobile,{ajaxEnabled:false})});$(init);function init(){setTimeout(function(){$("#flash_notice, #flash_error, #flash_alert").fadeOut(2000)},2000)};
+$(document).bind("mobileinit",function(){$.mobile.ajaxEnabled=false});$(init);function init(){setTimeout(function(){$("#flash_notice, #flash_error, #flash_alert").fadeOut(2000)},2000)};
