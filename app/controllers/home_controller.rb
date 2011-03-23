@@ -79,6 +79,7 @@ class HomeController < ApplicationController
 
   def editor
     @sketch = current_user.sketches.find(params[:sketchID])
+    @title = @sketch.name
   end
 
   def canvas

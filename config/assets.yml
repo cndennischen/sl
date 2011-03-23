@@ -15,9 +15,14 @@ javascripts:
     - public/javascripts/canvas.js
   mobile:
     - public/javascripts/mobile/*.js
+  mobilecanvas:
+    - public/stylesheets/mobile/canvas/canvas.js
 
 stylesheets:
   all:
     - public/stylesheets/*.css
   mobile:
     - public/stylesheets/mobile/*.css
+  mobilecanvas:
+    - public/stylesheets/mobile/canvas/canvas.css
+    - public/stylesheets/widgets.css
