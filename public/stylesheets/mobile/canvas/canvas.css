@@ -3,6 +3,7 @@
 	height: 200px;
 	resize: both;
 	position: relative;
+	zoom: 50%;
 }
 .widget {
   cursor: auto !important;
