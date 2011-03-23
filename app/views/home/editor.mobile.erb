@@ -1,3 +1,6 @@
 <%= include_stylesheets :mobilecanvas, :media => "all" %>
 <%= include_javascripts :mobilecanvas %>
+<script type="text/javascript">
+localStorage["data"] = '<%= @sketch.content.html_safe %>';
+</script>
 <div id="canvas"></div>

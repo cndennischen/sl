@@ -1,3 +1,10 @@
 #canvas {
 	overflow: auto;
+	height: 200px;
+	resize: both;
+	position: relative;
+}
+.widget {
+  cursor: auto !important;
+  color: black;
 }
