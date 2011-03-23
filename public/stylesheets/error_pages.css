@@ -1,0 +1,20 @@
+body {
+	background-color: #fff;
+	color: #666;
+	text-align: center;
+	font-family: arial, sans-serif;
+}
+div.dialog {
+  max-width: 25em;
+  min-width: 15em;
+  padding: 0 2em;
+  margin: 2em auto 0 auto;
+  border: 1px solid #ccc;
+  border-right-color: #999;
+  border-bottom-color: #999;
+}
+h1 {
+	font-size: 100%;
+	color: #f00;
+	line-height: 1.5em;
+}
