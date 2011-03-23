@@ -60,6 +60,8 @@ function load() {
         //check what type of widget it is
         if ($(globalWidget).hasClass("checkbox") || $(globalWidget).hasClass("radio")) {
           //checkbox / radio btn
+          
+          //checked?
           if ($("#checked").attr("checked") == true) {
             $(globalWidget).children(".text").text("✓");
           } else {
@@ -67,22 +69,39 @@ function load() {
           }
         } else {
           //other widgets
+          
+          // text
           $(globalWidget).children(".text").text($("#widgetTxt").val());
-          //style
+          
+          //bold
           if ($("#bold").attr("checked") == true) {
             $(globalWidget).css("font-weight", "bold");
           } else {
             $(globalWidget).css("font-weight", "");
           }
+          //italic
           if ($("#italic").attr("checked") == true) {
             $(globalWidget).css("font-style", "italic");
           } else {
             $(globalWidget).css("font-style", "");
           }
+          //underline
           if ($("#underline").attr("checked") == true) {
             $(globalWidget).css("text-decoration", "underline");
           } else {
             $(globalWidget).css("text-decoration", "");
+          }
+          
+          //font size
+          newSize = $("#fontsize").val();
+          //check if newSize is blank
+          if (newSize != "") {
+          	//make sure newSize is a valid integer value
+	          if (!newSize.match(/^\d+$/)) {
+	          	alert("Please enter a valid number.");
+	          } else {
+	          	$(globalWidget).css("font-size", newSize + "px");
+	          }
           }
         }
         //colors
@@ -124,20 +143,23 @@ function load() {
 
 function editWidget(widget) {
   //check what type of widget it is
+  var checkWidgets = "#checked, #checkedLbl";
+  var otherWidgets = "#widgetTxt, #widgetTxtLbl, #bold, #boldLbl, #italic, #italicLbl, #underline, #underlineLbl, #fontsize, #fontsizeLbl";
   if ($(widget).hasClass("checkbox") || $(widget).hasClass("radio")) {
     //checkbox / radio btn
-    $("#widgetTxt, #widgetTxtLbl, #bold, #boldLbl, #italic, #italicLbl, #underline, #underlineLbl").hide();
-    $("#checked, #checkedLbl").show();
+    $(otherWidgets).hide();
+    $(checkWidgets).show();
     $("#checked").attr("checked", ($(widget).children(".text").text() == "✓"));
   } else {
     //other widgets
-    $("#widgetTxt, #widgetTxtLbl, #bold, #boldLbl, #italic, #italicLbl, #underline, #underlineLbl").show();
+    $(otherWidgets).show();
     $("#widgetTxt").val($(widget).children(".text").text());
-    $("#checked, #checkedLbl").hide();
+    $(checkWidgets).hide();
     //style
     $("#bold").attr("checked", ($(widget).css("font-weight") == 700 || $(widget).css("font-weight") == "bold"));
     $("#italic").attr("checked", ($(widget).css("font-style") == "italic"));
     $("#underline").attr("checked", ($(widget).css("text-decoration") == "underline"));
+    $("#fontsize").val($(widget).css("font-size").replace(/px|pt|em|%/, ""));
   }
   //colors
   $("#forecolor").val(rgbToHex($(widget).css("color")));
