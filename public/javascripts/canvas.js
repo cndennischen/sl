@@ -139,7 +139,7 @@ function load() {
   });
   //click ok when the user presses Enter
   $('.ui-dialog').live('keyup', function(e){
-	  if (e.keyCode == 13) {
+	  if (e.which == 13) {
 	    $(':button:contains("OK")').click();
 	  }
 	});
