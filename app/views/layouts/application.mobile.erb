@@ -21,7 +21,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
   <%= include_stylesheets :mobile %>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
   <%= include_javascripts :mobile %>
-	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+
   <%= csrf_meta_tag %>
 </head> 
 <body> 
@@ -30,7 +31,10 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 
 	<div data-role="header">
     <h1><%= @title || "Sketch Lab" %></h1>
+    <!-- home button -->
     <a href="/" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    <!-- back button -->
+    <a href="#" class="ui-btn-left" data-icon="back" data-direction="reverse" id="backBtn">Back</a>
 	</div><!-- /header -->
 
   <div data-role="content">
