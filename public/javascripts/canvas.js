@@ -52,7 +52,7 @@ function load() {
     autoOpen: false,
     modal: true,
     width: 400,
-    height: 240,
+    height: 270,
     title: "Edit Widget",
     buttons: {
       "OK": function () {
