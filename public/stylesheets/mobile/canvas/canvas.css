@@ -2,7 +2,6 @@
 	overflow: auto;
 	height: 400px;
 	position: relative;
-	zoom: 50%;
 }
 .widget {
   cursor: auto !important;
