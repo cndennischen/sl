@@ -137,6 +137,13 @@ function load() {
       $(this).ColorPickerSetColor(this.value);
     }
   });
+  //click ok when the user presses Enter
+  $('.ui-dialog').live('keyup', function(e){
+	  if (e.keyCode == 13) {
+	    $(':button:contains("OK")').click();
+	  }
+	});
+  
   //load the saved state from localStorage
   setData(JSON.parse(localStorage["data"]));
   //clear the undo and redo stacks
