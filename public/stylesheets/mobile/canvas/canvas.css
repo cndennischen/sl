@@ -1,5 +1,5 @@
 #canvas {
-	overflow: auto;
+	overflow: scroll;
 	height: 400px;
 	position: relative;
 }
