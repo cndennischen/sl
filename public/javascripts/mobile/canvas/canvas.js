@@ -9,7 +9,9 @@ function init () {
 	$("#reduceHBtn").click(reduceCanvasH);
 	$("#increaseWBtn").click(increaseCanvasW);
 	$("#reduceWBtn").click(reduceCanvasW);
-	$("#resetSizeBtn").click(resetCanvasSize);
+	$("#resetCanvasBtn").click(resetCanvas);
+	$("#zoomInBtn").click(zoomIn);
+	$("#zoomOutBtn").click(zoomOut);
 	//get the original canvas size
 	originalWidth = $("#canvas").width();
 	originalHeigh = $("#canvas").height();
@@ -44,7 +46,20 @@ function reduceCanvasW() {
 	$("#canvas").width($("#canvas").width() - 10);
 }
 
-function resetCanvasSize() {
+function zoomIn() {
+	if (parseFloat($("#canvas").css("zoom")) < 4) {
+		$("#canvas").css("zoom", parseFloat($("#canvas").css("zoom")) + 0.25);
+	}
+}
+
+function zoomOut() {
+	if (parseFloat($("#canvas").css("zoom")) > 0.25) {
+		$("#canvas").css("zoom", parseFloat($("#canvas").css("zoom")) - 0.25);
+	}
+}
+
+function resetCanvas() {
 	$("#canvas").width(originalWidth);
 	$("#canvas").height(originalHeigh);
+	$("#canvas").css("zoom", "100%");
 }
