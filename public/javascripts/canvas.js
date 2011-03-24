@@ -103,6 +103,9 @@ function load() {
 	          	$(globalWidget).css("font-size", newSize + "px");
 	          }
           }
+          
+          //text alignment
+          $(globalWidget).css("text-align", $("#textalign").val());
         }
         //colors
         $(globalWidget).css("color", $("#forecolor").val());
@@ -144,7 +147,7 @@ function load() {
 function editWidget(widget) {
   //check what type of widget it is
   var checkWidgets = "#checked, #checkedLbl";
-  var otherWidgets = "#widgetTxt, #widgetTxtLbl, #bold, #boldLbl, #italic, #italicLbl, #underline, #underlineLbl, #fontsize, #fontsizeLbl";
+  var otherWidgets = "#widgetTxt, #widgetTxtLbl, #bold, #boldLbl, #italic, #italicLbl, #underline, #underlineLbl, #fontsize, #fontsizeLbl, #textalign, #textalignLbl";
   if ($(widget).hasClass("checkbox") || $(widget).hasClass("radio")) {
     //checkbox / radio btn
     $(otherWidgets).hide();
@@ -160,6 +163,7 @@ function editWidget(widget) {
     $("#italic").attr("checked", ($(widget).css("font-style") == "italic"));
     $("#underline").attr("checked", ($(widget).css("text-decoration") == "underline"));
     $("#fontsize").val($(widget).css("font-size").replace(/px|pt|em|%/, ""));
+    $("#textalign").val($(widget).css("text-align"));
   }
   //colors
   $("#forecolor").val(rgbToHex($(widget).css("color")));
