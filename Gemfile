@@ -13,8 +13,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'nifty-generators', :group => :development
-  gem 'ruby-debug19', :group => :development
+  gem 'nifty-generators'
+  gem 'ruby-debug19'
 end
 
 gem 'rmagick', :require => 'RMagick'
