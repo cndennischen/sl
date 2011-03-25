@@ -13,10 +13,12 @@ javascripts:
     - public/javascripts/jquery.rotate.js
     - public/javascripts/colorpicker.js
     - public/javascripts/canvas.js
+    - public/javascripts/percent_to_px.js
   mobile:
     - public/javascripts/mobile/*.js
   mobilecanvas:
     - public/javascripts/mobile/canvas/canvas.js
+    - public/javascripts/percent_to_px.js
 
 stylesheets:
   all:

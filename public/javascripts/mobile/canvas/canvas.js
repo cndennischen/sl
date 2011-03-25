@@ -17,6 +17,7 @@ function init () {
 	originalHeigh = $("#canvas").height();
 	//load the saved state from localStorage
   setData(JSON.parse(localStorage["data"]));
+  percentToPx();
 }
 
 function add(className, text, style) {
