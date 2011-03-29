@@ -3,6 +3,10 @@ var clipboard = new Object();
 $(init);
 
 function init() {
+  //save before closing
+  window.onbeforeunload = function() {
+    frames["canvasFrame"].save(true);
+  }
   //set up toolbox events
   $("#clearBtn").button({
     icons: {
