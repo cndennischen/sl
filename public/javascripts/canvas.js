@@ -23,10 +23,7 @@ function init() { /* -- set up widgets and event handlers -- */
     minWidth: 20,
     grid: 10,
     start: action,
-    stop: save,
-    resize: function() {
-    	percentToPx(this);
-    }
+    stop: save
   }).contextMenu("contextMenu", {
     bindings: {
       "edit": editWidget,
@@ -45,9 +42,6 @@ function init() { /* -- set up widgets and event handlers -- */
 
   //not resizable
   $(".label, .link, .menu, .checkbox, .radio").resizable("destroy");
-
-	//convert the percent values to pixels
-	percentToPx();
 
   //z-index
   order();
@@ -150,7 +144,7 @@ function load() {
 	    $(':button:contains("OK")').click();
 	  }
 	});
-
+  
   //load the saved state from localStorage
   setData(JSON.parse(localStorage["data"]));
   //clear the undo and redo stacks
