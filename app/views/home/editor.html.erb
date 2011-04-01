@@ -51,5 +51,5 @@ localStorage["data"] = '<%= @sketch.content.html_safe %>';
   </iframe>
 </div>
 <footer id="export">
-  Download as: <%= link_to_function "PDF", "export(#{@sketch.id}, 'pdf')" %>, <%= link_to_function "PNG", "export(#{@sketch.id}, 'png')" %>, <%= link_to_function "JPEG", "export(#{@sketch.id}, 'jpg')" %>
+  Download as: <%= link_to_function "PDF", "exportSketch(#{@sketch.id}, 'pdf')" %>, <%= link_to_function "PNG", "exportSketch(#{@sketch.id}, 'png')" %>, <%= link_to_function "JPEG", "exportSketch(#{@sketch.id}, 'jpg')" %>
 </footer>

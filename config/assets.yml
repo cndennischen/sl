@@ -1,4 +1,5 @@
 gzip_assets: off
+javascript_compressor: closure
 
 javascripts:
   defaults:
