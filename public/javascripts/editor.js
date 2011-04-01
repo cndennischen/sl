@@ -1,8 +1,9 @@
 var clipboard = new Object();
 
-$(load);
+$(document).ready(init);
 
-function load() {
+
+function init() {
   //save before closing
   window.onbeforeunload = function() {
     frames["canvasFrame"].save(true);
