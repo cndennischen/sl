@@ -1,14 +1,18 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 48b67c2d2493bfa7ac08aaab8667101261379eb2
+  revision: 64d6b8655d26373945755b91627e83d797c74ac0
   specs:
-    rails_admin (0.0.2)
+    rails_admin (0.0.1)
       builder (~> 2.1.0)
-      rails (~> 3.0.3)
+      rails (~> 3.0.5)
 
 GEM
   remote: http://rubygems.org/
   specs:
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
     abstract (1.0.0)
     actionmailer (3.0.5)
       actionpack (= 3.0.5)
@@ -45,9 +49,10 @@ GEM
     closure-compiler (1.1.1)
     columnize (0.3.2)
     daemons (1.0.10)
-    devise (1.1.8)
+    devise (1.2.1)
       bcrypt-ruby (~> 2.1.2)
-      warden (~> 1.0.2)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     factory_girl (1.3.3)
@@ -59,7 +64,7 @@ GEM
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
     gem_plugin (0.2.3)
-    hoptoad_notifier (2.4.8)
+    hoptoad_notifier (2.4.9)
       activesupport
       builder
     httpadapter (1.0.0)
@@ -90,8 +95,8 @@ GEM
     multi_json (0.0.5)
     multipart-post (1.1.0)
     net-ldap (0.1.1)
-    newrelic_rpm (2.13.4)
-    nifty-generators (0.4.5)
+    newrelic_rpm (2.14.1)
+    nifty-generators (0.4.6)
     nokogiri (1.4.4)
     nokogiri (1.4.4-x86-mingw32)
     oa-basic (0.2.0)
@@ -132,6 +137,8 @@ GEM
       oa-more (= 0.2.0)
       oa-oauth (= 0.2.0)
       oa-openid (= 0.2.0)
+    open4 (1.0.1)
+    orm_adapter (0.0.4)
     pdfkit (0.5.0)
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.2)
@@ -187,7 +194,8 @@ GEM
     tzinfo (0.3.25)
     warden (1.0.3)
       rack (>= 1.0.0)
-    yui-compressor (0.9.4)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
