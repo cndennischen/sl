@@ -1,6 +1,7 @@
 var undoStack = [];
 var redoStack = [];
 var unsavedCount = 0;
+var timeout = null;
 
 $(document).ready(load);
 
@@ -306,51 +307,60 @@ function redo() {
   save();
 }
 
-function save(leaving) {
+function save(leaving, force) {
   if (leaving != true) {
     leaving = false;
   }
+  if (force != true) {
+    force = false;
+  }
+  if (leaving == true) {
+    force = true;
+  }
   //increment the unsaved count
-  if (!leaving) {
+  if (!force) {
     unsavedCount++;
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout("save(false, true)", 2500);
+    return;
   }
 
-  //only save if the unsaved count is 5 or more
-  if (unsavedCount >= 5 || (leaving == true && unsavedCount >= 1)) {
-    //get the id of the sketch from the url
-    id = parent.document.location.href.split("/").pop();
-    //save the current state
-    $.ajax({
-      url: "/save",
-      type: "POST",
-      async: !leaving,
-      data: ({
-        id: id,
-        data: JSON.stringify(getData())
-      }),
-      beforeSend: function (xhr) {
-        //set the CSRF Token for Ajax requests
-        xhr.setRequestHeader('X-authenticity_token', $('meta[name="csrf-token"]').attr('content'));
-      },
-      success: function (data) {
-        if (!leaving) {
-          //make sure we weren't redirected
-          if (data == ' ') {
-            parent.saved();
-            unsavedCount = 0;
-          } else {
-            parent.saveFailed();
-          }
-        }
-      },
-      error: function () {
-        if (!leaving) {
-          //ajax request failed
-          parent.saveFailed();
-        }
-      }
-    });
+  //only save if the unsaved count is 1 or more
+  if (unsavedCount < 1) {
+    return;
   }
+
+  //get the id of the sketch from the url
+  id = parent.document.location.href.split("/").pop();
+  //save the current state
+  $.ajax({
+    url: "/save",
+    type: "POST",
+    async: !leaving,
+    data: ({
+      id: id,
+      data: JSON.stringify(getData())
+    }),
+    beforeSend: function (xhr) {
+      //set the CSRF Token for Ajax requests
+      xhr.setRequestHeader('X-authenticity_token', $('meta[name="csrf-token"]').attr('content'));
+    },
+    success: function (data) {
+      //make sure we weren't redirected
+      if (data == ' ') {
+        parent.saved();
+        unsavedCount = 0;
+      } else {
+        parent.saveFailed();
+      }
+    },
+    error: function () {
+      //ajax request failed
+      parent.saveFailed();
+    }
+  });
 }
 
 function getData() {
