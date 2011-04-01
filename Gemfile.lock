@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/documentcloud/jammit.git
+  revision: caf1c68d15c5c428b4134d22a117eb03d60286b5
+  specs:
+    jammit (0.6.0)
+      yui-compressor (>= 0.9.3)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: 64d6b8655d26373945755b91627e83d797c74ac0
   specs:
@@ -46,7 +53,6 @@ GEM
     bcrypt-ruby (2.1.4)
     bcrypt-ruby (2.1.4-x86-mingw32)
     builder (2.1.2)
-    closure-compiler (1.1.1)
     columnize (0.3.2)
     daemons (1.0.10)
     devise (1.2.1)
@@ -70,9 +76,6 @@ GEM
     httpadapter (1.0.0)
       addressable (~> 2.2.0)
     i18n (0.5.0)
-    jammit (0.6.0)
-      closure-compiler (>= 0.1.0)
-      yui-compressor (>= 0.9.1)
     json (1.5.1)
     json (1.5.1-x86-mingw32)
     linecache19 (0.5.11)
@@ -205,7 +208,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   hoptoad_notifier
-  jammit
+  jammit!
   json
   meta_where
   mongrel (= 1.2.0.pre2)
