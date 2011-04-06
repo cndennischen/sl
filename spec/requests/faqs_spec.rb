@@ -1,27 +1,25 @@
 require 'spec_helper'
 
-describe "Faqs" do
-  describe 'GET /faqs' do
-    it 'display faqs', :js => true do
-      faq = Factory(:faq)
-      visit '/help/faq'
-      page.should have_content(faq.question)
-      click_link faq.question
-      page.should have_content(faq.answer)
-    end
+describe 'Faqs' do
+  it 'display faqs', :js => true do
+    faq = Factory(:faq)
+    visit '/help/faq'
+    page.should have_content(faq.question)
+    click_link faq.question
+    page.should have_content(faq.answer)
+  end
 
-    it 'search faqs', :js => true do
-      visit '/help/faq'
-      faq1 = Factory(:faq)
-      faq2 = Factory(:faq)
-      visit '/help/faq'
-      # search for question
-      search(faq2.question)
-      verify_search(faq1, faq2)
-      # search for answer
-      search(faq2.answer)
-      verify_search(faq1, faq2)
-    end
+  it 'search faqs', :js => true do
+    visit '/help/faq'
+    faq1 = Factory(:faq)
+    faq2 = Factory(:faq)
+    visit '/help/faq'
+    # search for question
+    search(faq2.question)
+    verify_search(faq1, faq2)
+    # search for answer
+    search(faq2.answer)
+    verify_search(faq1, faq2)
   end
 end
 
