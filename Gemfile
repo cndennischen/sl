@@ -10,6 +10,12 @@ group :development, :test do
   gem 'mongrel', '1.2.0.pre2'
   # for tests
   gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'autotest'
+  gem 'autotest-rails'
 end
 
 group :development do
@@ -29,4 +35,4 @@ gem 'signet', :require => 'signet/oauth_1/client'
 gem 'devise' # Devise is needed for RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'jammit', :require => 'jammit'
-gem "meta_where"
+gem 'meta_where'
