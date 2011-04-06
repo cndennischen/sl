@@ -1,10 +1,10 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 43272e0c749925a5f0d4791de7824afed0bd5cde
+  revision: 3549083a99c9b72d94dc08bed533f553db56fdb3
   specs:
     rails_admin (0.0.1)
       builder (~> 2.1.0)
-      rails (~> 3.0.5)
+      rails (~> 3.0.6)
 
 GEM
   remote: http://rubygems.org/
@@ -46,6 +46,8 @@ GEM
     bcrypt-ruby (2.1.4)
     bcrypt-ruby (2.1.4-x86-mingw32)
     builder (2.1.2)
+    bullet (2.0.1)
+      uniform_notifier (~> 1.0.0)
     closure-compiler (1.1.1)
     columnize (0.3.2)
     daemons (1.0.10)
@@ -62,7 +64,7 @@ GEM
     faraday (0.6.0)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
-      rack (>= 1.1.0, < 2)
+      rack (< 2, >= 1.1.0)
     gem_plugin (0.2.3)
     hoptoad_notifier (2.4.9)
       activesupport
@@ -88,6 +90,8 @@ GEM
     mime-types (1.16)
     mongrel (1.2.0.pre2)
       daemons (~> 1.0.10)
+      gem_plugin (~> 0.2.3)
+    mongrel (1.2.0.pre2-x86-mingw32)
       gem_plugin (~> 0.2.3)
     multi_json (0.0.5)
     multipart-post (1.1.0)
@@ -189,6 +193,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.26)
+    uniform_notifier (1.0.1)
     warden (1.0.3)
       rack (>= 1.0.0)
     yui-compressor (0.9.6)
@@ -199,13 +204,14 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bullet
   devise
   factory_girl_rails
   hoptoad_notifier
   jammit
   json
   meta_where
-  mongrel
+  mongrel (= 1.2.0.pre2)
   newrelic_rpm
   nifty-generators
   omniauth

@@ -7,7 +7,7 @@ gem 'sqlite3', :require => 'sqlite3'
 
 group :development, :test do
   # use mongrel because webrick has trouble with the long openid urls
-  gem 'mongrel'
+  gem 'mongrel', '1.2.0.pre2'
   # for tests
   gem 'factory_girl_rails'
 end
@@ -15,6 +15,7 @@ end
 group :development do
   gem 'nifty-generators'
   gem 'ruby-debug19'
+  gem 'bullet'
 end
 
 gem 'rmagick', :require => 'RMagick'
