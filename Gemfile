@@ -7,7 +7,7 @@ gem 'sqlite3', :require => 'sqlite3'
 
 group :development, :test do
   # use mongrel because webrick has trouble with the long openid urls
-  gem 'mongrel', '1.2.0.pre2'
+  gem 'mongrel'
   # for tests
   gem 'factory_girl_rails'
 end
@@ -27,5 +27,5 @@ gem 'rack-rewrite'
 gem 'signet', :require => 'signet/oauth_1/client'
 gem 'devise' # Devise is needed for RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-gem 'jammit', :git => "git://github.com/documentcloud/jammit.git", :require => 'jammit'
+gem 'jammit', :require => 'jammit'
 gem "meta_where"
