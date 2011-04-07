@@ -72,8 +72,7 @@ class HomeController < ApplicationController
       end
       redirect_to root_url
     else
-      flash[:notice] = "Please check the confirmation check box"
-      redirect_to delete_account_path
+      redirect_to delete_account_path, :notice => 'Please check the confirmation check box'
     end
   end
 
@@ -92,32 +91,27 @@ class HomeController < ApplicationController
         @sketch = current_user.sketches.create!(:name => params[:name], :content => "{}")
         redirect_to "/edit/#{@sketch.id}"
       rescue
-        flash[:error] = "Error creating sketch: #{$!}"
-        redirect_to root_url
+        redirect_to root_url, :error => "Error creating sketch: #{$!}"
       end
     else
-      flash[:error] = "You cannot have more than one sketch on the free plan. Upgrade to the paid plan to have multiple sketches."
-      redirect_to root_url
+      redirect_to root_url, :error => 'You cannot have more than one sketch on the free plan. Upgrade to the paid plan to have unlimited sketches.'
     end
   end
 
   def save_sketch
     # set the content of the sketch
-    @sketch.content = params[:data]#.gsub(/'/, "\\\\'")
-    @sketch.save
+    @sketch.update_attributes(:content => params[:data])
     render :nothing => true
   end
 
   def rename_sketch
-    @sketch.name = params[:name]
-    @sketch.save
+    @sketch.update_attributes(:name => params[:name])
     redirect_to "/edit/#{@sketch.id}"
   end
 
   def delete_sketch
     @sketch.destroy
-    flash[:notice] = "Sketch deleted!"
-    redirect_to root_url
+    redirect_to root_url, :notice => 'Sketch deleted!'
   end
 
   def export_sketch
@@ -141,8 +135,7 @@ class HomeController < ApplicationController
 
   def require_login
     unless current_user
-      flash[:notice] = 'Please sign in to access that page'
-      redirect_to signin_url
+      redirect_to signin_url, :notice => 'Please sign in to access that page'
     end
   end
 
