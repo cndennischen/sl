@@ -1,15 +1,14 @@
 require 'spec_helper'
 
 describe 'Faqs' do
-  it 'display faqs', :js => true do
+  it 'display faqs' do
     faq = Factory(:faq)
     visit '/help/faq'
     page.should have_content(faq.question)
-    click_link faq.question
     page.should have_content(faq.answer)
   end
 
-  it 'search faqs', :js => true do
+  it 'search faqs' do
     visit '/help/faq'
     faq1 = Factory(:faq)
     faq2 = Factory(:faq)
@@ -30,6 +29,5 @@ end
 
 def verify_search(faq1, faq2)
   page.should have_content(faq2.question)
-  click_link faq2.question
   page.should have_content(faq2.answer)
 end
