@@ -94,7 +94,8 @@ class HomeController < ApplicationController
         redirect_to root_url, :error => "Error creating sketch: #{$!}"
       end
     else
-      redirect_to root_url, :error => 'You cannot have more than one sketch on the free plan. Upgrade to the paid plan to have unlimited sketches.'
+      flash[:error] = 'You cannot have more than one sketch on the free plan. Upgrade to the paid plan to have unlimited sketches.'
+      redirect_to root_url
     end
   end
 
