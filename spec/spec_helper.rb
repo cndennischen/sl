@@ -38,3 +38,18 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+# set up OmniAuth test mode
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:google] = {
+  'provider' => 'google',
+  'uid' => 'test_uid',
+  'user_info' => {
+    'name' => 'test_name',
+    'email' => 'test_email@example.com'
+  }
+}
+
+def signin
+  visit '/auth/google'
+end
