@@ -21,7 +21,6 @@ end
 group :development do
   gem 'nifty-generators'
   gem 'ruby-debug19'
-  gem 'bullet'
 end
 
 gem 'rmagick', :require => 'RMagick'
