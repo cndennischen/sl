@@ -3,22 +3,22 @@ SketchLab::Application.routes.draw do
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#auth_error"
-  match "/signout" => "sessions#destroy", :as => 'signout'
-  match "/signin" => "home#signin", :as => 'signin'
-  match "/account" => "home#account"
+  get "/signout" => "sessions#destroy", :as => 'signout'
+  get "/signin" => "home#signin", :as => 'signin'
+  get "/account" => "home#account"
   post "/account/update" => "home#update_account", :as => "update_account"
-  match "/account/delete" => "home#delete_account", :as => "delete_account"
-  post "/account/destroy" => "home#destroy_account", :as => "destroy_account"
-  post "/new" => "home#new_sketch"
-  match "/edit/:sketchID" => "home#editor", :constraints => { :sketchID => /\d+/ }
-  match "/canvas" => "home#canvas"
-  post "/save" => "home#save_sketch", :constraints => { :id => /\d+/ }
-  post "/rename" => "home#rename_sketch", :constraints => { :id => /\d+/ }
-  post "/delete" => "home#delete_sketch", :constraints => { :id => /\d+/ }
-  match "/export/:id/:format" => "home#export_sketch", :constraints => { :id => /\d+/ }
-  match "/help" => "help#index"
-  match "/help/:article" => "help#kb"
-  match "/contributing" => "home#contributing"
+  get "/account/delete", :as => "delete_account"
+  post "/account/destroy", :as => "destroy_account"
+  post "/new" => "sketch#new"
+  get "/edit/:sketchID" => "sketch#edit", :constraints => { :sketchID => /\d+/ }
+  get "/canvas" => "sketch#canvas"
+  post "/save" => "sketch#save", :constraints => { :id => /\d+/ }
+  post "/rename" => "sketch#rename", :constraints => { :id => /\d+/ }
+  post "/delete" => "sketch#delete", :constraints => { :id => /\d+/ }
+  get "/export/:id/:format" => "sketch#export", :constraints => { :id => /\d+/ }
+  get "/help" => "help#index"
+  get "/help/:article" => "help#kb"
+  get "/contributing" => "home#contributing"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

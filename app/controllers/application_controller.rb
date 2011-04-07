@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   rescue_from ActionView::MissingTemplate, :with => :not_found
 
   helper_method :current_user
-  helper_method :allow_new
   helper_method :mobile_device?
+  helper_method :allow_new
 
   before_filter :prepare_for_mobile
 
@@ -13,6 +13,14 @@ class ApplicationController < ActionController::Base
 
   def not_found
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => nil
+  end
+
+  def allow_new
+    if current_user.plan == "free" && current_user.sketches.count > 0
+      return false
+    else
+      return true
+    end
   end
 
   def current_user
@@ -23,14 +31,6 @@ class ApplicationController < ActionController::Base
       flash[:error] = "Could not find your user account"
       redirect_to root_url
       return nil
-    end
-  end
-
-  def allow_new
-    if current_user.plan == "free" && current_user.sketches.count > 0
-      return false
-    else
-      return true
     end
   end
 
