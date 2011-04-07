@@ -8,7 +8,7 @@ function rename() {
   $("#renameHiddenForm").append('<input id="id" name="id" type="hidden" value="' + <%= @sketch.id %> + '" />');
   $("#renameHiddenForm").submit();
 }
-localStorage["data"] = '<%= @sketch.content.html_safe %>';
+localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
 </script>
 <div class="toolbox">
   <button title="Remove all widgets from the canvas" id="clearBtn">Clear Canvas</button>
