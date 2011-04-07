@@ -103,7 +103,7 @@ class HomeController < ApplicationController
 
   def save_sketch
     # set the content of the sketch
-    @sketch.content = params[:data].gsub(/'/, "\\\\'")
+    @sketch.content = params[:data]#.gsub(/'/, "\\\\'")
     @sketch.save
     render :nothing => true
   end
