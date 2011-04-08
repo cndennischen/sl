@@ -5,8 +5,8 @@ SketchLab::Application.routes.draw do
   match "/auth/failure" => "sessions#auth_error"
   get "/signout" => "sessions#destroy", :as => 'signout'
   get "/signin" => "home#signin", :as => 'signin'
-  get "/account" => "home#account"
-  post "/account/update" => "home#update_account", :as => "update_account"
+  get "/account" => "account#index"
+  post "/account/update", :as => "update_account"
   get "/account/delete", :as => "delete_account"
   post "/account/destroy", :as => "destroy_account"
   post "/new" => "sketch#new"
