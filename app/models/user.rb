@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
 
   def plan
     # cache the plan
-    @plan ||= accessLevel
+    @plan ||= access_level
   end
 
   private
 
-  def accessLevel
+  def access_level
     if kind.blank?
       # send a request to the Google Chrome Licensing API to check the user's status
       appId  = 'delppejinhhpcmimgfchjkbkpanhjkdj'
