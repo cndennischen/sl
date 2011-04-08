@@ -45,6 +45,22 @@ describe 'Sketches' do
     page.should have_no_content('Test Sketch 2')
   end
 
+  it 'creates multiple sketches on the paid plan' do
+    signin
+    # set the user's plan to paid
+    User.last.update_attributes(:kind => 'paid')
+    fill_in 'name', :with => 'Test Sketch'
+    click_button 'New Sketch'
+    Sketch.count.should == 1
+    click_link 'Sketch Lab'
+    page.should have_content('Test Sketch')
+    fill_in 'name', :with => 'Test Sketch #2'
+    click_button 'New Sketch'
+    Sketch.count.should == 2
+    click_link 'Sketch Lab'
+    page.should have_content('Test Sketch #2')
+  end
+
   it 'edits sketch'
 
   it 'exports sketch as pdf'
