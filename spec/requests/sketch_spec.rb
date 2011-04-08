@@ -44,4 +44,20 @@ describe 'Sketches' do
     page.should have_selector('#flash_error')
     page.should have_no_content('Test Sketch 2')
   end
+
+  it 'edits sketch'
+
+  it 'exports sketch as pdf'
+
+  it 'exports sketch as png'
+
+  it 'exports sketch as jpeg'
+
+  it 'sets title' do
+    signin
+    fill_in 'name', :with => 'Test Sketch'
+    click_button 'New Sketch'
+    Sketch.count.should == 1
+    page.should have_css('head title', :text => 'Sketch Lab - Test Sketch')
+  end
 end
