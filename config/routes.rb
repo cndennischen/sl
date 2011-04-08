@@ -10,7 +10,7 @@ SketchLab::Application.routes.draw do
   get "/account/delete", :as => "delete_account"
   post "/account/destroy", :as => "destroy_account"
   post "/new" => "sketch#new"
-  get "/edit/:sketchID" => "sketch#edit", :constraints => { :sketchID => /\d+/ }
+  get "/edit/:id" => "sketch#edit", :constraints => { :id => /\d+/ }
   get "/canvas" => "sketch#canvas"
   post "/save" => "sketch#save", :constraints => { :id => /\d+/ }
   post "/rename" => "sketch#rename", :constraints => { :id => /\d+/ }

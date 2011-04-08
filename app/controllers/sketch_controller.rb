@@ -1,6 +1,6 @@
 class SketchController < ApplicationController
   before_filter :require_login
-  before_filter :get_sketch, :only => [:save, :rename, :delete, :export]
+  before_filter :get_sketch, :only => [:edit, :save, :rename, :delete, :export]
 
   def new
     if allow_new
@@ -17,8 +17,6 @@ class SketchController < ApplicationController
   end
 
   def edit
-    # TODO: Try using get_sketch before filter
-    @sketch = current_user.sketches.find(params[:sketchID])
     @title = @sketch.name
   end
 
