@@ -1,4 +1,6 @@
 class AccountController < ApplicationController
+  before_filter :require_login
+
   def index
     # declare instance variables
     @name = current_user.name

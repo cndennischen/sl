@@ -61,12 +61,6 @@ class SketchController < ApplicationController
 
   # Before filters
 
-  def require_login
-    unless current_user
-      redirect_to signin_url, :notice => 'Please sign in to access that page'
-    end
-  end
-
   def get_sketch
     @sketch = current_user.sketches.find(params[:id])
   end

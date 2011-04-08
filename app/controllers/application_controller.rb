@@ -47,4 +47,9 @@ class ApplicationController < ActionController::Base
     request.format = :mobile if mobile_device?
   end
 
+  def require_login
+    unless current_user
+      redirect_to signin_url, :notice => 'Please sign in to access that page'
+    end
+  end
 end
