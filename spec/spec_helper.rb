@@ -53,3 +53,10 @@ OmniAuth.config.mock_auth[:google] = {
 def signin
   visit '/auth/google'
 end
+
+def requires_auth(path, post = false)
+  visit path if !post
+  post_via_redirect if post
+  current_path.should == '/signin'
+  page.should have_selector('#flash_notice')
+end

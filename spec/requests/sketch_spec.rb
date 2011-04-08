@@ -1,6 +1,15 @@
 require 'spec_helper'
 
 describe 'Sketches' do
+  it 'requires authentication' do
+    requires_auth '/new', true
+    requires_auth '/edit/1'
+    requires_auth '/canvas'
+    requires_auth '/rename', true
+    requires_auth '/delete', true
+    requires_auth '/export/1/pdf'
+  end
+
   it 'creates sketch' do
     signin
     fill_in 'name', :with => 'Test Sketch'

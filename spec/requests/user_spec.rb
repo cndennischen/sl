@@ -45,4 +45,11 @@ describe 'Users' do
       current_path.should == '/account/delete'
     end
   end
+
+  it 'requires authentication' do
+    requires_auth '/account'
+    requires_auth '/account/update', true
+    requires_auth '/account/delete'
+    requires_auth '/account/destroy', true
+  end
 end
