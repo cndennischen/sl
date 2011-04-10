@@ -63,11 +63,31 @@ describe 'Sketches' do
 
   it 'edits sketch'
 
-  it 'exports sketch as pdf'
+  it 'exports sketch' do
+    signin
+    fill_in 'name', :with => 'Test Sketch'
+    click_button 'New Sketch'
+    Sketch.count.should == 1
 
-  it 'exports sketch as png'
+    click_link 'PDF'
+    # make sure we get a pdf document
+    page.response_headers['Content-Type'].should == "application/octet-stream"
+    page.response_headers['Content-Disposition'].should =~ /sketch.pdf/
 
-  it 'exports sketch as jpeg'
+    # go back to the sketch's edit page
+    visit page.driver.last_request.env['HTTP_REFERER']
+    click_link 'PNG'
+    # make sure we get a png image
+    page.response_headers['Content-Type'].should == "application/octet-stream"
+    page.response_headers['Content-Disposition'].should =~ /sketch.png/
+
+    # go back to the sketch's edit page
+    visit page.driver.last_request.env['HTTP_REFERER']
+    click_link 'JPEG'
+    # make sure we get a jpeg image
+    page.response_headers['Content-Type'].should == "application/octet-stream"
+    page.response_headers['Content-Disposition'].should =~ /sketch.jpg/
+  end
 
   it 'sets title' do
     signin

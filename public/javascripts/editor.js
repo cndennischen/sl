@@ -86,9 +86,9 @@ function openRenameDialog() {
   $("#renameDialog").dialog("open");
 }
 
-function exportSketch(id, format) {
+function exportSketch() {
   frames["canvasFrame"].save(true);
-  window.location = "/export/" + id + "/" + format;
+  return true;
 }
 
 function saved() {
