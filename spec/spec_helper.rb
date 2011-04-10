@@ -55,8 +55,14 @@ def signin
 end
 
 def requires_auth(path, use_post = false)
-  visit path if !use_post
-  post path if use_post
-  current_path.should == '/signin'
-  page.should have_selector('#flash_notice')
+  if use_post
+    # use plain rspec because capybara doesn't support sending post requests
+    post path
+    response.should redirect_to('/signin')
+    flash[:notice].should_not be_nil
+  else
+    visit path
+    current_path.should == '/signin'
+    page.should have_selector('#flash_notice')
+  end  
 end
