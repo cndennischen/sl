@@ -54,9 +54,9 @@ def signin
   visit '/auth/google'
 end
 
-def requires_auth(path, post = false)
-  visit path if !post
-  post path if post
+def requires_auth(path, use_post = false)
+  visit path if !use_post
+  post path if use_post
   current_path.should == '/signin'
   page.should have_selector('#flash_notice')
 end
