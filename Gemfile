@@ -35,3 +35,4 @@ gem 'devise' # Devise is needed for RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'jammit', :require => 'jammit'
 gem 'meta_where'
+gem 'sitemap_generator'

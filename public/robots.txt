@@ -6,3 +6,5 @@
 
 User-Agent: *
 Disallow: /admin
+
+Sitemap: http://www.example.org/sitemap_index.xml.gz
