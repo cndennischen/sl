@@ -11,7 +11,7 @@ group :development, :test do
   # for tests
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git', :ref => '97af9bd1c66fe54d1cb8c65b88518f1695331f5a'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'autotest'
