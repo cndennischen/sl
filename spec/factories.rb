@@ -1,3 +1,5 @@
+# Define factories for creating database records during tests
+
 Factory.define :user do |f|
   f.sequence(:name) { |n| "user_#{n}" }
   f.sequence(:email) { |n| "user.#{n}@example.com" }

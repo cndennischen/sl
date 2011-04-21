@@ -1,6 +1,6 @@
-<% title "Delete Account" %>
-<% if current_user.plan == "paid" %>
-  Please <%= link_to "downgrade", account_path %> to the free plan before deleting your account.
+<% title 'Delete Account' %>
+<% if current_user.plan == 'paid' %>
+  Please <%= link_to 'downgrade', account_path %> to the free plan before deleting your account.
 <% else %>
   <%= form_tag(destroy_account_path) do %>
     <p>Are you sure you want to delete your account?
@@ -8,7 +8,7 @@
     <%= check_box_tag("confirmed") %>
     <%= label_tag(:confirmed, "Yes, I'm sure I want to delete my account.") %>
     <br />
-    <%= submit_tag("Delete Account", :disable_with => "Please Wait...", :style => "color:red") %>
+    <%= submit_tag("Delete Account", :style => "color:red") %>
     or <%= link_to "cancel", account_path %>
   <% end %>
 <% end %>

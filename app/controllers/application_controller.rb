@@ -5,24 +5,25 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :mobile_device?
-  helper_method :allow_new
+  helper_method :allow_new?
 
   before_filter :prepare_for_mobile
 
   private
 
+  # Renders the 404 page
   def not_found
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => nil
   end
 
-  def allow_new
-    if current_user.plan == "free" && current_user.sketches.count > 0
-      return false
-    else
-      return true
-    end
+  # Checks if the current user is allowed to create another sketch.
+  # Returns true if the current user has less than one sketch, or is not on the free plan.
+  # This allows free users to have one sketch and paid users to have unlimited sketches.
+  def allow_new?
+    (current_user.sketches.count < 1) or (current_user.plan != 'free')
   end
 
+  # Retrieves the currently logged in user
   def current_user
     begin
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -34,19 +35,24 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Returns true if the currently displayed site is the mobile version,
+  # and false if it is the desktop version
   def mobile_device?
     if session[:mobile_param]
       session[:mobile_param] == "1"
     else
-      request.user_agent =~ /Mobile|webOS/
+      request.user_agent =~ /Mobile|webOS/ # This Regular Expression can be improved to allow detection of more mobile devices
     end
   end
 
+  # Determines if the site should be displayed in mobile format
   def prepare_for_mobile
     session[:mobile_param] = params[:mobile] if params[:mobile]
     request.format = :mobile if mobile_device?
   end
 
+  # Before filter to keep unauthenticated users from accessing protected or
+  # user-specific pages
   def require_login
     unless current_user
       redirect_to signin_url, :notice => 'Please sign in to access that page'

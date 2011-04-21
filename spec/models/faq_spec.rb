@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Faq do
-  it 'create faq with valid data' do
+  it 'creates faq with valid data' do
     f = Factory.build(:faq)
     assert f.save
   end

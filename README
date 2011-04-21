@@ -1,1 +1,2 @@
 Sketch Lab is a user interface sketching tool. It aims to be simple and easy to use, while at the same time having enough features to design even complex UIs. It is released under the AGPL. See the LICENSE file for details.
+Sketch Lab is meant to run under Ruby 1.9 with Rails 3, and has not been tested on other versions.

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates_presence_of :provider, :uid, :name, :email
   validates_uniqueness_of :uid, :email
 
+  # Creates a user with OmniAuth
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
@@ -13,13 +14,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Returns the user's plan
   def plan
-    # cache the plan
+    # Cache the plan with an instance variable
     @plan ||= access_level
   end
 
   private
 
+  # The behind the scenes logic to get the users plan
   def access_level
     if kind.blank?
       # send a request to the Google Chrome Licensing API to check the user's status
@@ -34,14 +37,14 @@ class User < ActiveRecord::Base
       response = client.fetch_protected_resource(
         :uri => "https://www.googleapis.com/chromewebstore/v1/licenses/#{appId}/#{userId}"
       )
-      # get the accessLevel from the json response
+      # get the accessLevel from the JSON response
       if JSON.parse(response[2][0])["accessLevel"] == "FULL"
-        return 'paid'
+        'paid'
       else
-        return 'free'
+        'free'
       end
     else
-      return kind
+      kind
     end
   end
 

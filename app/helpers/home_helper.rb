@@ -1,6 +1,6 @@
 module HomeHelper
+  # Returns the HTML for the sketch validation errors
   def sketch_name_validation_errors
-    # create the html validation errors
     html = <<HTML
 <div id="nullError" class="validationError">Please enter a name</div>
 <div id="lengthError" class="validationError">Sketch name cannot be more than 25 characters</div>
@@ -8,8 +8,8 @@ HTML
     html.html_safe
   end
 
+  # Returns the JavaScript for the sketch validation errors
   def validates_sketch_names(type = "new")
-    # create js validations for the sketch name
     html = <<HTML
 <script type="text/javascript">
 function validate() {

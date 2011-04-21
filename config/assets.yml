@@ -1,3 +1,6 @@
+# This file contains configuration for Jammit
+# See Jammit's documentation for details
+
 gzip_assets: off
 javascript_compressor: closure
 

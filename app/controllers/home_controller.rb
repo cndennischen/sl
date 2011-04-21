@@ -1,28 +1,27 @@
 class HomeController < ApplicationController
+  # Displays the current users sketches if she is logged in, otherwise
+  # displays information about Sketch Lab
   def index
-    if current_user
-      if !mobile_device?
-        # get the user's sketches, filtered by the search parameter
-        @sketches = current_user.sketches.search(params[:search])
-      else
-        # get all the users sketches
-        @sketches = current_user.sketches
-      end
-    end
+    # Get the current user's sketches, filtered by the search parameter
+    @sketches = current_user.sketches.search(params[:search]) if current_user
   end
 
+  # The sign in page
   def signin
-    respond_to do |format|
-      format.html
-      format.mobile { return redirect_to root_url, :notice => flash[:notice] }
-    end
-
-    # go back home if user is already logged in
+    # Go back home if user is already logged in
     if current_user
       redirect_to root_url
     end
+
+    respond_to do |format|
+      format.html # signin.html.erb
+
+      # On the mobile site, the homepage serves as the signin page
+      format.mobile { redirect_to root_url, :notice => flash[:notice] }
+    end
   end
 
+  # Displays information about how to contribute to the source code
   def contributing
   end
 end

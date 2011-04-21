@@ -1,21 +1,30 @@
 class HelpController < ApplicationController
+  # Lists the help articles
   def index
   end
 
+  # Displays help / knowledge base articles
   def kb
+    # Get the name of the article requested
     @name = params[:article]
+    # For FAQs:
     if @name == 'faq'
       @faqs = Faq.search(params[:search])
     end
+    # For the index
     if @name == 'index'
       return redirect_to help_path
     end
+    # So the layout knows the page is for a help article:
     if @name
       @help_article = true
     end
+
     begin
+      # Render the requested help article
       render @name, :layout => true
     rescue ActionView::MissingTemplate
+      # The requested help article doesn't exist
       not_found
     end
   end

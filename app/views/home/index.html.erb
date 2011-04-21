@@ -26,11 +26,11 @@ function destroy(id) {
   <%= render 'list' %>
   <fieldset>
   <legend>New Sketch</legend>
-  <% if allow_new %>
+  <% if allow_new? %>
     <%= sketch_name_validation_errors %>
     <%= form_tag(new_url, :onSubmit => 'return validate();') do %>
       <%= text_field_tag(:name) %>
-      <%= submit_tag("New Sketch", :disable_with => "Please Wait...") %>
+      <%= submit_tag("New Sketch") %>
     <% end %>
   <% else %>
     Please upgrade to the paid plan to have multiple sketches.

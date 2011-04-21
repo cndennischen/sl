@@ -42,7 +42,7 @@ localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
     <%= sketch_name_validation_errors %>
     <form id="renameForm" onsubmit="return validate()">
       <input id="name" type="text" value="<%= @title %>" />
-      <input type="submit" value="Rename" data-disable-with="Please Wait..." />
+      <input type="submit" value="Rename" />
     </form>
   </div>
 </div>

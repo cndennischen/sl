@@ -17,15 +17,15 @@ RSpec.configure do |config|
   # config.mock_with :rr
   config.mock_with :rspec
 
-  # dont' use transactions, because selenium doesn't have access to them
+  # Don't use transactions, because selenium doesn't have access to them
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
 
-  # because we're not using transactions, clear the database after each
-  # test with DatabaseCleaner
+  # Because we're not using transactions (see above), clear the database
+  # after each test with DatabaseCleaner
   config.before(:each) do
     DatabaseCleaner.start
   end
@@ -35,8 +35,9 @@ RSpec.configure do |config|
   end
 end
 
-# set up OmniAuth test mode
-OmniAuth.config.test_mode = true
+# Set up OmniAuth test mode
+OmniAuth.config.test_mode = true # turn test mode on
+# Set up a mock user to sign in with
 OmniAuth.config.mock_auth[:google] = {
   'provider' => 'google',
   'uid' => 'test_uid',
@@ -47,18 +48,21 @@ OmniAuth.config.mock_auth[:google] = {
 }
 
 def signin
+  # This will just sign in as the mock user created above
   visit '/auth/google'
 end
 
+# Verify that the specified path requires authentication
 def requires_auth(path, use_post = false)
   if use_post
-    # use plain rspec because capybara doesn't support sending post requests
+    # Use plain rspec because capybara doesn't support sending post requests
     post path
     response.should redirect_to('/signin')
     flash[:notice].should_not be_nil
   else
     visit path
     current_path.should == '/signin'
+    # Check for the flash notice element on the page
     page.should have_selector('#flash_notice')
   end  
 end

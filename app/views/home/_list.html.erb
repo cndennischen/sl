@@ -12,7 +12,7 @@
     <% @sketches.each do |sketch| %>
       <tr>
         <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
-        <td>(<%= link_to_function "Delete", "destroy(#{sketch.id})" %>)</td>
+        <td>(<%= link_to_function 'Delete', "destroy(#{sketch.id})" %>)</td>
       </tr>
     <% end %>
   </table>
