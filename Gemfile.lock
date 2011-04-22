@@ -273,7 +273,7 @@ DEPENDENCIES
   pdfkit
   rack (= 1.2.1)
   rack-rewrite
-  rails
+  rails (= 3.0.7)
   rails_admin!
   rmagick
   rspec-rails
