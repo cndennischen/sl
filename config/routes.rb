@@ -1,5 +1,5 @@
 SketchLab::Application.routes.draw do
-  devise_for :admins
+  devise_for :admins, :controllers => { :sessions => "admin/sessions" }
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#auth_error"

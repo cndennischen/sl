@@ -33,6 +33,7 @@ gem 'rack-rewrite'
 gem 'signet', :require => 'signet/oauth_1/client'
 gem 'devise' # Devise is needed for RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'jammit', :require => 'jammit'
 gem 'meta_where'
 gem 'sitemap_generator'
