@@ -95,9 +95,3 @@ describe 'Sketches' do
     page.should have_css('head title', :text => 'Sketch Lab - Test Sketch')
   end
 end
-
-def create_sketch
-  fill_in 'name', :with => 'Test Sketch'
-  click_button 'New Sketch'
-  Sketch.count.should == 1
-end

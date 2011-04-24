@@ -47,9 +47,17 @@ OmniAuth.config.mock_auth[:google] = {
   }
 }
 
+# Sign in to Sketch Lab using OmniAuth
 def signin
   # This will just sign in as the mock user created above
   visit '/auth/google'
+end
+
+# Create a new sketch
+def create_sketch
+  fill_in 'name', :with => 'Test Sketch'
+  click_button 'New Sketch'
+  Sketch.count.should == 1
 end
 
 # Verify that the specified path requires authentication
