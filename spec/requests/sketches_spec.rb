@@ -12,18 +12,14 @@ describe 'Sketches' do
 
   it 'creates sketch' do
     signin
-    fill_in 'name', :with => 'Test Sketch'
-    click_button 'New Sketch'
-    Sketch.count.should == 1
+    create_sketch
     click_link 'Sketch Lab'
     page.should have_content('Test Sketch')
   end
 
   it 'deletes sketch', :js => true do
     signin
-    fill_in 'name', :with => 'Test Sketch'
-    click_button 'New Sketch'
-    Sketch.count.should == 1
+    create_sketch
     visit '/'
     click_link 'Delete'
     # accept the confirmation dialog
@@ -33,9 +29,7 @@ describe 'Sketches' do
 
   it 'does not create more than one sketch on free plan' do
     signin
-    fill_in 'name', :with => 'Test Sketch'
-    click_button 'New Sketch'
-    Sketch.count.should == 1
+    create_sketch
     click_link 'Sketch Lab'
     page.should have_content('Test Sketch')
     post_via_redirect '/new', :name => 'Test Sketch 2'
@@ -49,9 +43,7 @@ describe 'Sketches' do
     signin
     # set the user's plan to paid
     User.last.update_attributes(:kind => 'paid')
-    fill_in 'name', :with => 'Test Sketch'
-    click_button 'New Sketch'
-    Sketch.count.should == 1
+    create_sketch
     click_link 'Sketch Lab'
     page.should have_content('Test Sketch')
     fill_in 'name', :with => 'Test Sketch #2'
@@ -61,13 +53,17 @@ describe 'Sketches' do
     page.should have_content('Test Sketch #2')
   end
 
+  # it 'renames sketch' do
+  #   signin
+  #   create_sketch
+  #   click_link 'Rename'
+  # end
+
   it 'edits sketch'
 
   it 'exports sketch' do
     signin
-    fill_in 'name', :with => 'Test Sketch'
-    click_button 'New Sketch'
-    Sketch.count.should == 1
+    create_sketch
 
     click_link 'PDF'
     # make sure we get a pdf document
@@ -91,9 +87,13 @@ describe 'Sketches' do
 
   it 'sets title' do
     signin
-    fill_in 'name', :with => 'Test Sketch'
-    click_button 'New Sketch'
-    Sketch.count.should == 1
+    create_sketch
     page.should have_css('head title', :text => 'Sketch Lab - Test Sketch')
   end
+end
+
+def create_sketch
+  fill_in 'name', :with => 'Test Sketch'
+  click_button 'New Sketch'
+  Sketch.count.should == 1
 end

@@ -19,12 +19,14 @@ describe 'Users' do
       page.should have_content('new name')
       page.should have_selector('#flash_notice')
     end
+
     it 'does not change email', :js => true do
       signin
       post '/account/update', :email => 'new_email@example.com'
       visit '/account'
       page.should have_no_content('new_email@example.com')
     end
+
     it 'deletes account', :js => true do
       signin
       visit '/account'
@@ -35,6 +37,7 @@ describe 'Users' do
       page.should have_content 'Sign In / Sign Up'
       current_path.should == '/'
     end
+
     it 'does not delete account without confirmation', :js => true do
       signin
       visit '/account'
