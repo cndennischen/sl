@@ -41,7 +41,7 @@ localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
     <%= validates_sketch_names(:rename) %>
     <form id="renameForm" onsubmit="return validate()">
       <input id="name" type="text" value="<%= @title %>" />
-      <input type="submit" value="Rename" />
+      <input id="rename" type="submit" value="Rename" />
     </form>
   </div>
 </div>

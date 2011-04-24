@@ -53,11 +53,15 @@ describe 'Sketches' do
     page.should have_content('Test Sketch #2')
   end
 
-  # it 'renames sketch' do
-  #   signin
-  #   create_sketch
-  #   click_link 'Rename'
-  # end
+  it 'renames sketch', :js => true do
+    signin
+    create_sketch
+    click_button 'renameBtn'
+    fill_in 'name', :with => 'Renamed!'
+    click_button 'rename'
+    page.should have_content 'Renamed!'
+    page.should have_css('head title', :text => 'Sketch Lab - Renamed!')
+  end
 
   it 'edits sketch'
 
