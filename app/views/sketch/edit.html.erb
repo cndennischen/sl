@@ -1,5 +1,4 @@
 <%= include_javascripts :editor %>
-<%= validates_sketch_names('rename') %>
 <script type="text/javascript">
 function rename() {
   //dynamically create a form to rename the sketch
@@ -39,7 +38,7 @@ localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
   <span id="saveFailed" style="color:red;display:none">Save Failed</span>
   <!-- rename dialog -->
   <div id="renameDialog">
-    <%= sketch_name_validation_errors %>
+    <%= validates_sketch_names(:rename) %>
     <form id="renameForm" onsubmit="return validate()">
       <input id="name" type="text" value="<%= @title %>" />
       <input type="submit" value="Rename" />
@@ -51,5 +50,7 @@ localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
   </iframe>
 </div>
 <footer id="export">
-Download as: <%= link_to "PDF", "/export/#{@sketch.id}/pdf", :onclick => "exportSketch()" %>, <%= link_to "PNG", "/export/#{@sketch.id}/png", :onclick => "exportSketch()" %>, <%= link_to "JPEG", "/export/#{@sketch.id}/jpg", :onclick => "exportSketch()" %>
+  Download as:<%= link_to "PDF", "/export/#{@sketch.id}/pdf", :onclick => "exportSketch()" %>,
+  <%= link_to "PNG", "/export/#{@sketch.id}/png", :onclick => "exportSketch()" %>,
+  <%= link_to "JPEG", "/export/#{@sketch.id}/jpg", :onclick => "exportSketch()" %>
 </footer>

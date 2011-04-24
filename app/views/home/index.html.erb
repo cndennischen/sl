@@ -1,58 +1,5 @@
-<%= validates_sketch_names %>
-<script type="text/javascript">
-function destroy(id) {
-  if (confirm("Are you sure you want to delete this sketch?")) {
-    //dynamically create a form to delete the sketch
-    $(document.body).append('<%= form_tag("/delete", :id => "deleteHiddenForm") %>');
-    $("#deleteHiddenForm").append('<input id="id" name="id" type="hidden" value="' + id + '" />');
-    $("#deleteHiddenForm").submit();
-  }
-}
-</script>
 <% if current_user %>
-  <!-- advertise paid plan to free users -->
-  <% if current_user.plan == "free" %>
-    <div id="ad">
-      Upgrade to the paid plan to:
-      <ul>
-        <li><%= link_to raw("Have <i>unlimited</i> sketches"), "/help/quotas" %></li>
-        <li><%= link_to "Remove footer from exported sketches", "/help/sketch%20footer" %></li>
-        <li><%= link_to "Easily find your sketches", "/help/searching" %></li>
-        <li>And <%= link_to "much more", "/help/plans" %>!</li>
-      </ul>
-      <%= link_to "Upgrade now!", account_path %>
-    </div>
-  <% end %>
   <%= render 'list' %>
-  <fieldset>
-  <legend>New Sketch</legend>
-  <% if allow_new? %>
-    <%= sketch_name_validation_errors %>
-    <%= form_tag(new_url, :onSubmit => 'return validate();') do %>
-      <%= text_field_tag(:name) %>
-      <%= submit_tag("New Sketch") %>
-    <% end %>
-  <% else %>
-    Please upgrade to the paid plan to have multiple sketches.
-  <% end %>
-  </fieldset>
 <% else %>
-  <% content_for :css do %>
-    <style type="text/css">
-    h1 {
-      font-size: x-large;
-      text-align: center;
-      color: blue;
-    }
-    h2 {
-      font-size: large;
-      text-align: center;
-      color: green;
-    }
-    p {
-      text-align: center;
-    }
-    </style>
-  <% end %>
-  <%= render :file => "#{Rails.root}/public/info.html" %>
+  <%= render 'intro' %>
 <% end %>

@@ -1,13 +1,40 @@
+<%# Advertise paid plan to free users %>
+<% if current_user.plan == "free" %>
+  <div id="ad">
+    Upgrade to the paid plan to:
+    <ul>
+      <li><%= link_to raw("Have <i>unlimited</i> sketches"), "/help/quotas" %></li>
+      <li><%= link_to "Remove footer from exported sketches", "/help/sketch%20footer" %></li>
+      <li><%= link_to "Easily find your sketches", "/help/searching" %></li>
+      <li>And <%= link_to "much more", "/help/plans" %>!</li>
+    </ul>
+    <%= link_to "Upgrade now!", account_path %>
+  </div>
+<% end %>
+<%# The sketch list %>
 <div id="sketches">
 <fieldset><legend>Your Sketches</legend>
 <!-- Search Form for paid users -->
 <% if current_user.plan != 'free' %>
+  <%# Search form for paid users %>
   <%= form_tag root_url, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   <% end %>
 <% end %>
 <% if @sketches.length > 0 %>
+  <%# JavaScript code for deleting sketches %>
+  <script type="text/javascript">
+  function destroy(id) {
+    if (confirm("Are you sure you want to delete this sketch?")) {
+      //dynamically create a form to delete the sketch
+      $(document.body).append('<%= form_tag("/delete", :id => "deleteHiddenForm") %>');
+      $("#deleteHiddenForm").append('<input id="id" name="id" type="hidden" value="' + id + '" />');
+      $("#deleteHiddenForm").submit();
+    }
+  }
+  </script>
+  <%# Loop through the sketches %>
   <table>
     <% @sketches.each do |sketch| %>
       <tr>
@@ -22,6 +49,18 @@
   <% else %>
     No items match your search.
   <% end %>
+<% end %>
+</fieldset>
+<fieldset>
+<legend>New Sketch</legend>
+<% if allow_new? %>
+  <%= validates_sketch_names %>
+  <%= form_tag(new_url, :onSubmit => 'return validate();') do %>
+    <%= text_field_tag(:name) %>
+    <%= submit_tag("New Sketch") %>
+  <% end %>
+<% else %>
+  Please upgrade to the paid plan to have multiple sketches.
 <% end %>
 </fieldset>
 </div>

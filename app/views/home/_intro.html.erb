@@ -1,3 +1,22 @@
+<%# Add some CSS to the head %>
+<% content_for :css do %>
+  <style type="text/css">
+  h1 {
+    font-size: x-large;
+    text-align: center;
+    color: blue;
+  }
+  h2 {
+    font-size: large;
+    text-align: center;
+    color: green;
+  }
+  p {
+    text-align: center;
+  }
+  </style>
+<% end %>
+<%# An introduction to Sketch Lab %>
 <h1>What is Sketch Lab?</h1>
 <p>Sketch Lab is a user interface (UI) sketching tool. You can use it to help you
 plan your projects. You can see some of it's cool features here:</p>
@@ -10,6 +29,8 @@ widget? No problem! Just drag the bottom-right corner to the size you want.</p>
 passwords to remember. Instead, you just sign in with your Google account, and
 Sketch Lab will automatically create an account for you behind the scenes.</p>
 <h2>Open Source</h2>
-<p><a href="/contributing">Click Here</a> for more information.</p>
+<p>The source code for Sketch Lab is open source, so if you think something's missing
+can add it yourself! <a href="/contributing">Click Here</a> for more information.</p>
 <h2>Easy to Use</h2>
-<p>Sketch Lab is made for simplicity. Watch a <a href="/help/overview">video</a> of how easy it is to use.</p>
+<p>Sketch Lab is made for simplicity. Watch a <a href="/help/overview">video</a>
+demonstrating how easy it is to use.</p>
