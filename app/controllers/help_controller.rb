@@ -20,13 +20,8 @@ class HelpController < ApplicationController
       @help_article = true
     end
 
-    begin
-      # Render the requested help article
-      render @name, :layout => true
-    rescue ActionView::MissingTemplate
-      # The requested help article doesn't exist
-      not_found
-    end
+    # Render the requested help article
+    render @name, :layout => true
   end
 
 end
