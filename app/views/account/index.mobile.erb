@@ -9,15 +9,15 @@
 <% end %>
 
 <% if @plan == 'paid' %>
-  You are currently on the paid plan. Click "Downgrade" to downgrade to the free plan.
+  You are currently on the paid plan. You can downgrade to the free plan if you want.
   Note: it may take a few minutes for the downgrade to take effect.
   <br />
-
+  To downgrade your account, go to the <%= link_to 'Chrome Webstore page', 'https://chrome.google.com/webstore/detail/delppejinhhpcmimgfchjkbkpanhjkdj' %> and click 'Cancel and uninstall'.
 <% else %>
   You are currently on the <%= @plan %> plan. Upgrade your account to get more features.
   Note: it may take a few minutes for the upgrade to take effect.
   <br />
-
+  To upgrade your account, go to the <%= link_to 'Chrome Webstore page', 'https://chrome.google.com/webstore/detail/delppejinhhpcmimgfchjkbkpanhjkdj' %> and click 'Buy full version'.
 <% end %>
-<br />
+<br /><br />
 <%= link_to 'Delete Account', delete_account_path, :style => 'color:red;background-color:transparent' %>
