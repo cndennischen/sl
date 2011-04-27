@@ -1,0 +1,7 @@
+$(function() {
+<% if current_user %>
+  $("#user").html('Welcome <%= current_user.name %>! <%= link_to "Account", account_path %> <%= link_to "Sign Out", signout_path %>')
+<% else %>
+  $("#user").html('<%= link_to "Sign In / Sign Up", signin_path %>');
+<% end %>
+});

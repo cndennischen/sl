@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  caches_page :contributing
+
   # Displays the current users sketches if she is logged in, otherwise
   # displays information about Sketch Lab
   def index

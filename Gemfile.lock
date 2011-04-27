@@ -112,6 +112,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcache-client (1.8.5)
     meta_where (1.0.4)
       activerecord (~> 3.0.0)
       activesupport (~> 3.0.0)
@@ -266,6 +267,7 @@ DEPENDENCIES
   jammit
   json
   launchy
+  memcache-client
   meta_where
   mongrel (= 1.2.0.pre2)
   newrelic_rpm

@@ -23,6 +23,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
   <%= include_stylesheets :all, :media => "all" %>
   <%= yield :css %>
   <%= include_javascripts :defaults %>
+  <%# include JavaScript to fill in user specific content %>
+  <%= javascript_include_tag '/users/current' %>
   <% if @canvas %>
     <%= include_javascripts :canvas %>
     <style type="text/css">
@@ -40,13 +42,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
       <%= link_to 'Sketch Lab', root_path %>
     </div>
     <div id="user">
-      <% if current_user %>
-        Welcome <%= current_user.name %>!
-        <%= link_to 'Account', account_path %>
-        <%= link_to 'Sign Out', signout_path %>
-      <% else %>
-        <%= link_to 'Sign In / Sign Up', signin_path %>
-      <% end %>
+      <%# This div is filled in with JavaScript to allow page caching %>
     </div>
   </div>
   <div id="content">
@@ -71,7 +67,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
     <br />&copy; <%= Time.now.year %> Heigh Tech LLC
     </small>
   </div>
-<!-- UserVoice tab widget -->
+<%# UserVoice tab widget %>
 <script type="text/javascript">
   var uservoiceOptions = {
     key: 'sketchlab',
@@ -92,7 +88,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
   _loadSuper = window.onload;
   window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
 </script>
-<!-- end UserVoice tab widget -->
+<%# End of UserVoice tab widget %>
 </body>
 <% else %>
   <body>
