@@ -2,6 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
+tmp/restart.txt
 .settings.xml
 config/app_config.yml
 config/newrelic.yml

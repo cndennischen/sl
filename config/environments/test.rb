@@ -32,7 +32,4 @@ SketchLab::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-
-  # Use Memcached
-  config.cache_store = :mem_cache_store
 end
