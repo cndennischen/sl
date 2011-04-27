@@ -1,4 +1,6 @@
 class HelpController < ApplicationController
+  caches_action :index
+
   # Lists the help articles
   def index
   end
