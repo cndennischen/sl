@@ -23,6 +23,6 @@ SketchLab::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-  # Use Memcached (only works if perform_caching = true)
+  # Use Memcached
   config.cache_store = :mem_cache_store
 end
