@@ -26,7 +26,6 @@ end
 gem 'rmagick', :require => 'RMagick'
 gem 'omniauth'
 gem 'hoptoad_notifier'
-gem 'newrelic_rpm'
 gem 'pdfkit'
 gem 'json'
 gem 'rack-rewrite'
