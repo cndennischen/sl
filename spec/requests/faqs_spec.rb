@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 describe 'Faqs' do
-  it 'display faqs' do
+  it 'displays faqs' do
     faq = Factory(:faq)
     visit '/help/faq'
     page.should have_content(faq.question)
     page.should have_content(faq.answer)
   end
 
-  it 'search faqs' do
+  it 'searches faqs' do
     visit '/help/faq'
     faq1 = Factory(:faq)
     faq2 = Factory(:faq)

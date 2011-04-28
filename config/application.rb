@@ -41,8 +41,5 @@ module SketchLab
 
     # Automatically load files from the lib folder
     config.autoload_paths << "#{Rails.root}/lib"
-
-    # Caching settings
-    config.cache_store = :mem_cache_store
   end
 end

@@ -57,7 +57,7 @@ class SketchController < ApplicationController
     when 'pdf'
       data = @sketch.to_pdf
     else
-      return not_found
+      return render_not_found
     end
     # send the exported file to the user
     send_data(data, :filename => "sketch.#{format}")

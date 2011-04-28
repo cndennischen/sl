@@ -2,7 +2,7 @@
 # This command will automatically be run when you run "rails"
 # with Rails 3 gems installed from the root of your application.
 
-# Make sure the app config file is present
+# Make sure the app config files are present
 if !File.exists?('config/app_config.yml')
   require 'fileutils'
   FileUtils.cp('../app_config.yml', 'config/')

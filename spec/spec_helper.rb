@@ -72,5 +72,5 @@ def requires_auth(path, use_post = false)
     current_path.should == '/signin'
     # Check for the flash notice element on the page
     page.should have_selector('#flash_notice')
-  end  
+  end
 end

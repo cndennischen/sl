@@ -3,12 +3,11 @@ source 'http://rubygems.org'
 gem 'rack', '1.2.1'
 gem 'rails', '3.0.7'
 
-gem 'sqlite3', :require => 'sqlite3'
-
 group :development, :test do
-  # use mongrel because webrick has trouble with the long openid urls
+  gem 'sqlite3'
+  # Use mongrel because webrick has trouble with the long openid urls
   gem 'mongrel', '1.2.0.pre2'
-  # for tests
+  # For tests
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git', :ref => '97af9bd1c66fe54d1cb8c65b88518f1695331f5a'
@@ -34,7 +33,7 @@ gem 'signet', :require => 'signet/oauth_1/client'
 gem 'devise' # Devise is needed for RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'recaptcha', :require => 'recaptcha/rails'
-gem 'jammit', :require => 'jammit'
+gem 'jammit'
 gem 'meta_where'
 gem 'sitemap_generator'
 gem 'memcache-client'

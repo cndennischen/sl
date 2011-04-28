@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
-  rescue_from ActionView::MissingTemplate, :with => :not_found
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
+  rescue_from ActionView::MissingTemplate, :with => :render_not_found
 
   helper_method :current_user
   helper_method :mobile_device?
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   private
 
   # Renders the 404 page
-  def not_found
+  def render_not_found
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => nil
   end
 

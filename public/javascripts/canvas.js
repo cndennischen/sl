@@ -62,7 +62,7 @@ function load() {
         //check what type of widget it is
         if ($(globalWidget).hasClass("checkbox") || $(globalWidget).hasClass("radio")) {
           //checkbox / radio btn
-          
+
           //checked?
           if ($("#checked").attr("checked") == true) {
             $(globalWidget).children(".text").text("✓");
@@ -71,10 +71,10 @@ function load() {
           }
         } else {
           //other widgets
-          
+
           // text
           $(globalWidget).children(".text").text($("#widgetTxt").val());
-          
+
           //bold
           if ($("#bold").attr("checked") == true) {
             $(globalWidget).css("font-weight", "bold");
@@ -93,7 +93,7 @@ function load() {
           } else {
             $(globalWidget).css("text-decoration", "");
           }
-          
+
           //font size
           newSize = $("#fontsize").val();
           //check if newSize is blank
@@ -105,7 +105,7 @@ function load() {
 	          	$(globalWidget).css("font-size", newSize + "px");
 	          }
           }
-          
+
           //text alignment
           $(globalWidget).css("text-align", $("#textalign").val());
         }
@@ -145,7 +145,7 @@ function load() {
 	    $(':button:contains("OK")').click();
 	  }
 	});
-  
+
   //load the saved state from localStorage
   setData(JSON.parse(localStorage["data"]));
   //clear the undo and redo stacks

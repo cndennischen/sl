@@ -20,6 +20,8 @@ SketchLab::Application.routes.draw do
   get "/help" => "help#index"
   get "/help/:article" => "help#kb"
   get "/contributing" => "home#contributing"
+  get "/tos" => "home#tos"
+  get "/privacy" => "home#privacy"
 
   match "/sitemap.xml.gz" => redirect("/sitemap_index.xml.gz")
   # The priority is based upon order of creation:
