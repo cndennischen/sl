@@ -27,7 +27,13 @@ class ApplicationController < ActionController::Base
   # Retrieves the currently logged in user
   def current_user
     begin
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      # Include the sketches in the query unless we are in the AccountController, which
+      # doesn't deal with sketches
+      if params[:controller] == 'account'
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      else
+        @current_user ||= User.find(session[:user_id], :include => :sketches) if session[:user_id]
+      end
     rescue ActiveRecord::RecordNotFound
       session[:user_id] = nil
       flash[:error] = "Could not find your user account"
