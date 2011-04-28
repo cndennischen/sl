@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   # Renders the 404 page
   def render_not_found
-    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => nil
+    render "#{Rails.root}/public/404.html", :status => 404, :layout => nil
   end
 
   # Checks if the current user is allowed to create another sketch.
