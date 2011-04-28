@@ -1,5 +1,5 @@
 class Sketch < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
   validates_presence_of :name, :user_id
   validates_length_of :name, :maximum => 25
 

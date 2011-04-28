@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   # Returns true if the current user has less than one sketch, or is not on the free plan.
   # This allows free users to have one sketch and paid users to have unlimited sketches.
   def allow_new?
-    (current_user.sketches.count < 1) or (current_user.plan != 'free') or admin?
+    (current_user.sketches.size < 1) or (current_user.plan != 'free') or admin?
   end
 
   # Retrieves the currently logged in user

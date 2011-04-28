@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406131045) do
+ActiveRecord::Schema.define(:version => 20110428182614) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20110406131045) do
     t.string   "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sketches_count", :default => 0
   end
 
 end
