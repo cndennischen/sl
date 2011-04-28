@@ -22,7 +22,7 @@ describe 'Sketches' do
     create_sketch
     visit '/'
     click_link 'Delete'
-    # accept the confirmation dialog
+    # Accept the confirmation dialog
     page.driver.browser.switch_to.alert.accept
     Sketch.count.should == 0
   end
@@ -41,8 +41,8 @@ describe 'Sketches' do
 
   it 'creates multiple sketches on the paid plan' do
     signin
-    # set the user's plan to paid
-    User.last.update_attributes(:kind => 'paid')
+    # Set the user's plan to paid
+    Rails.cache.write("#{User.last.cache_key}-plan", 'paid')
     create_sketch
     click_link 'Sketch Lab'
     page.should have_content('Test Sketch')
@@ -70,21 +70,21 @@ describe 'Sketches' do
     create_sketch
 
     click_link 'PDF'
-    # make sure we get a pdf document
+    # Make sure we get a pdf document
     page.response_headers['Content-Type'].should == "application/octet-stream"
     page.response_headers['Content-Disposition'].should =~ /sketch.pdf/
 
-    # go back to the sketch's edit page
+    # Go back to the sketch's edit page
     visit page.driver.last_request.env['HTTP_REFERER']
     click_link 'PNG'
-    # make sure we get a png image
+    # Make sure we get a png image
     page.response_headers['Content-Type'].should == "application/octet-stream"
     page.response_headers['Content-Disposition'].should =~ /sketch.png/
 
-    # go back to the sketch's edit page
+    # Go back to the sketch's edit page
     visit page.driver.last_request.env['HTTP_REFERER']
     click_link 'JPEG'
-    # make sure we get a jpeg image
+    # Make sure we get a jpeg image
     page.response_headers['Content-Type'].should == "application/octet-stream"
     page.response_headers['Content-Disposition'].should =~ /sketch.jpg/
   end

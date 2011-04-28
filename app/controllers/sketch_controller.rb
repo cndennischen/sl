@@ -69,6 +69,11 @@ class SketchController < ApplicationController
 
   # Retrieve the specified sketch
   def get_sketch
-    @sketch = current_user.sketches.find(params[:id])
+    if admin?
+      # The admin has access to all the sketches in the database
+      @sketch = Sketch.find(params[:id])
+    else
+      @sketch = current_user.sketches.find(params[:id])
+    end
   end
 end

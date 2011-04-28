@@ -4,8 +4,16 @@ class HomeController < ApplicationController
   # Displays the current users sketches if she is logged in, otherwise
   # displays information about Sketch Lab
   def index
-    # Get the current user's sketches, filtered by the search parameter
-    @sketches = current_user.sketches.search(params[:search]) if current_user
+    if current_user
+      if admin?
+        # If the user is an admin, get all the sketches in the database,
+        # filtered by the search parameter
+        @sketches = Sketch.search(params[:search])
+      else
+        # Get the current user's sketches, filtered by the search parameter
+        @sketches = current_user.sketches.search(params[:search])
+      end
+    end
   end
 
   # The sign in page

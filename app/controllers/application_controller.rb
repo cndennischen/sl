@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :mobile_device?
   helper_method :allow_new?
+  helper_method :admin?
 
   before_filter :prepare_for_mobile
 
@@ -20,7 +21,7 @@ class ApplicationController < ActionController::Base
   # Returns true if the current user has less than one sketch, or is not on the free plan.
   # This allows free users to have one sketch and paid users to have unlimited sketches.
   def allow_new?
-    (current_user.sketches.count < 1) or (current_user.plan != 'free')
+    (current_user.sketches.count < 1) or (current_user.plan != 'free') or admin?
   end
 
   # Retrieves the currently logged in user
@@ -33,6 +34,13 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
       return nil
     end
+  end
+
+  # Returns true if the current user is an admin
+  def admin?
+    # The current user is considered an admin if his email address is admin@sketchlabhq.com
+    # Fair assumption? :)
+    current_user.email == 'admin@sketchlabhq.com'
   end
 
   # Returns true if the currently displayed site is the mobile version,
