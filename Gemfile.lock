@@ -191,6 +191,8 @@ GEM
       activesupport (= 3.0.7)
       bundler (~> 1.0)
       railties (= 3.0.7)
+    rails-footnotes (3.7.1)
+      rails (>= 3.0.0)
     railties (3.0.7)
       actionpack (= 3.0.7)
       activesupport (= 3.0.7)
@@ -277,6 +279,7 @@ DEPENDENCIES
   rack (= 1.2.1)
   rack-rewrite
   rails (= 3.0.7)
+  rails-footnotes
   rails_admin!
   recaptcha
   rmagick
