@@ -4,9 +4,19 @@ describe 'Users' do
   describe "GET /account" do
     it 'displays user info', :js => true do
       signin
-      visit '/account'
+      click_link 'Account'
       page.should have_content('test_name')
       page.should have_content('test_email@example.com')
+    end
+
+    it 'refreshes user plan', :js => true do
+      signin
+      click_link 'Account'
+      # Change the user's plan
+      User.last.update_attribute :kind, 'paid'
+      # Refresh the plan
+      click_link 'refresh'
+      User.last.plan.should == 'paid'
     end
   end
 

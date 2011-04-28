@@ -16,6 +16,12 @@ class AccountController < ApplicationController
     @plan = current_user.plan
   end
 
+  # Delete the cached plan value
+  def refresh_plan
+    Rails.cache.delete("#{current_user.cache_key}-plan")
+    redirect_to account_path
+  end
+
   # Updates the current user's name
   def update
     # Make sure the user specified a name
