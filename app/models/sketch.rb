@@ -38,7 +38,7 @@ class Sketch < ActiveRecord::Base
     # Add the widget stylesheet
     pdf.stylesheets << "#{Rails.root}/public/stylesheets/widgets.css"
     # Return the created PDF as a blob
-    pdf.to_pdf.to_blob
+    pdf.to_pdf
   end
 
   private
