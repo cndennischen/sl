@@ -43,9 +43,7 @@ class Sketch < ActiveRecord::Base
 
   private
 
-  # Creates an HTML version of the sketch. It is private because it is
-  # only meant to be used to generate HTML for PDFKit to convert to PDF format.
-  # Therefore it is not made / tested for cross-browser compatibility.
+  # Generates HTML for PDFKit to convert to PDF format.
   def to_html
     html = ""
     # Iterate through the widgets
