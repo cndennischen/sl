@@ -24,6 +24,7 @@ describe 'Sketches' do
     click_link 'Delete'
     # Accept the confirmation dialog
     page.driver.browser.switch_to.alert.accept
+    save_and_open_page
     Sketch.count.should == 0
   end
 

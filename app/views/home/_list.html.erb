@@ -14,7 +14,7 @@
 <%# The sketch list %>
 <div id="sketches">
 <fieldset><legend>Your Sketches</legend>
-<!-- Search Form for paid users -->
+<%# Search Form for paid users %>
 <% if current_user.plan != 'free' %>
   <%# Search form for paid users %>
   <%= form_tag root_url, :method => 'get' do %>

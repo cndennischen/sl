@@ -32,26 +32,26 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 
 	<div data-role="header">
     <h1><%= @title || "Sketch Lab" %></h1>
-    <!-- home button -->
+    <%# Home button %>
     <a href="/" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
-    <!-- back button -->
+    <%# Back button %>
     <a href="#" class="ui-btn-left" data-icon="back" data-direction="reverse" id="backBtn">Back</a>
-	</div><!-- /header -->
+	</div>
 
   <div data-role="content">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
     <noscript>
-      <!-- tell the user to enable JavaScript -->
-      <div id="flash_error">Please enable JavaScript in your browser. Sketch Lab will not perform correctly without it.</div
+      <%# Tell the user to enable JavaScript %>
+      <div id="flash_error">Please enable JavaScript in your browser. Sketch Lab will not perform correctly without it.</div>
     </noscript>
     <% if @help_article %>
       <%= link_to 'Back to help', help_path %>
     <% end %>
 
     <%= yield %>
-	</div><!-- /content -->
+	</div>
 
   <div data-role="footer">
     <div data-inline="true" style="text-align:center">
@@ -64,8 +64,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
       <%= link_to 'Desktop Version', request.path + '?mobile=0' %>
     </div>
     <h4 style="font-size:small">&copy; <%= Time.now.year %> Heigh Tech LLC</h4>
-	</div><!-- /footer -->
-</div><!-- /page -->
+	</div>
+</div>
 
 </body>
 </html>

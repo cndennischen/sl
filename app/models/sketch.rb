@@ -14,9 +14,9 @@ class Sketch < ActiveRecord::Base
 
   # Exports the sketch to an image with the specified format
   def to_img(format)
-    # create an image from the pdf with RMagick
+    # Create an image from the pdf with RMagick
     img = Magick::Image.from_blob(to_pdf)[0]
-    # return the image in the specified format, ready to be sent to the user
+    # Return the image in the specified format, ready to be sent to the user
     img.format = format
     img.to_blob
   end
@@ -53,7 +53,7 @@ class Sketch < ActiveRecord::Base
       html += "<div class='widget #{value['class']}' style='#{value['style']}'><div class='text'>#{value['text']}</div></div>"
     end
 
-    # return the generated html
+    # Return the generated html
     html
   end
 

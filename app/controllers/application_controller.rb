@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   # Returns true if the current user has less than one sketch, or is not on the free plan.
   # This allows free users to have one sketch and paid users to have unlimited sketches.
   def allow_new?
-    (current_user.sketches.size < 1) or (current_user.plan != 'free') or admin?
+    (current_user.sketches.size < 1) or (current_user.plan != 'free')
   end
 
   # Retrieves the currently logged in user
@@ -44,9 +44,7 @@ class ApplicationController < ActionController::Base
 
   # Returns true if the current user is an admin
   def admin?
-    # The current user is considered an admin if his email address is admin@sketchlabhq.com
-    # Fair assumption? :)
-    current_user.email == 'admin@sketchlabhq.com'
+    current_user.admin?
   end
 
   # Returns true if the currently displayed site is the mobile version,

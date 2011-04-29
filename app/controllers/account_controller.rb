@@ -34,7 +34,7 @@ class AccountController < ApplicationController
       if current_user.save
         flash[:notice] = "Account updated!"
       else
-        flash[:error] = "An error occured while trying to update your account. Please try again in a few minutes."
+        flash[:error] = "An error occured while updating your account. Please try again in a few minutes."
       end
     end
     # Go back to the account page
@@ -50,18 +50,18 @@ class AccountController < ApplicationController
     # only delete account if user is not on paid plan
     if current_user.plan != "paid" and params[:confirmed]
       begin
-        # destroy the user
+        # Destroy the user
         current_user.destroy
-        # sign out
+        # Sign out
         session[:user_id] = nil
         flash[:notice] = "Your account has been deleted."
       rescue
         logger.warn("Error deleting account: #{$!}")
-        flash[:error] = "An error occurred while trying to delete your account. Please try again in a few minutes."
+        flash[:error] = "An error occurred while deleting your account. Please try again in a few minutes."
       end
       redirect_to root_url
     else
-      redirect_to delete_account_path, :notice => 'Please check the confirmation check box'
+      redirect_to delete_account_path, :notice => 'Please confirm that you want to delete your account'
     end
   end
 end

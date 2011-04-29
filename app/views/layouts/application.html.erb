@@ -23,7 +23,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
   <%= include_stylesheets :all, :media => "all" %>
   <%= yield :css %>
   <%= include_javascripts :defaults %>
-  <%# include JavaScript to fill in user specific content %>
+  <%# Include JavaScript to fill in user specific content %>
   <%= javascript_include_tag '/users/current' %>
   <% if @canvas %>
     <%= include_javascripts :canvas %>
@@ -50,7 +50,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
     <noscript>
-      <!-- tell the user to enable JavaScript -->
+      <%# Tell the user to enable JavaScript %>
       <%= content_tag :div, 'Please enable JavaScript in your browser. Sketch Lab will not perform correctly without it.', :id => 'flash_error' %>
     </noscript>
     <% if @help_article %>

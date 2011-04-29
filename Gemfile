@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rack', '1.2.1'
 gem 'rails', '3.0.7'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'itslog'
   # Use mongrel because webrick has trouble with the long openid urls
   gem 'mongrel', '1.2.0.pre2'
   # For tests

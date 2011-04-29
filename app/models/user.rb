@@ -14,8 +14,20 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Returns true if the user is an admin
+  def admin?
+    # The user is considered an admin if his email address is admin@sketchlabhq.com
+    # Fair assumption? :)
+    email == 'admin@sketchlabhq.com'
+  end
+
   # Returns the user's plan
   def plan
+    # Check if the user is an admin
+    if admin?
+      # The admin is always considered a paid user
+      return 'paid'
+    end
     # Cache the plan with Memcached
     Rails.cache.fetch("#{self.cache_key}-plan", :expires_in => 3.minutes) { access_level }
   end
@@ -25,7 +37,7 @@ class User < ActiveRecord::Base
   # The behind the scenes logic to get the users plan
   def access_level
     if kind.blank?
-      # send a request to the Google Chrome Licensing API to check the user's status
+      # Send a request to the Google Chrome Licensing API to check the user's status
       appId  = 'delppejinhhpcmimgfchjkbkpanhjkdj'
       userId = CGI::escape(uid)
       client = Signet::OAuth1::Client.new(
@@ -37,7 +49,7 @@ class User < ActiveRecord::Base
       response = client.fetch_protected_resource(
         :uri => "https://www.googleapis.com/chromewebstore/v1/licenses/#{appId}/#{userId}"
       )
-      # get the accessLevel from the JSON response
+      # Get the accessLevel from the JSON response
       if JSON.parse(response[2][0])["accessLevel"] == "FULL"
         'paid'
       else
