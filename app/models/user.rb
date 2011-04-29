@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   # Returns the user's plan
   def plan
     # Cache the plan with Memcached
-    Rails.cache.fetch("#{self.cache_key}-plan", :expires_in => 2.minutes) { access_level }
+    Rails.cache.fetch("#{self.cache_key}-plan", :expires_in => 3.minutes) { access_level }
   end
 
   private
