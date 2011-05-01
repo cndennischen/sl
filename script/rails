@@ -2,17 +2,6 @@
 # This command will automatically be run when you run "rails"
 # with Rails 3 gems installed from the root of your application.
 
-# Make sure the app config files are present
-if !File.exists?('config/app_config.yml')
-  require 'fileutils'
-  FileUtils.cp('../app_config.yml', 'config/')
-end
-
-if !File.exists?('config/initializers/secret_token.rb')
-  require 'fileutils'
-  FileUtils.cp('../secret_token.rb', 'config/initializers/')
-end
-
 APP_PATH = File.expand_path('../../config/application',  __FILE__)
 require File.expand_path('../../config/boot',  __FILE__)
 require 'rails/commands'
