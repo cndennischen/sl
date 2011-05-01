@@ -1,12 +1,13 @@
 class HelpController < ApplicationController
-  caches_action :index
-
   # Lists the help articles
   def index
+    cache_page
   end
 
   # Displays help / knowledge base articles
   def kb
+    cache_page
+
     # Get the name of the article requested
     @name = params[:article]
     # For FAQs:

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :mobile_device?
   helper_method :allow_new?
   helper_method :admin?
+  helper_method :cache_page
 
   before_filter :prepare_for_mobile
 
@@ -69,5 +70,14 @@ class ApplicationController < ActionController::Base
     unless current_user
       redirect_to signin_url, :notice => 'Please sign in to access that page'
     end
+  end
+
+  # Chaches the current page / content by setting the Cache-Control header
+  # which works like page caching but also works on Heroku because it doesn't
+  # need to write to the filesystem
+  # By default is caches the content for 600,000 seconds (about a week), but
+  # you can specify a different amount by passing in an amount of seconds
+  def cache_page(seconds = 600_000)
+    headers['Cache-Control'] = "public; max-age=#{seconds}"
   end
 end

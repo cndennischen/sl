@@ -1,6 +1,4 @@
 class HomeController < ApplicationController
-  caches_action :contributing, :tos, :privacy
-
   # Displays the current users sketches if she is logged in, otherwise
   # displays information about Sketch Lab
   def index
@@ -33,13 +31,16 @@ class HomeController < ApplicationController
 
   # Displays information about how to contribute to the source code
   def contributing
+    cache_page
   end
 
   # The Sketch Lab Terms of Service
   def tos
+    cache_page
   end
 
   # The Sketch Lab Privacy Policy
   def privacy
+    cache_page
   end
 end
