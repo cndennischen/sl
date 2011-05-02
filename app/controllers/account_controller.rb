@@ -3,10 +3,6 @@ class AccountController < ApplicationController
 
   # Displays the current user's info and allows her to change her name
   def index
-    # Declare instance variables
-    @name = current_user.name
-    @email = current_user.email
-    @plan = current_user.plan
   end
 
   # Delete the cached plan value

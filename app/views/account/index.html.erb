@@ -4,22 +4,22 @@
   <legend>Information</legend>
   <%= form_tag(update_account_path) do %>
     <b><%= label_tag :name, 'Name:' %></b>
-    <%= text_field_tag :name, @name %>
+    <%= text_field_tag :name, current_user.name %>
     <br />
-    <b>Email:</b> <%= @email %>
+    <b>Email:</b> <%= current_user.email %>
     <br />
     <%= submit_tag 'Update', :style => 'margin-left:0' %>
   <% end %>
 </fieldset>
 <fieldset>
   <legend>Subscription</legend>
-  <% if @plan == 'paid' %>
+  <% if current_user.plan == 'paid' %>
     You are currently on the paid plan <%= refresh_link %>. You can downgrade to the free plan if you want.
     Note: it may take a few minutes for the downgrade to take effect.
     <br />
     To downgrade your account, go to the <%= link_to 'Chrome Webstore page', 'https://chrome.google.com/webstore/detail/delppejinhhpcmimgfchjkbkpanhjkdj' %> and click 'Cancel and uninstall'.
   <% else %>
-    You are currently on the <%= @plan %> plan <%= refresh_link %>. Upgrade your account to get more features.
+    You are currently on the <%= current_user.plan %> plan <%= refresh_link %>. Upgrade your account to get more features.
     Note: it may take a few minutes for the upgrade to take effect.
     <br />
     To upgrade your account, go to the <%= link_to 'Chrome Webstore page', 'https://chrome.google.com/webstore/detail/delppejinhhpcmimgfchjkbkpanhjkdj' %> and click 'Buy full version'.
