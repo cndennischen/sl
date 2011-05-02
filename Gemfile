@@ -13,8 +13,7 @@ group :development, :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git', :ref => '97af9bd1c66fe54d1cb8c65b88518f1695331f5a'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'autotest'
-  gem 'autotest-rails'
+  gem 'guard-rspec'
 end
 
 group :development do
