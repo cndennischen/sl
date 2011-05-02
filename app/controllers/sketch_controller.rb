@@ -30,8 +30,8 @@ class SketchController < ApplicationController
 
   # Saves the specified sketch
   def save
-    # set the content of the sketch
-    @sketch.update_attributes(:content => params[:data])
+    # Set the content of the sketch
+    @sketch.update_attribute(:content, params[:data])
     render :nothing => true
   end
 
@@ -41,6 +41,7 @@ class SketchController < ApplicationController
     redirect_to "/edit/#{@sketch.id}"
   end
 
+  # Changes the "public" attribute that allows a sketch to be viewed by anyone
   def sharing
     if params[:public]
       @sketch.public = true
