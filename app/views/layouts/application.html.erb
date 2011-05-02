@@ -23,8 +23,6 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
   <%= include_stylesheets :all, :media => "all" %>
   <%= yield :css %>
   <%= include_javascripts :defaults %>
-  <%# Include JavaScript to fill in user specific content %>
-  <%= javascript_include_tag '/users/current' %>
   <% if @canvas %>
     <%= include_javascripts :canvas %>
     <style type="text/css">
@@ -42,7 +40,13 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
       <%= link_to 'Sketch Lab', root_path %>
     </div>
     <div id="user">
-      <%# This div is filled in with JavaScript to allow page caching %>
+      <% if current_user %>
+        Welcome <%= current_user.name %>!
+        <%= link_to "Account", account_path %>
+        <%= link_to "Sign Out", signout_path %>
+      <% else %>
+        <%= link_to "Sign In / Sign Up", signin_path %>
+      <% end %>
     </div>
   </div>
   <div id="content">

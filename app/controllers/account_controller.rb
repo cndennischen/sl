@@ -1,12 +1,5 @@
 class AccountController < ApplicationController
-  before_filter :require_login, :except => :current
-
-  # JavaScript code for updating the user-specific dynamic content on
-  # the page. Using JavaScript for this allows the use of page caching
-  # while still having dynamic content.
-  def current
-    # current.js.erb
-  end
+  before_filter :require_login
 
   # Displays the current user's info and allows her to change her name
   def index

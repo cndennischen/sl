@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
   rescue_from ActionView::MissingTemplate, :with => :render_not_found
 
-  helper_method :current_user, :mobile_device?, :allow_new?, :admin?, :cache_page
+  helper_method :current_user, :mobile_device?, :allow_new?, :admin?
 
   before_filter :prepare_for_mobile
 
@@ -24,12 +24,11 @@ class ApplicationController < ActionController::Base
   # Retrieves the currently logged in user
   def current_user
     begin
-      # Include the sketches in the query unless we are in the AccountController, which
-      # doesn't deal with sketches
-      if params[:controller] == 'account'
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
-      else
+      # Include the sketches in the query if we are in a controller that deals with them
+      if params[:controller] == 'sketch' || params[:controller] == 'home'
         @current_user ||= User.find(session[:user_id], :include => :sketches) if session[:user_id]
+      else
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
       end
     rescue ActiveRecord::RecordNotFound
       session[:user_id] = nil
@@ -66,14 +65,5 @@ class ApplicationController < ActionController::Base
     unless current_user
       redirect_to signin_url, :notice => 'Please sign in to access that page'
     end
-  end
-
-  # Chaches the current page / content by setting the Cache-Control header
-  # which works like page caching but also works on Heroku because it doesn't
-  # need to write to the filesystem
-  # By default is caches the content for 600,000 seconds (about a week), but
-  # you can specify a different amount by passing in an amount of seconds
-  def cache_page(seconds = 600_000)
-    headers['Cache-Control'] = "public; max-age=#{seconds}"
   end
 end
