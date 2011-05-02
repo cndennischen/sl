@@ -98,12 +98,12 @@ function load() {
           newSize = $("#fontsize").val();
           //check if newSize is blank
           if (newSize != "") {
-          	//make sure newSize is a valid integer value
-	          if (!newSize.match(/^\d+$/)) {
-	          	alert("Please enter a valid number.");
-	          } else {
-	          	$(globalWidget).css("font-size", newSize + "px");
-	          }
+            //make sure newSize is a valid integer value
+            if (!newSize.match(/^\d+$/)) {
+              alert("Please enter a valid number.");
+            } else {
+              $(globalWidget).css("font-size", newSize + "px");
+            }
           }
 
           //text alignment
@@ -141,10 +141,10 @@ function load() {
   });
   //click ok when the user presses Enter
   $('.ui-dialog').live('keyup', function(e){
-	  if (e.which == 13) {
-	    $(':button:contains("OK")').click();
-	  }
-	});
+    if (e.which == 13) {
+      $(':button:contains("OK")').click();
+    }
+  });
 
   //load the saved state from localStorage
   setData(JSON.parse(localStorage["data"]));

@@ -1,0 +1,1 @@
+var originalWidth,originalHeigh;$(init);function init(){setData(JSON.parse(localStorage.data))}function add(b,c,a){$("#canvas").append("<div class='widget "+b+"' style='"+a+"'><div class='text'>"+c+"</div></div>")}function setData(b){$.each(b,function(b,a){add(a["class"],a.text,a.style)})};

@@ -21,6 +21,8 @@ javascripts:
     - public/javascripts/mobile/*.js
   mobilecanvas:
     - public/javascripts/mobile/canvas/canvas.js
+  publiccanvas:
+    - public/javascripts/public/canvas.js
 
 stylesheets:
   all:
@@ -30,3 +32,8 @@ stylesheets:
   mobilecanvas:
     - public/stylesheets/mobile/canvas/canvas.css
     - public/stylesheets/widgets.css
+  publiccanvas:
+    - public/stylesheets/public/canvas.css
+    - public/stylesheets/widgets.css
+  publicindex:
+    - public/stylesheets/public/index.css

@@ -15,14 +15,14 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see http://www.gnu.org/licenses/.
 -->
 <!DOCTYPE html>
-	<head>
-	<meta name="description" content="Sketch Lab is a web based user interface (UI) sketch / prototype tool" />
+  <head>
+  <meta name="description" content="Sketch Lab is a web based user interface (UI) sketch / prototype tool" />
   <title>Sketch Lab - <%= @title || "User interface sketching tool" %></title>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
   <%= include_stylesheets :mobile %>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
   <%= include_javascripts :mobile %>
-	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
 
   <%= csrf_meta_tag %>
 </head>
@@ -30,13 +30,13 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 
 <div data-role="page" data-theme="a">
 
-	<div data-role="header">
+  <div data-role="header">
     <h1><%= @title || "Sketch Lab" %></h1>
     <%# Home button %>
     <a href="/" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
     <%# Back button %>
     <a href="#" class="ui-btn-left" data-icon="back" data-direction="reverse" id="backBtn">Back</a>
-	</div>
+  </div>
 
   <div data-role="content">
     <% flash.each do |name, msg| %>
@@ -51,7 +51,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
     <% end %>
 
     <%= yield %>
-	</div>
+  </div>
 
   <div data-role="footer">
     <div data-inline="true" style="text-align:center">
@@ -64,7 +64,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
       <%= link_to 'Desktop Version', request.path + '?mobile=0' %>
     </div>
     <h4 style="font-size:small">&copy; <%= Time.now.year %> Heigh Tech LLC</h4>
-	</div>
+  </div>
 </div>
 
 </body>

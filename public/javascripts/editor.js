@@ -45,6 +45,14 @@ function load() {
     modal: true,
     title: "Rename Sketch"
   });
+
+  $("#sharingBtn").button().click(openSharingDialog);
+  //set up sharing dialog
+  $("#sharingDialog").dialog({
+    autoOpen: false,
+    modal: true,
+    title: "Sharing Settings"
+  });
 }
 
 function clear() {
@@ -84,6 +92,10 @@ function paste(widget) {
 
 function openRenameDialog() {
   $("#renameDialog").dialog("open");
+}
+
+function openSharingDialog() {
+  $("#sharingDialog").dialog("open");
 }
 
 function exportSketch() {

@@ -34,15 +34,29 @@ localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
   <button title="Paste the object on the clipboard to the canvas" id="pasteBtn">Paste</button>
   <span style="font-size:large;border-style:solid"><%= @title %></span>
   <button title="Change the name of the current sketch" id="renameBtn">Rename</button>
+  <span style="border-style:solid">
+    <% if @sketch.public %>Public<% else %>Private<% end %>
+  </span>
+  <button title="Change the publicity of the current sketch" id="sharingBtn">Change</button>
   <span id="saved" style="color:green;display:none">Saved</span>
   <span id="saveFailed" style="color:red;display:none">Save Failed</span>
-  <%# rename dialog %>
+  <%# Rename dialog %>
   <div id="renameDialog">
     <%= validates_sketch_names(:rename) %>
     <form id="renameForm" onsubmit="return validate()">
       <input id="name" type="text" value="<%= @title %>" />
       <input id="rename" type="submit" value="Rename" />
     </form>
+  </div>
+  <%# Sharing dialog %>
+  <div id="sharingDialog">
+    <%= form_tag('/sharing') do %>
+      <%= hidden_field_tag :id, @sketch.id %>
+      <label for="public">Public:</label>
+      <input type="checkbox" name="public"<%= ' checked="checked"' if @sketch.public %> id="public">
+      <br />
+      <%= submit_tag "OK" %>
+    <% end %>
   </div>
 </div>
 <div class="canvas" id="canvas">

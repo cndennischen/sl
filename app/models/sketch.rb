@@ -2,6 +2,7 @@ class Sketch < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
   validates_presence_of :name, :user_id
   validates_length_of :name, :maximum => 25
+  before_save :cache_author
 
   # Returns the sketches that match the specified search term
   def self.search(search)
@@ -10,6 +11,12 @@ class Sketch < ActiveRecord::Base
     else
       scoped
     end
+  end
+
+  # Returns the sketch's author as a string in the following format:
+  # "User Name (User Email)", for example "John Doe (john.doe@example.com)"
+  def author
+    "#{user.name} (#{user.email})"
   end
 
   # Exports the sketch to an image with the specified format
@@ -53,6 +60,10 @@ class Sketch < ActiveRecord::Base
 
     # Return the generated html
     html
+  end
+
+  def cache_author
+    self.author = author
   end
 
 end

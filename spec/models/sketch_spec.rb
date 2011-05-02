@@ -20,4 +20,8 @@ describe Sketch do
     s = Factory.build(:sketch, :user_id => nil)
     assert !s.save
   end
+
+  it 'defaults "public" to false' do
+    Factory.build(:sketch).public.should == false
+  end
 end

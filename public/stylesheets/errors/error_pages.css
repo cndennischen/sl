@@ -1,8 +1,8 @@
 body {
-	background-color: #fff;
-	color: #666;
-	text-align: center;
-	font-family: arial, sans-serif;
+  background-color: #fff;
+  color: #666;
+  text-align: center;
+  font-family: arial, sans-serif;
 }
 div.dialog {
   max-width: 25em;
@@ -14,7 +14,7 @@ div.dialog {
   border-bottom-color: #999;
 }
 h1 {
-	font-size: 100%;
-	color: #f00;
-	line-height: 1.5em;
+  font-size: 100%;
+  color: #f00;
+  line-height: 1.5em;
 }

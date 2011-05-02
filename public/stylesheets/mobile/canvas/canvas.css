@@ -1,7 +1,7 @@
 #canvas {
-	overflow: auto;
-	height: 400px;
-	position: relative;
+  overflow: auto;
+  height: 400px;
+  position: relative;
 }
 .widget {
   cursor: auto !important;

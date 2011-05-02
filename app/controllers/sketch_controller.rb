@@ -1,6 +1,6 @@
 class SketchController < ApplicationController
   before_filter :require_login
-  before_filter :get_sketch, :only => [:edit, :save, :rename, :delete, :export]
+  before_filter :get_sketch, :only => [:edit, :save, :rename, :sharing, :delete, :export]
 
   # Creates a new sketch
   def new
@@ -38,6 +38,16 @@ class SketchController < ApplicationController
   # Changes the name of the specified sketch
   def rename
     @sketch.update_attributes(:name => params[:name])
+    redirect_to "/edit/#{@sketch.id}"
+  end
+
+  def sharing
+    if params[:public]
+      @sketch.public = true
+    else
+      @sketch.public = false
+    end
+    @sketch.save
     redirect_to "/edit/#{@sketch.id}"
   end
 

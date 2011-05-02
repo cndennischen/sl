@@ -3,11 +3,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
   rescue_from ActionView::MissingTemplate, :with => :render_not_found
 
-  helper_method :current_user
-  helper_method :mobile_device?
-  helper_method :allow_new?
-  helper_method :admin?
-  helper_method :cache_page
+  helper_method :current_user, :mobile_device?, :allow_new?, :admin?, :cache_page
 
   before_filter :prepare_for_mobile
 
