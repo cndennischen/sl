@@ -61,7 +61,7 @@ class SketchController < ApplicationController
   # Exports the specified sketch to the specified format
   def export
     format = params[:format]
-    # export the sketch to the selected format
+    # Convert the sketch to the selected format
     case format
     when 'png', 'jpg'
       data = @sketch.to_img(format)
@@ -70,7 +70,7 @@ class SketchController < ApplicationController
     else
       return render_not_found
     end
-    # send the exported file to the user
+    # Send the exported file to the user
     send_data(data, :filename => "sketch.#{format}")
   end
 

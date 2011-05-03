@@ -64,7 +64,7 @@ localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
   </iframe>
 </div>
 <footer id="export">
-  Download as:<%= link_to "PDF", "/export/#{@sketch.id}/pdf", :onclick => "exportSketch()" %>,
+  Download as: <%= link_to "PDF", "/export/#{@sketch.id}/pdf", :onclick => "exportSketch()" %>,
   <%= link_to "PNG", "/export/#{@sketch.id}/png", :onclick => "exportSketch()" %>,
   <%= link_to "JPEG", "/export/#{@sketch.id}/jpg", :onclick => "exportSketch()" %>
 </footer>

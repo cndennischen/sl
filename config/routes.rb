@@ -23,7 +23,7 @@ SketchLab::Application.routes.draw do
   get 'export/:id/:format' => 'sketch#export', :constraints => { :id => /\d+/ }
 
   get 'public' => 'public#index'
-  get 'public/:id' => 'public#show'
+  get 'public/:id' => 'public#show', :constraints => { :id => /\d+/ }
 
   get 'help' => 'help#index'
   get 'help/:article' => 'help#kb'
