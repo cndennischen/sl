@@ -14,6 +14,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'guard-rspec'
+  gem 'libnotify' # For Linux notifications from Guard
 end
 
 group :development do

@@ -14,7 +14,9 @@ describe 'Public Sketches' do
   it 'allows all users to view' do
     # Create a public sketch
     sketch = Factory(:sketch, :public => true)
-    visit "/public/#{sketch.id}"
+    visit "/public"
+    click_link sketch.name
+    # Check the title
     page.should have_css('head title', :text => "Sketch Lab - #{sketch.name}")
   end
 end
