@@ -20,7 +20,6 @@ class SketchController < ApplicationController
 
   # The sketch editing page
   def edit
-    @title = @sketch.name
   end
 
   # The actual editing canvas, which is embedded in the edit page with an iframe

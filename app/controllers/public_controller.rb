@@ -2,14 +2,26 @@ class PublicController < ApplicationController
   helper_method :sortable, :sort_column, :sort_direction
 
   def index
-    @sketches = Sketch.where(:public => true)
-      .search(params[:search])
-      .order(sort_column + " " + sort_direction)
-      .paginate(:per_page => 20, :page => params[:page])
+    respond_to do |format|
+      format.html do
+        @sketches = Sketch.where(:public => true)
+          .search(params[:search])
+          .order(sort_column + " " + sort_direction)
+          .paginate(:per_page => 20, :page => params[:page])
+      end
+      format.mobile do
+        @sketches = Sketch.where(:public => true)
+      end
+    end
+    
   end
 
   def show
     @sketch = Sketch.find_by_id_and_public(params[:id], true, :include => :user)
+    respond_to do |format|
+      format.html
+      format.mobile { render 'sketch/edit' }
+    end
   end
 
   private
