@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+puts "Deploying Sketch Lab..."
+puts "Did you:"
+puts "1) Run specs?"
+puts "2) Test in Chrome, Firefox, IE9, Opera and Safari?"
+puts "3) Update Jammit Assets?"
+puts "4) Commit changes to git?"
+if gets.chomp != 'y'
+  exit
+else
+  require 'fileutils'
+  FileUtils.cd '/home/szh/git/sl'
+  puts `git checkout deploy`
+  puts `git rebase master`
+  puts `git checkout master`
+  puts `git push heroku deploy:master -f`
+end
