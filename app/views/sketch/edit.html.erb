@@ -1,3 +1,4 @@
+<% title @sketch.name %>
 <%= include_javascripts :editor %>
 <script type="text/javascript">
 function rename() {
@@ -56,6 +57,9 @@ localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
       <input type="checkbox" name="public"<%= ' checked="checked"' if @sketch.public %> id="public">
       <br />
       <%= submit_tag "OK" %>
+      <% if @sketch.public %>
+        <p>Public url: <a href="http://www.sketchlabhq.com/public/<%= @sketch.id %>">http://www.sketchlabhq.com/public/<%= @sketch.id %></a>
+      <% end %>
     <% end %>
   </div>
 </div>
