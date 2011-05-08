@@ -75,15 +75,13 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
   </div>
   <div id="footer">
     <small>
-    <%= link_to 'Blog', 'http://blog.sketchlabhq.com/' %>
+    <%= link_to 'Public Sketches', public_url %>
     <%= link_to 'Help', help_path %>
     <%= link_to 'Contributing', contributing_path %>
     <%= link_to 'Terms of Service', tos_path %>
     <%= link_to 'Privacy Policy', privacy_path %>
     <%= link_to 'Mobile Version', root_url(:mobile => 1) %>
-    <br />
-    <%= link_to 'Public Sketches', public_url %>
-    <br />&copy; <%= Time.now.year %> Heigh Tech LLC
+    <br />&copy; <%= Time.now.year %> <%= link_to 'Heigh Tech LLC', 'http://www.heigh-tech.com' %>
     </small>
   </div>
 <%# UserVoice tab widget %>

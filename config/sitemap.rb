@@ -26,10 +26,11 @@ SitemapGenerator::Sitemap.add_links do |sitemap|
   #     sitemap.add article_path(article), :lastmod => article.updated_at
   #   end
 
+  sitemap.add '/public'
   sitemap.add '/signin'
   sitemap.add '/contributing'
   sitemap.add '/help'
-  # add help articles
+  # Help articles
   sitemap.add '/help/overview'
   sitemap.add '/help/faq'
   sitemap.add '/help/plans'
