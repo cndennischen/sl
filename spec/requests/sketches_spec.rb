@@ -13,7 +13,7 @@ describe 'Sketches' do
   it 'creates sketch' do
     signin
     create_sketch
-    click_link 'Sketch Lab'
+    click_link 'Home'
     page.should have_content('Test Sketch')
   end
 
@@ -30,7 +30,7 @@ describe 'Sketches' do
   it 'does not create more than one sketch on free plan' do
     signin
     create_sketch
-    click_link 'Sketch Lab'
+    click_link 'Home'
     page.should have_content('Test Sketch')
     post_via_redirect '/new', :name => 'Test Sketch 2'
     current_path.should == '/'
@@ -44,12 +44,12 @@ describe 'Sketches' do
     # Set the user's plan to paid
     Rails.cache.write("#{User.last.cache_key}-plan", 'paid')
     create_sketch
-    click_link 'Sketch Lab'
+    click_link 'Home'
     page.should have_content('Test Sketch')
     fill_in 'name', :with => 'Test Sketch #2'
     click_button 'New Sketch'
     Sketch.count.should == 2
-    click_link 'Sketch Lab'
+    click_link 'Home'
     page.should have_content('Test Sketch #2')
   end
 

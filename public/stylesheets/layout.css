@@ -34,10 +34,23 @@
   margin-top: 15px;
   width: 100%;
 }
-#title {
+#nav {
   float: left;
   margin-left: 50px;
-  font-size: x-large;
+  font-size: large;
+}
+#nav a, #nav .tab {
+  padding: 0 5px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: blue;
+  color: white;
+  background-color: blue;
+}
+#nav a:hover, #nav .tab {
+  color: red;
 }
 #user {
   float: right;
@@ -47,7 +60,7 @@
   position: absolute;
   left: 50px;
   right: 50px;
-  top: 50px;
+  top: 35px;
   bottom: 50px;
   border-style: solid;
   border-color: black;

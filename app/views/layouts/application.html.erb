@@ -47,8 +47,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
 <% if !@canvas %>
 <body class="background">
   <div id="header">
-    <div id="title">
-      <%= link_to 'Sketch Lab', root_path %>
+    <div id="nav">
+      <%= tab 'Home', root_path %><%= tab 'Public Sketches', public_url %><%= tab 'Help', help_path %><%= tab('Pricing', '/help/plans') unless current_user %>
     </div>
     <div id="user">
       <% if current_user %>
@@ -75,8 +75,6 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
   </div>
   <div id="footer">
     <small>
-    <%= link_to 'Public Sketches', public_url %>
-    <%= link_to 'Help', help_path %>
     <%= link_to 'Contributing', contributing_path %>
     <%= link_to 'Terms of Service', tos_path %>
     <%= link_to 'Privacy Policy', privacy_path %>

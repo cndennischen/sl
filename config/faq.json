@@ -17,7 +17,7 @@
   },
   "5": {
     "q": "What browsers do you support",
-    "a": "We currently support Google Chrome, Mozilla Firefox, Apple Safari, Opera, and Internet Explorer 9. We suggest Google Chrome because it's fast :)<br />Note: Please make sure to keep your browser up to date. We only support the latest versions of the browsers specified."
+    "a": "We currently support Google Chrome, Mozilla Firefox 4, Apple Safari, Opera, and Internet Explorer 9. We suggest Google Chrome because it's fast :)<br />Note: Please make sure to keep your browser up to date. We only support the latest versions of the browsers specified."
   },
   "6": {
     "q": "How can I help improve Sketch Lab",
