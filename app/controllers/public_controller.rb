@@ -18,8 +18,10 @@ class PublicController < ApplicationController
 
   def show
     @sketch = Sketch.find_by_id_and_public(params[:id], true, :include => :user)
+    return render_not_found unless @sketch # Make sure the sketch exists
     respond_to do |format|
-      format.html
+      format.html # show.html.erb
+      # The mobile public page is the same as the regular edit page
       format.mobile { render 'sketch/edit' }
     end
   end
