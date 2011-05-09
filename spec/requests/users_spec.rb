@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Users' do
-  describe "GET /account" do
+  describe 'GET /account' do
     it 'displays user info', :js => true do
       signin
       click_link 'Account'
@@ -20,7 +20,7 @@ describe 'Users' do
     end
   end
 
-  describe "POST /account" do
+  describe 'POST /account' do
     it 'changes user name', :js => true do
       signin
       visit '/account'
