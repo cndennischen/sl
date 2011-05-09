@@ -18,6 +18,20 @@ describe 'Users' do
       click_link 'refresh'
       User.last.plan.should == 'paid'
     end
+
+    it 'displays ad for free users' do
+      signin
+      # Should display ad
+      page.should have_css 'div#ad'
+      page.should have_text 'Upgrade to the paid plan to'
+      # Change the plan to paid
+      Rails.cache.write("#{User.last.cache_key}-plan", 'paid')
+      # Reload the page
+      page.reload
+      # Should not display ad
+      page.should have_no_css 'div#ad'
+      page.should have_no_text 'Upgrade to the paid plan to'
+    end
   end
 
   describe 'POST /account' do
