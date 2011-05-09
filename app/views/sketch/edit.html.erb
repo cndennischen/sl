@@ -33,9 +33,9 @@ localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
   <button title="Undo the last action" id="undoBtn">Undo</button>
   <button title="Redo the last undo" id="redoBtn">Redo</button>
   <button title="Paste the object on the clipboard to the canvas" id="pasteBtn">Paste</button>
-  <span style="font-size:large;border-style:solid"><%= @title %></span>
+  <span class="box"><%= @title %></span>
   <button title="Change the name of the current sketch" id="renameBtn">Rename</button>
-  <span style="border-style:solid">
+  <span class="box">
     <% if @sketch.public %>Public<% else %>Private<% end %>
   </span>
   <button title="Change the publicity of the current sketch" id="sharingBtn">Change</button>

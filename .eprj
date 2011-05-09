@@ -17,5 +17,10 @@
             <key>includeFiles</key>
             <array />
         </dict>
+        <key>fileTriggers</key>
+        <dict>
+            <key>edit.</key>
+            <string>app\views\sketch\edit.html.erb</string>
+        </dict>
     </dict>
 </plist>
