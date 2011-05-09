@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe 'Users' do
+describe 'Users', :js => true do
   describe 'GET /account' do
-    it 'displays user info', :js => true do
+    it 'displays user info' do
       signin
       click_link 'Account'
       page.should have_content('test_name')
       page.should have_content('test_email@example.com')
     end
 
-    it 'refreshes user plan', :js => true do
+    it 'refreshes user plan' do
       signin
       click_link 'Account'
       # Change the user's plan
@@ -23,19 +23,19 @@ describe 'Users' do
       signin
       # Should display ad
       page.should have_css 'div#ad'
-      page.should have_text 'Upgrade to the paid plan to'
+      page.should have_content 'Upgrade to the paid plan to'
       # Change the plan to paid
-      Rails.cache.write("#{User.last.cache_key}-plan", 'paid')
+      Rails.cache.write(User.last.plan_key, 'paid')
       # Reload the page
-      page.reload
+      visit(current_path)
       # Should not display ad
       page.should have_no_css 'div#ad'
-      page.should have_no_text 'Upgrade to the paid plan to'
+      page.should have_no_content 'Upgrade to the paid plan to'
     end
   end
 
   describe 'POST /account' do
-    it 'changes user name', :js => true do
+    it 'changes user name' do
       signin
       visit '/account'
       fill_in 'name', :with => 'new name'
@@ -44,14 +44,14 @@ describe 'Users' do
       page.should have_selector('#flash_notice')
     end
 
-    it 'does not change email', :js => true do
+    it 'does not change email' do
       signin
       post '/account/update', :email => 'new_email@example.com'
       visit '/account'
       page.should have_no_content('new_email@example.com')
     end
 
-    it 'deletes account', :js => true do
+    it 'deletes account' do
       signin
       visit '/account'
       click_link 'Delete Account'
@@ -62,7 +62,7 @@ describe 'Users' do
       current_path.should == '/'
     end
 
-    it 'does not delete account without confirmation', :js => true do
+    it 'does not delete account without confirmation' do
       signin
       visit '/account'
       click_link 'Delete Account'

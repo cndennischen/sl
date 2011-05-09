@@ -42,7 +42,7 @@ describe 'Sketches' do
   it 'creates multiple sketches on the paid plan' do
     signin
     # Set the user's plan to paid
-    Rails.cache.write("#{User.last.cache_key}-plan", 'paid')
+    Rails.cache.write(User.last.plan_key, 'paid')
     create_sketch
     click_link 'Home'
     page.should have_content('Test Sketch')

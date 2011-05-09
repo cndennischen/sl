@@ -7,7 +7,7 @@ class AccountController < ApplicationController
 
   # Delete the cached plan value
   def refresh_plan
-    Rails.cache.delete("#{current_user.cache_key}-plan")
+    current_user.refresh_plan!
     redirect_to account_path
   end
 
@@ -37,7 +37,7 @@ class AccountController < ApplicationController
   # Permanently deletes the current user
   def destroy
     # Delete the cached copy of the user's plan to make sure the user isn't on the paid plan
-    Rails.cache.delete("#{current_user.cache_key}-plan")
+    current_user.refresh_plan!
     # Only delete account if user is not on paid plan
     if current_user.plan != "paid" and params[:confirmed]
       begin

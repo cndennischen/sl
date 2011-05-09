@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def refresh_plan!
+    Rails.cache.delete(plan_key)
+  end
+
+  def plan_key
+    "#{cache_key}-plan"
+  end
+
   # Returns true if the user is an admin
   def admin?
     # The user is considered an admin if his email address is admin@sketchlabhq.com
@@ -29,7 +37,7 @@ class User < ActiveRecord::Base
       return 'paid'
     end
     # Cache the plan with Memcached
-    Rails.cache.fetch("#{self.cache_key}-plan", :expires_in => 3.minutes) { access_level }
+    Rails.cache.fetch(plan_key, :expires_in => 3.minutes) { access_level }
   end
 
   private
