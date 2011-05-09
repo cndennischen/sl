@@ -1,5 +1,6 @@
 class SketchController < ApplicationController
   before_filter :require_login
+  before_filter :authorize_edit, :only => [:edit, :save, :rename, :sharing, :export]
   before_filter :get_sketch, :only => [:edit, :save, :rename, :sharing, :delete, :export]
 
   # Creates a new sketch
@@ -84,6 +85,14 @@ class SketchController < ApplicationController
       @sketch = Sketch.find(params[:id])
     else
       @sketch = current_user.sketches.find(params[:id])
+    end
+  end
+
+  # Check if the user is allowed to edit sketches
+  def authorize_edit
+    unless allow_edit?
+      flash[:error] = 'You are not allowed to have more than one sketch on the free plan. Please delete all of your extra sketches until you have only one sketch.'
+      redirect_to root_url
     end
   end
 end

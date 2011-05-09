@@ -39,6 +39,18 @@ describe 'Sketches' do
     page.should have_no_content('Test Sketch 2')
   end
 
+  it 'authorizes edit' do
+    signin
+    create_sketch
+    # Create another sketch
+    User.last.sketches.create(:name => '2nd Sketch', :content => '{}')
+    click_link 'Home'
+    click_link '2nd Sketch'
+    # Should redirect to root
+    current_path.should == '/'
+    page.should have_selector('#flash_error')
+  end
+
   it 'creates multiple sketches on the paid plan' do
     signin
     # Set the user's plan to paid

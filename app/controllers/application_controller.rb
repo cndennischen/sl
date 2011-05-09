@@ -21,6 +21,15 @@ class ApplicationController < ActionController::Base
     (current_user.sketches.size < 1) or (current_user.plan != 'free')
   end
 
+  # Checks if the current user is allowed to edit sketches.
+  # Returns false if the user is on the free plan and has more than one sketch.
+  # This can happen (for example) if the user downgraded from the paid plan after
+  # creating multiple sketches. In such a case, the user will not be allowed to
+  # edit sketches until she deletes all of her extra sketches.
+  def allow_edit?
+    (current_user.sketches.size <= 1) or (current_user.plan != 'free')
+  end
+
   # Retrieves the currently logged in user
   def current_user
     begin
