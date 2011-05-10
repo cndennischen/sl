@@ -17,6 +17,15 @@ describe 'Sketches' do
     page.should have_content('Test Sketch')
   end
 
+  it 'does not create sketch without name' do
+    signin
+    # Try to create a sketch with name => ' '
+    fill_in 'name', :with => ' '
+    click_button 'New Sketch'
+    page.should have_selector('#flash_error')
+    Sketch.count.should == 0
+  end
+
   it 'deletes sketch', :js => true do
     signin
     create_sketch

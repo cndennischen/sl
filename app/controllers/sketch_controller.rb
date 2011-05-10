@@ -11,7 +11,7 @@ class SketchController < ApplicationController
         redirect_to "/edit/#{@sketch.id}"
       rescue
         # Oh no!
-        redirect_to root_url, :error => "Error creating sketch: #{$!}"
+        redirect_to root_url, :alert => "Error creating sketch: #{$!}"
       end
     else
       flash[:error] = 'You cannot have more than one sketch on the free plan. Upgrade to the paid plan to have unlimited sketches.'
