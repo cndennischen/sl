@@ -100,6 +100,12 @@ GEM
       guard (>= 0.2.2)
     guard-rspec (0.3.1)
       guard (>= 0.2.2)
+    heroku (1.20.1)
+      launchy (~> 0.3.2)
+      rest-client (>= 1.4.0, < 1.7.0)
+    heroku_backup_task (0.0.4)
+      heroku (>= 1.13.7, < 2.0)
+      rake
     hoptoad_notifier (2.4.9)
       activesupport
       builder
@@ -112,7 +118,7 @@ GEM
       yui-compressor (>= 0.9.1)
     json (1.5.1)
     json_pure (1.5.1)
-    launchy (0.4.0)
+    launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
     libnotify (0.5.0)
@@ -278,11 +284,11 @@ DEPENDENCIES
   guard-bundler
   guard-jammit!
   guard-rspec
+  heroku_backup_task
   hoptoad_notifier
   itslog
   jammit
   json
-  launchy
   libnotify
   memcache-client
   meta_where

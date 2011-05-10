@@ -12,7 +12,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git', :ref => '97af9bd1c66fe54d1cb8c65b88518f1695331f5a'
   gem 'database_cleaner'
-  gem 'launchy'
 end
 
 group :development do
@@ -42,3 +41,4 @@ gem 'meta_where'
 gem 'sitemap_generator'
 gem 'memcache-client'
 gem 'will_paginate', '3.0.pre2'
+gem 'heroku_backup_task'
