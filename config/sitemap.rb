@@ -38,4 +38,5 @@ SitemapGenerator::Sitemap.add_links do |sitemap|
   sitemap.add '/help/sketch_footer'
   sitemap.add '/help/quotas'
   sitemap.add '/help/searching'
+  sitemap.add '/help/public'
 end
