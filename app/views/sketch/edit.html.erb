@@ -35,9 +35,7 @@ localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
   <button title="Paste the object on the clipboard to the canvas" id="pasteBtn">Paste</button>
   <span class="box"><%= @title %></span>
   <button title="Change the name of the current sketch" id="renameBtn">Rename</button>
-  <span class="box">
-    <% if @sketch.public %>Public<% else %>Private<% end %>
-  </span>
+  <span class="box"><% if @sketch.public %>Public<% else %>Private<% end %></span>
   <button title="Change the publicity of the current sketch" id="sharingBtn">Change</button>
   <span id="saved" style="color:green;display:none">Saved</span>
   <span id="saveFailed" style="color:red;display:none">Save Failed</span>
