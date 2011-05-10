@@ -13,6 +13,11 @@ group :development, :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git', :ref => '97af9bd1c66fe54d1cb8c65b88518f1695331f5a'
   gem 'database_cleaner'
   gem 'launchy'
+end
+
+group :development do
+  gem 'nifty-generators'
+  gem 'ruby-debug19'
   # Guards
   gem 'guard-rspec'
   gem 'guard-bundler'
@@ -20,11 +25,6 @@ group :development, :test do
   # Linux notifications from Guard
   gem 'rb-inotify'
   gem 'libnotify'
-end
-
-group :development do
-  gem 'nifty-generators'
-  gem 'ruby-debug19'
 end
 
 gem 'rmagick', :require => 'RMagick'
