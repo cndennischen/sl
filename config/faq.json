@@ -26,5 +26,9 @@
   "7": {
     "q": "Can I download my sketches",
     "a": "You can download your sketches as PDF documents or as PNG or JPEG images. See <a href='/help/exporting'>this tutorial</a> for more information."
+  },
+  "8": {
+    "q": "How often do you back up my data",
+    "a": "We backup our database daily, so your data is safe."
   }
 }
