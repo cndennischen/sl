@@ -18,7 +18,7 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'guard-jammit', :git => 'git://github.com/Heigh-Tech/guard-jammit.git'
   # Linux notifications from Guard
-  gem 'libnotify'
+  gem 'rb-inotify'
 end
 
 group :development do
