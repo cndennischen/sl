@@ -13,7 +13,8 @@ SketchLab::Application.configure do
   config.consider_all_requests_local       = true
   config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
-  config.cache_store = :mem_cache_store
+  # Use Memcached
+  config.cache_store = :dalli_store, '127.0.0.1:11211'
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
