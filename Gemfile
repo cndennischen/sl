@@ -17,7 +17,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-jammit', :git => 'git://github.com/Heigh-Tech/guard-jammit.git'
-  gem 'guard-passenger'
   # Linux notifications from Guard
   gem 'libnotify'
 end

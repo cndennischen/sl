@@ -98,8 +98,6 @@ GEM
       thor (~> 0.14.6)
     guard-bundler (0.1.2)
       guard (>= 0.2.2)
-    guard-passenger (0.3.0)
-      guard (~> 0.3)
     guard-rspec (0.3.1)
       guard (>= 0.2.2)
     hoptoad_notifier (2.4.9)
@@ -277,7 +275,6 @@ DEPENDENCIES
   factory_girl_rails
   guard-bundler
   guard-jammit!
-  guard-passenger
   guard-rspec
   hoptoad_notifier
   itslog

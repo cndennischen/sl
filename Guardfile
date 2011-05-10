@@ -6,11 +6,6 @@ guard 'bundler' do
   # watch(/^.+\.gemspec/)
 end
 
-guard 'passenger', :standalone => false, :ping => true do
-  watch(/^lib\/.*\.rb$/)
-  watch(/^config\/.*\.rb$/)
-end
-
 guard 'jammit' do
   watch(/^public\/javascripts\/(.*)\.js/)
   watch(/^public\/stylesheets\/(.*)\.css/)
