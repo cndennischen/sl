@@ -5,6 +5,9 @@
   display: block;
   margin: 15px auto;
 }
+.signup_button img, .continue_button img {
+  border: none;
+}
 .screenshot, .signup_button, .continue_button {
   background-color: transparent !important;
 }
