@@ -9,7 +9,9 @@ describe 'Faqs' do
   end
 
   it 'searches faqs' do
-    visit '/help/faq'
+    # Uncace the FAQs
+    Faq.uncache
+    # Create 2 FAQs
     faq1 = Factory(:faq)
     faq2 = Factory(:faq)
     visit '/help/faq'
