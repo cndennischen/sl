@@ -2,7 +2,7 @@
 <%= include_stylesheets :publiccanvas %>
 <%= include_javascripts :publiccanvas %>
 <script type="text/javascript">
-localStorage["data"] = '<%= @sketch.content.html_safe %>';
+localStorage["data"] = '<%= escape_javascript(@sketch.content).html_safe %>';
 </script>
 <h1><%= @title %></h1><h3>by <%= @sketch.author %></h3>
 <div id="canvas"></div>
