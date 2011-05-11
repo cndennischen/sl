@@ -6,4 +6,6 @@ task :reload_faqs => :environment do
   JSON.parse(File.read("#{Rails.root}/config/faq.json")).each do |key, value|
     Faq.create(:question => value['q'], :answer => value['a'])
   end
+  # Uncache the Faqs
+  Faq.uncache
 end
