@@ -1,7 +1,11 @@
 .ui-button-text {
   font-size: 12px;
 }
-.screenshot {
+.signup_button img {
+  display: block;
+  margin: 15px auto;
+}
+.screenshot, .signup_button {
   background-color: transparent !important;
 }
 .screenshot img {
