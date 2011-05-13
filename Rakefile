@@ -8,4 +8,4 @@ SketchLab::Application.load_tasks
 
 # Heroku database backup
 require 'heroku_backup_task/tasks'
-task :cron => :heroku_backup
+task :cron => [:heroku_backup, :email_backup]
