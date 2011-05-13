@@ -14,10 +14,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Refreshes the user's plan by uncaching it, causing it to be recalculated
+  # the next time it's needed.
   def refresh_plan!
     Rails.cache.delete(plan_key)
   end
 
+  # Returns the key that is be used to cache the user's plan
   def plan_key
     "#{cache_key}-plan"
   end
@@ -33,8 +36,8 @@ class User < ActiveRecord::Base
   def plan
     # Check if the user is an admin
     if admin?
-      # The admin is always considered a paid user
-      return 'paid'
+      # The admin is always considered a premium user
+      return 'premium'
     end
     # Cache the plan with Memcached
     Rails.cache.fetch(plan_key, :expires_in => 3.minutes) { access_level }
@@ -59,9 +62,9 @@ class User < ActiveRecord::Base
       )
       # Get the accessLevel from the JSON response
       if JSON.parse(response[2][0])["accessLevel"] == "FULL"
-        'paid'
+        'premium'
       else
-        'free'
+        'basic'
       end
     else
       kind

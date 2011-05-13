@@ -15,19 +15,19 @@ class ApplicationController < ActionController::Base
   end
 
   # Checks if the current user is allowed to create another sketch.
-  # Returns true if the current user has less than one sketch, or is not on the free plan.
-  # This allows free users to have one sketch and paid users to have unlimited sketches.
+  # Returns true if the current user has less than one sketch, or is not on the basic plan.
+  # This allows basic users to have one sketch and premium users to have unlimited sketches.
   def allow_new?
-    (current_user.sketches.size < 1) or (current_user.plan != 'free')
+    (current_user.sketches.size < 1) or (current_user.plan != 'basic')
   end
 
   # Checks if the current user is allowed to edit sketches.
-  # Returns false if the user is on the free plan and has more than one sketch.
-  # This can happen (for example) if the user downgraded from the paid plan after
+  # Returns false if the user is on the basic plan and has more than one sketch.
+  # This can happen (for example) if the user downgraded from the premium plan after
   # creating multiple sketches. In such a case, the user will not be allowed to
   # edit sketches until she deletes all of her extra sketches.
   def allow_edit?
-    (current_user.sketches.size <= 1) or (current_user.plan != 'free')
+    (current_user.sketches.size <= 1) or (current_user.plan != 'basic')
   end
 
   # Retrieves the currently logged in user

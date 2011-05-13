@@ -36,7 +36,7 @@ RSpec.configure do |config|
 end
 
 # Set up OmniAuth test mode
-OmniAuth.config.test_mode = true # turn test mode on
+OmniAuth.config.test_mode = true # Turn test mode on
 # Set up a mock user to sign in with
 OmniAuth.config.mock_auth[:google] = {
   'provider' => 'google',

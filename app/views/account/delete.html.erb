@@ -1,6 +1,6 @@
 <% title 'Delete Account' %>
-<% if current_user.plan == 'paid' %>
-  Please <%= link_to 'downgrade', account_path %> to the free plan before deleting your account.
+<% if current_user.plan == 'premium' %>
+  Please <%= link_to 'downgrade', account_path %> to the basic plan before deleting your account.
 <% else %>
   <%= form_tag(destroy_account_path) do %>
     <p>Are you sure you want to delete your account?

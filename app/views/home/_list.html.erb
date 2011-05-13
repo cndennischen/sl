@@ -1,7 +1,7 @@
-<%# Advertise paid plan to free users %>
-<% if current_user.plan == "free" %>
+<%# Advertise premium plan to basic users %>
+<% if current_user.plan == 'basic' %>
   <div id="ad">
-    Upgrade to the paid plan to:
+    Upgrade to the premium plan to:
     <ul>
       <li><%= link_to raw("Have <i>unlimited</i> sketches"), "/help/quotas" %></li>
       <li><%= link_to "Remove footer from exported sketches", "/help/sketch_footer" %></li>
@@ -14,9 +14,8 @@
 <%# The sketch list %>
 <div id="sketches">
 <fieldset><legend>Your Sketches</legend>
-<%# Search Form for paid users %>
-<% if current_user.plan != 'free' %>
-  <%# Search form for paid users %>
+<%# Search Form for premium users %>
+<% if current_user.plan == 'premium' %>
   <%= form_tag root_url, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
@@ -60,7 +59,7 @@
     <%= submit_tag("New Sketch") %>
   <% end %>
 <% else %>
-  Please upgrade to the paid plan to have multiple sketches.
+  Please upgrade to the premium plan to have multiple sketches.
 <% end %>
 </fieldset>
 </div>

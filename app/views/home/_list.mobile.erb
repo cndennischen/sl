@@ -1,6 +1,6 @@
 <div id="sketches">
   <% if @sketches.length > 0 %>
-    <ul id="sketchList" data-role="listview"<%= ' data-filter="true"' if current_user.plan == "paid" %>>
+    <ul id="sketchList" data-role="listview"<%= ' data-filter="true"' if current_user.plan == 'premium' %>>
       <% @sketches.each do |sketch| %>
         <li><%= link_to sketch.name, "/edit/#{sketch.id}" %></li>
       <% end %>

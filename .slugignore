@@ -1,5 +1,6 @@
 README.rdoc
 LICENSE
+.rspec
 Guardfile
 deploy
 spec/

@@ -36,7 +36,7 @@ describe 'Sketches' do
     Sketch.count.should == 0
   end
 
-  it 'does not create more than one sketch on free plan' do
+  it 'does not create more than one sketch on basic plan' do
     signin
     create_sketch
     click_link 'Home'
@@ -60,10 +60,10 @@ describe 'Sketches' do
     page.should have_selector('#flash_error')
   end
 
-  it 'creates multiple sketches on the paid plan' do
+  it 'creates multiple sketches on the premium plan' do
     signin
-    # Set the user's plan to paid
-    Rails.cache.write(User.last.plan_key, 'paid')
+    # Set the user's plan to premium
+    Rails.cache.write(User.last.plan_key, 'premium')
     create_sketch
     click_link 'Home'
     page.should have_content('Test Sketch')

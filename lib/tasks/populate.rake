@@ -1,5 +1,5 @@
 namespace :db do
-  desc "Erase and fill database"
+  desc 'Erase and fill database'
   task :populate => :environment do
     print 'Erasing... '
     [User, Sketch, Faq].each(&:delete_all)

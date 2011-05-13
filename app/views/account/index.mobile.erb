@@ -7,13 +7,13 @@
   <%= submit_tag 'Update' %>
 <% end %>
 
-<% if current_user.plan == 'paid' %>
-  You are currently on the paid plan. You can downgrade to the free plan if you want.
+<% if current_user.plan == 'premium' %>
+  You are currently on the premium plan <%= refresh_link %>. You can downgrade to the basic plan if you want.
   Note: it may take a few minutes for the downgrade to take effect.
   <br />
   To downgrade your account, go to the <%= link_to 'Chrome Webstore page', 'https://chrome.google.com/webstore/detail/delppejinhhpcmimgfchjkbkpanhjkdj' %> and click 'Cancel and uninstall'.
 <% else %>
-  You are currently on the <%= current_user.plan %> plan. Upgrade your account to get more features.
+  You are currently on the <%= current_user.plan %> plan <%= refresh_link %>. Upgrade your account to enjoy all the features of Sketch Lab.
   Note: it may take a few minutes for the upgrade to take effect.
   <br />
   To upgrade your account, go to the <%= link_to 'Chrome Webstore page', 'https://chrome.google.com/webstore/detail/delppejinhhpcmimgfchjkbkpanhjkdj' %> and click 'Buy full version'.

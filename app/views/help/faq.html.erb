@@ -12,7 +12,7 @@ function init() {
 </script>
 <p>Click a question to expand the answer</p>
 <div id="faq">
-<%# Search Form for paid users %>
+<%# Search Form for premium users %>
 <%= form_tag '/help/faq', :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>

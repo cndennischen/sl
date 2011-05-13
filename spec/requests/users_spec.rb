@@ -9,28 +9,28 @@ describe 'Users', :js => true do
       page.should have_content('test_email@example.com')
     end
 
-    it 'refreshes user plan' do
+    it 'refreshes plan' do
       signin
       click_link 'Account'
       # Change the user's plan
-      User.last.update_attribute :kind, 'paid'
+      User.last.update_attribute :kind, 'premium'
       # Refresh the plan
       click_link 'refresh'
-      User.last.plan.should == 'paid'
+      User.last.plan.should == 'premium'
     end
 
-    it 'displays ad for free users' do
+    it 'displays ad for basic users' do
       signin
       # Should display ad
-      page.should have_css 'div#ad'
-      page.should have_content 'Upgrade to the paid plan to'
-      # Change the plan to paid
-      Rails.cache.write(User.last.plan_key, 'paid')
+      page.should have_selector('div#ad')
+      page.should have_content('Upgrade to the premium plan to')
+      # Change the plan to 'premium'
+      Rails.cache.write(User.last.plan_key, 'premium')
       # Reload the page
       visit(current_path)
       # Should not display ad
-      page.should have_no_css 'div#ad'
-      page.should have_no_content 'Upgrade to the paid plan to'
+      page.should have_no_selector('div#ad')
+      page.should have_no_content('Upgrade to the premium plan to')
     end
   end
 

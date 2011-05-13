@@ -36,10 +36,10 @@ class AccountController < ApplicationController
 
   # Permanently deletes the current user
   def destroy
-    # Delete the cached copy of the user's plan to make sure the user isn't on the paid plan
+    # Delete the cached copy of the user's plan to make sure the user isn't on the premium plan
     current_user.refresh_plan!
-    # Only delete account if user is not on paid plan
-    if current_user.plan != "paid" and params[:confirmed]
+    # Only delete account if user is not on premium plan
+    if current_user.plan != 'premium' and params[:confirmed]
       begin
         # Destroy the user
         current_user.destroy

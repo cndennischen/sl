@@ -34,9 +34,9 @@ class Sketch < ActiveRecord::Base
 
     # Display the sketch name as a header
     options = { :header_center => name }
-    # Display the user's plan as a footer unless she's a paid user
-    if user.plan != 'paid'
-      options[:footer_center] = "Created with the Sketch Lab #{user.plan} plan (sketchlabhq.com)"
+    # Display the user's plan as a footer unless she's a premium user
+    if user.plan != 'premium'
+      options[:footer_center] = 'Created with Sketch Lab (sketchlabhq.com)'
     end
     # Set the font size
     options[:header_font_size] = '20'

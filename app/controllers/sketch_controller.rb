@@ -14,7 +14,7 @@ class SketchController < ApplicationController
         redirect_to root_url, :alert => "Error creating sketch: #{$!}"
       end
     else
-      flash[:error] = 'You cannot have more than one sketch on the free plan. Upgrade to the paid plan to have unlimited sketches.'
+      flash[:error] = 'You cannot have more than one sketch on the basic plan. Upgrade to the premium plan to have unlimited sketches.'
       redirect_to root_url
     end
   end
@@ -91,7 +91,7 @@ class SketchController < ApplicationController
   # Check if the user is allowed to edit sketches
   def authorize_edit
     unless allow_edit?
-      flash[:error] = 'You are not allowed to have more than one sketch on the free plan. Please delete all of your extra sketches until you have only one sketch.'
+      flash[:error] = 'You are not allowed to have more than one sketch on the basic plan. Please <a href="/account">upgrade</a> to the premium plan or delete all of your extra sketches until you have only one sketch.'
       redirect_to root_url
     end
   end
