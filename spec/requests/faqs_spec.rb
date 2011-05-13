@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe 'Faqs' do
   it 'displays faqs' do
+    # Uncace the FAQs
+    Faq.uncache
+    # Create a new FAQ
     faq = Factory(:faq)
     visit '/help/faq'
     page.should have_content(faq.question)

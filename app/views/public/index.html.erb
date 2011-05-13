@@ -15,13 +15,11 @@
 <table class="public">
   <tr>
     <th><%= sortable 'name' %></th>
-    <th><%= sortable 'author' %></th>
     <th><%= sortable 'updated_at', 'Updated' %></th>
   </tr>
   <% @sketches.each do |sketch| %>
     <tr>
       <td><%= link_to sketch.name, "/public/#{sketch.id}" %></td>
-      <td><%= sketch.author %></td>
       <td><%= sketch.updated_at.strftime("%B %e, %Y") %></td>
     </tr>
   <% end %>
