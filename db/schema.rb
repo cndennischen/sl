@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110502173527) do
+ActiveRecord::Schema.define(:version => 20110501193235) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -57,10 +57,8 @@ ActiveRecord::Schema.define(:version => 20110502173527) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "public",     :default => false
-    t.string   "author"
   end
 
-  add_index "sketches", ["author"], :name => "index_sketches_on_author"
   add_index "sketches", ["public"], :name => "index_sketches_on_public"
   add_index "sketches", ["user_id"], :name => "index_sketches_on_user_id"
 
