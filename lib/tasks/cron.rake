@@ -1,5 +1,8 @@
-desc 'Back up the database and email it to the backup email address'
-task :email_backup => :environment do
+task :cron => :environment do
+  # Heroku pgbackups
+  require 'heroku_backup_task'
+  HerokuBackupTask.execute
+  # Email backup
   puts "[#{Time.now}] Heroku backup started"
   # Gather the necessary information
   name = "#{ENV['APP_NAME']}-#{Time.now.strftime('%Y-%m-%d-%H%M%S')}.dump"
