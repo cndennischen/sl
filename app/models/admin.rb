@@ -9,8 +9,6 @@ class Admin < ActiveRecord::Base
 end
 
 class Admin::SessionsController < Devise::SessionsController
-  newrelic_ignore if defined?(NewRelic)
-
   # Override the create action to check the CAPTCHA
   def create
     # Check if the CAPTCHA was correct
