@@ -11,6 +11,9 @@ class HomeController < ApplicationController
         # Get the current user's sketches, filtered by the search parameter
         @sketches = current_user.sketches.search(params[:search])
       end
+      if current_user.plan != 'premium'
+        @ad = Ad.find_by_name('list_bottom')
+      end
     end
   end
 
