@@ -21,4 +21,10 @@ module ApplicationHelper
       view_context.link_to(image_tag('signup.png'), '/signin', :class => 'signup_button')
     end
   end
+
+  def last_deployed_time
+    if defined?(REDIS) && REDIS.get('last_deployed')
+      "Site last updated #{time_ago_in_words(REDIS.get('last_deployed'))} ago"
+    end
+  end
 end

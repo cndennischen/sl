@@ -218,6 +218,7 @@ GEM
     rb-inotify (0.8.4)
       ffi (>= 0.5.0)
     recaptcha (0.3.1)
+    redis (2.2.0)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     rmagick (2.13.1)
@@ -304,6 +305,7 @@ DEPENDENCIES
   rails_admin!
   rb-inotify
   recaptcha
+  redis
   rmagick
   rspec-rails
   ruby-debug19

@@ -15,4 +15,6 @@ else
   puts `git rebase master`
   puts `git checkout master`
   puts `git push heroku deploy:master -f`
+  puts 'Updating last deployed time...'
+  puts `heroku rake update_last_deployed`
 end
