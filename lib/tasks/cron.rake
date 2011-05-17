@@ -1,13 +1,5 @@
 task :cron => :environment do
   begin
-    # Heroku pgbackups
-    require 'heroku_backup_task'
-    HerokuBackupTask.execute
-  rescue => e
-    puts 'Error running pgbackups task: ' + e.message
-  end
-
-  begin
     # Email backup
     puts "[#{Time.now}] Heroku backup started"
     # Gather the necessary information
