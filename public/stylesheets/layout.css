@@ -99,3 +99,9 @@
   background-color: #FCC;
   border: solid 1px #C66;
 }
+
+.handle {
+  font-size: 12px;
+  cursor: move;
+  color: #777;
+}

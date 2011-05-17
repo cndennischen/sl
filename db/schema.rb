@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517173140) do
+ActiveRecord::Schema.define(:version => 20110517205452) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20110517173140) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "public",     :default => false
+    t.integer  "position"
   end
 
   add_index "sketches", ["public"], :name => "index_sketches_on_public"

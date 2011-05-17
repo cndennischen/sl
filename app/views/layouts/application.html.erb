@@ -46,6 +46,28 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
     })();
   </script>
 </head>
+<% if @sortable_sketch_list %>
+  <script type="text/javascript">
+  $(function() {
+    $('#sketches_list').sortable({
+      axis: 'y',
+      dropOnEmpty: false,
+      handle: '.handle',
+      cursor: 'crosshair',
+      items: 'tr',
+      opacity: 0.4,
+      scroll: true,
+      update: function (){
+        $.ajax({
+          type: 'post',
+          data: $('#sketches_list').sortable('serialize'),
+          url: '/sort'
+        });
+      }
+    });
+  });
+  </script>
+<% end %>
 <% if !@canvas %>
 <body class="background">
   <div id="header">

@@ -6,10 +6,10 @@ class HomeController < ApplicationController
       if admin?
         # If the user is an admin, get all the sketches in the database,
         # filtered by the search parameter
-        @sketches = Sketch.search(params[:search])
+        @sketches = Sketch.search(params[:search]).order(:position)
       else
         # Get the current user's sketches, filtered by the search parameter
-        @sketches = current_user.sketches.search(params[:search])
+        @sketches = current_user.sketches.search(params[:search]).order(:position)
       end
       if current_user.plan != 'premium'
         @ad = Ad.find_by_name('list_bottom')

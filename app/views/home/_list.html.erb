@@ -35,14 +35,20 @@
   }
   </script>
   <%# Loop through the sketches %>
-  <table>
+  <table id="sketches_list">
     <% @sketches.each do |sketch| %>
-      <tr>
+      <%= content_tag_for :tr, sketch do %>
+        <% if @sketches.count > 1 %>
+          <td class="handle">[+]</td>
+        <% end %>
         <td><%= link_to sketch.name, "/edit/#{sketch.id}" %></td>
         <td>(<%= link_to_function 'Delete', "destroy(#{sketch.id})" %>)</td>
-      </tr>
+      <% end %>
     <% end %>
   </table>
+  <% if @sketches.count > 1 %>
+    <% @sortable_sketch_list = true %>
+  <% end %>
 <% else %>
   <% if current_user.sketches.size == 0 %>
     <b>No Sketches! Create a new one below to get started.</b>

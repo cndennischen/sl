@@ -21,6 +21,7 @@ SketchLab::Application.routes.draw do
   post 'sharing' => 'sketch#sharing', :constraints => { :id => /\d+/ }
   post 'delete' => 'sketch#delete', :constraints => { :id => /\d+/ }
   get 'export/:id/:format' => 'sketch#export', :constraints => { :id => /\d+/ }
+  post '/sort' => 'sketch#sort'
 
   get 'public' => 'public#index'
   get 'public/:id' => 'public#show', :constraints => { :id => /\d+/ }

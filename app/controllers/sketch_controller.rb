@@ -74,6 +74,16 @@ class SketchController < ApplicationController
     send_data(data, :filename => "sketch.#{format}")
   end
 
+  # Sorts the sketches
+  def sort
+    sketches = current_user.sketches
+    sketches.each do |sketch|
+      sketch.position = params['sketch'].index(sketch.id.to_s) + 1
+      sketch.save
+    end
+    render :nothing => true
+  end
+
   private
 
   # Before filters
