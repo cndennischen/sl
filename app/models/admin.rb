@@ -9,6 +9,8 @@ class Admin < ActiveRecord::Base
 end
 
 class Admin::SessionsController < Devise::SessionsController
+  newrelic_ignore if defined?(NewRelic)
+
   # Override the create action to check the CAPTCHA
   def create
     # Check if the CAPTCHA was correct
@@ -17,7 +19,7 @@ class Admin::SessionsController < Devise::SessionsController
     else
       build_resource
       clean_up_passwords(resource)
-      flash[:error] = "There was an error with the recaptcha code below. Please re-enter the code and click submit."
+      flash[:error] = "There was an error with the recaptcha code below. Please re-enter the code and click Sign In."
       render_with_scope :new
     end
   end
