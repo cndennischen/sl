@@ -110,3 +110,8 @@
   cursor: move;
   color: #777;
 }
+
+#last_deployed {
+  color: green;
+  text-align: center;
+}

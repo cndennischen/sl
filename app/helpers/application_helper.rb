@@ -24,7 +24,10 @@ module ApplicationHelper
 
   def last_deployed_time
     if defined?(REDIS) && REDIS.get('last_deployed')
-      "Site last updated #{time_ago_in_words(REDIS.get('last_deployed'))} ago"
+      html = '<div id="last_deployed">'
+      html += "Site last updated #{time_ago_in_words(REDIS.get('last_deployed'))} ago"
+      html += '</div>'
+      html.html_safe
     end
   end
 end
