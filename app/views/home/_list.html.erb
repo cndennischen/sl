@@ -70,4 +70,8 @@
 <% end %>
 </fieldset>
 </div>
-<%= @ad.code.html_safe if @ad %>
+<% if @ad %>
+  <div id="adsense">
+    <%= @ad.code.html_safe %>
+  </div>
+<% end %>
