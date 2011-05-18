@@ -4,4 +4,3 @@ git checkout staging
 git rebase master
 git checkout master
 git push git@heroku.com:sltest.git staging:master -f
-heroku rake update_last_deployed --app sltest
