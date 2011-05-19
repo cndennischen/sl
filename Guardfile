@@ -9,6 +9,7 @@ end
 guard 'jammit' do
   watch(/^public\/javascripts\/(.*)\.js/)
   watch(/^public\/stylesheets\/(.*)\.css/)
+  watch('config/assets.yml')
 end
 
 guard 'rspec', :version => 2 do
