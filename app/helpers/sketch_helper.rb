@@ -1,2 +1,0 @@
-module SketchHelper
-end
