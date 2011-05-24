@@ -7,6 +7,22 @@ require 'capybara/rspec'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+# Set up OmniAuth test mode
+OmniAuth.config.test_mode = true # Turn test mode on
+# Set up a mock user to sign in with
+OmniAuth.config.mock_auth[:google] = {
+  'provider' => 'google',
+  'uid' => 'test_uid',
+  'user_info' => {
+    'name' => 'test_name',
+    'email' => 'test_email@example.com'
+  }
+}
+
+# Use the headless gem to hide Firefox
+headless = Headless.new
+headless.start
+
 RSpec.configure do |config|
   # == Mock Framework
   #
@@ -24,6 +40,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
+  config.after(:suite) do
+    headless.destroy
+  end
+
   # Because we're not using transactions (see above), clear the database
   # after each test with DatabaseCleaner
   config.before(:each) do
@@ -34,18 +54,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
-
-# Set up OmniAuth test mode
-OmniAuth.config.test_mode = true # Turn test mode on
-# Set up a mock user to sign in with
-OmniAuth.config.mock_auth[:google] = {
-  'provider' => 'google',
-  'uid' => 'test_uid',
-  'user_info' => {
-    'name' => 'test_name',
-    'email' => 'test_email@example.com'
-  }
-}
 
 # Sign in to Sketch Lab using OmniAuth
 def signin

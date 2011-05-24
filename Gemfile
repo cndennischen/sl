@@ -11,6 +11,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git', :ref => '97af9bd1c66fe54d1cb8c65b88518f1695331f5a'
+  gem 'headless'
   gem 'database_cleaner'
 end
 
@@ -21,9 +22,6 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-jammit', :git => 'git://github.com/Heigh-Tech/guard-jammit.git'
-  # Linux notifications from Guard
-  gem 'rb-inotify'
-  gem 'libnotify'
 end
 
 gem 'rmagick', :require => 'RMagick'

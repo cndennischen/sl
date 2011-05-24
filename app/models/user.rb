@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :sketches, :dependent => :destroy
 
-  validates_presence_of :provider, :uid, :name, :email
+  validates_presence_of :provider, :uid, :email
   validates_uniqueness_of :uid, :email
 
   # Creates a user with OmniAuth

@@ -13,18 +13,13 @@ class AccountController < ApplicationController
 
   # Updates the current user's name
   def update
-    # Make sure the user specified a name
-    if params[:name].blank?
-      flash[:error] = "Please specify a name"
+    # Update the user's name
+    current_user.name = params[:name]
+    # Attempt to save the user
+    if current_user.save
+      flash[:notice] = "Account updated!"
     else
-      # Update the user's name
-      current_user.name = params[:name]
-      # Attempt to save the user
-      if current_user.save
-        flash[:notice] = "Account updated!"
-      else
-        flash[:error] = "An error occured while updating your account. Please try again in a few minutes."
-      end
+      flash[:error] = "An error occured while updating your account. Please try again in a few minutes."
     end
     # Go back to the account page
     redirect_to account_path

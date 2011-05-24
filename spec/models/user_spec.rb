@@ -6,9 +6,9 @@ describe User do
     assert u.save
   end
 
-  it 'does not create user without name' do
+  it 'creates user without name' do
     u = Factory.build(:user, :name => nil)
-    assert !u.save
+    assert u.save
   end
 
   it 'does not craete user without email' do

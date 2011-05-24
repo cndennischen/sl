@@ -13,7 +13,6 @@ class PublicController < ApplicationController
         @sketches = Sketch.where(:public => true)
       end
     end
-    
   end
 
   def show
