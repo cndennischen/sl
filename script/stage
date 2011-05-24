@@ -1,5 +1,4 @@
 #!/bin/bash
-cd /home/szh/git/sl
 git checkout staging
 git rebase master
 git checkout master

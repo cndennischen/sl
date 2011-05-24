@@ -10,7 +10,6 @@ if gets.chomp != 'y'
   exit
 else
   require 'fileutils'
-  FileUtils.cd '/home/szh/git/sl'
   puts `git checkout deploy`
   puts `git rebase master`
   puts `git checkout master`
