@@ -32,6 +32,18 @@ describe 'Users', :js => true do
       page.should have_no_selector('div#ad')
       page.should have_no_content('Upgrade to the premium plan to')
     end
+
+    it 'allows users with empty name' do
+      signin
+      # Check header
+      page.should have_css('div#user', :text => "Welcome #{User.last.name}!")
+      # Change name
+      visit '/account'
+      fill_in 'name', :with => ''
+      click_button 'Update'
+      # Check header
+      page.should have_css('div#user', :text => 'Welcome!')
+    end
   end
 
   describe 'POST /account' do
