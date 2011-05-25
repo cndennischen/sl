@@ -33,16 +33,21 @@ describe 'Users', :js => true do
       page.should have_no_content('Upgrade to the premium plan to')
     end
 
-    it 'allows users with empty name' do
-      signin
-      # Check header
-      page.should have_css('div#user', :text => "Welcome #{User.last.name}!")
-      # Change name
-      visit '/account'
-      fill_in 'name', :with => ''
-      click_button 'Update'
-      # Check header
-      page.should have_css('div#user', :text => 'Welcome!')
+    it 'allows users with empty or nil name' do
+      ['', nil].each do |value|
+        signin
+        # Check header
+        page.should have_css('div#user', :text => "Welcome #{User.last.name}!")
+        # Change name
+        visit '/account'
+        fill_in 'name', :with => value
+        click_button 'Update'
+        # Check header
+        page.should have_css('div#user', :text => 'Welcome!')
+        # Sign out and delete the user
+        visit '/signout'
+        User.last.delete
+      end
     end
 
     it 'redirects signin page to home when user is already signed in' do
