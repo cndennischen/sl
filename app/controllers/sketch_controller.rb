@@ -1,5 +1,5 @@
 class SketchController < ApplicationController
-  before_filter :require_login
+  before_filter :require_signin
   before_filter :authorize_edit, :only => [:edit, :save, :rename, :sharing, :export]
   before_filter :get_sketch, :only => [:edit, :save, :rename, :sharing, :delete, :export]
 

@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     (current_user.sketches.size <= 1) or (current_user.plan != 'basic')
   end
 
-  # Retrieves the currently logged in user
+  # Retrieves the currently signed in user
   def current_user
     begin
       # Include the sketches in the query if we are in a controller that deals with them
@@ -72,7 +72,7 @@ class ApplicationController < ActionController::Base
 
   # Before filter to keep unauthenticated users from accessing protected or
   # user-specific pages
-  def require_login
+  def require_signin
     unless current_user
       redirect_to signin_url, :notice => 'Please sign in to access that page'
     end

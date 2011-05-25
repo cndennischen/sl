@@ -1,5 +1,5 @@
 class AccountController < ApplicationController
-  before_filter :require_login
+  before_filter :require_signin
 
   # Displays the current user's info and allows her to change her name
   def index

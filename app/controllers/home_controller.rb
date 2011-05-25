@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  # Displays the current users sketches if she is logged in, otherwise
+  # Displays the current users sketches if she is signed in, otherwise
   # displays information about Sketch Lab
   def index
     if current_user
@@ -19,9 +19,9 @@ class HomeController < ApplicationController
 
   # The sign in page
   def signin
-    # Go back home if user is already logged in
+    # Go back home if user is already signed in
     if current_user
-      return redirect_to root_url, :notice => "You're already logged in :)"
+      return redirect_to root_url, :notice => "You're already signed in :)"
     end
 
     respond_to do |format|
