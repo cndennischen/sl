@@ -76,7 +76,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/.
     </div>
     <div id="user">
       <% if current_user %>
-        Welcome<%= ' ' + current_user.name unless current_user.name.empty? %>!
+        Welcome<%= ' ' + current_user.name if current_user.name && !current_user.name.empty? %>!
         <%= link_to "Account", account_path %>
         <%= link_to "Sign Out", signout_path %>
       <% else %>
