@@ -59,6 +59,7 @@ end
 def signin
   # This will just sign in as the mock user created above
   visit '/auth/google'
+  @user = User.last
 end
 
 # Create a new sketch

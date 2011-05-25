@@ -13,10 +13,10 @@ describe 'Users', :js => true do
       signin
       click_link 'Account'
       # Change the user's plan
-      User.last.update_attribute :kind, 'premium'
+      @user.update_attribute :kind, 'premium'
       # Refresh the plan
       click_link 'refresh'
-      User.last.plan.should == 'premium'
+      @user.plan.should == 'premium'
     end
 
     it 'displays ad for basic users' do
@@ -25,7 +25,7 @@ describe 'Users', :js => true do
       page.should have_selector('div#ad')
       page.should have_content('Upgrade to the premium plan to')
       # Change the plan to 'premium'
-      Rails.cache.write(User.last.plan_key, 'premium')
+      Rails.cache.write(@user.plan_key, 'premium')
       # Reload the page
       visit(current_path)
       # Should not display ad
@@ -37,7 +37,7 @@ describe 'Users', :js => true do
       ['', nil].each do |value|
         signin
         # Check header
-        page.should have_css('div#user', :text => "Welcome #{User.last.name}!")
+        page.should have_css('div#user', :text => "Welcome #{@user.name}!")
         # Change name
         visit '/account'
         fill_in 'name', :with => value
@@ -46,7 +46,7 @@ describe 'Users', :js => true do
         page.should have_css('div#user', :text => 'Welcome!')
         # Sign out and delete the user
         visit '/signout'
-        User.last.delete
+        @user.delete
       end
     end
 

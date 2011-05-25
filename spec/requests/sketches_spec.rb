@@ -52,7 +52,7 @@ describe 'Sketches' do
     signin
     create_sketch
     # Create another sketch
-    User.last.sketches.create(:name => '2nd Sketch', :content => '{}')
+    @user.sketches.create(:name => '2nd Sketch', :content => '{}')
     click_link 'Home'
     click_link '2nd Sketch'
     # Should redirect to root
@@ -63,7 +63,7 @@ describe 'Sketches' do
   it 'creates multiple sketches on the premium plan' do
     signin
     # Set the user's plan to premium
-    Rails.cache.write(User.last.plan_key, 'premium')
+    Rails.cache.write(@user.plan_key, 'premium')
     create_sketch
     click_link 'Home'
     page.should have_content('Test Sketch')
