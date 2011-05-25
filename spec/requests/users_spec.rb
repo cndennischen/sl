@@ -44,6 +44,13 @@ describe 'Users', :js => true do
       # Check header
       page.should have_css('div#user', :text => 'Welcome!')
     end
+
+    it 'redirects signin page to home when user is already signed in' do
+      signin
+      visit '/signin'
+      current_path.should == '/'
+      page.should have_selector('#flash_notice')
+    end
   end
 
   describe 'POST /account' do

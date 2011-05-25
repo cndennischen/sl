@@ -21,7 +21,7 @@ class HomeController < ApplicationController
   def signin
     # Go back home if user is already logged in
     if current_user
-      redirect_to root_url
+      return redirect_to root_url, :notice => "You're already logged in :)"
     end
 
     respond_to do |format|
