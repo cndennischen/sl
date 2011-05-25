@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
-  rescue_from ActionView::MissingTemplate, :with => :render_not_found
+  unless ActionController::Base.consider_all_requests_local
+    rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
+    rescue_from ActionView::MissingTemplate, :with => :render_not_found
+  end
 
   helper_method :current_user, :mobile_device?, :allow_new?, :admin?
 

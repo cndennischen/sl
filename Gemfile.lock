@@ -99,6 +99,12 @@ GEM
       guard (>= 0.2.2)
     guard-rspec (0.3.1)
       guard (>= 0.2.2)
+    haml (3.1.1)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     headless (0.1.0)
     hoptoad_notifier (2.4.9)
       activesupport
@@ -273,6 +279,7 @@ DEPENDENCIES
   guard-bundler
   guard-jammit!
   guard-rspec
+  haml-rails
   headless
   hoptoad_notifier
   itslog
