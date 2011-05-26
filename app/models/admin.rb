@@ -10,6 +10,7 @@ end
 
 class Admin::SessionsController < Devise::SessionsController
   newrelic_ignore
+  RailsAdmin::ApplicationController.send(:newrelic_ignore)
 
   # Override the create action to check the CAPTCHA
   def create
@@ -23,8 +24,4 @@ class Admin::SessionsController < Devise::SessionsController
       render_with_scope :new
     end
   end
-end
-
-class RailsAdmin::ApplicationController
-  newrelic_ignore
 end
