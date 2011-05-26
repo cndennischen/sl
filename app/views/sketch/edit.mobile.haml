@@ -1,0 +1,17 @@
+= include_stylesheets :mobilecanvas, :media => 'all'
+= include_javascripts :mobilecanvas
+
+:javascript
+  localStorage['data'] = '#{escape_javascript(@sketch.content).html_safe}';
+
+#canvas
+
+-# Buttons for adjusting the canvas
+.center
+  %a#reduceWBtn{"data-icon" => "arrow-l", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "#"} Reduce Canvas Width
+  %a#increaseHBtn{"data-icon" => "arrow-d", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "#"} Increase Canvas Height
+  %a#reduceHBtn{"data-icon" => "arrow-u", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "#"} Reduce Canvas Height
+  %a#increaseWBtn{"data-icon" => "arrow-r", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "#"} Increase Canvas Width
+  %a#zoomInBtn{"data-icon" => "plus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "#"} Zoom In
+  %a#zoomOutBtn{"data-icon" => "minus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "#"} Zoom Out
+  %a#resetCanvasBtn{"data-icon" => "refresh", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "#"} Reset Canvas

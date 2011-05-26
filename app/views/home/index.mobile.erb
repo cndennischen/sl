@@ -1,9 +1,0 @@
-<% if current_user %>
-  <%= render 'list' %>
-<% else %>
-  <p>You need to sign in to edit sketches. With Sketch Lab, signing up is as
-  easy as linking your Google account. Click the button below to get started.
-  <%= link_to 'Click Here', 'http://www.youtube.com/watch?v=4ZHYEv8OmoQ' %>
-  to learn more about Sketch Lab.</p>
-  <a href="/auth/google" data-role="button">Sign in / Sign Up</a>
-<% end %>

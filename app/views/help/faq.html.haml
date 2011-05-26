@@ -1,0 +1,27 @@
+- title 'FAQ'
+%h1 Sketch Lab FAQ
+
+:javascript
+  $(init);
+  function init() {
+    // Expand FAQ answers on click
+    $(".question").click(function() {
+      $(this).next().toggle("slow");
+      return false;
+    }).next().hide();
+  }
+
+%p Click a question to expand the answer
+#faq
+  -# Search Form for premium users
+  = form_tag '/help/faq', :method => 'get' do
+    %p
+      = text_field_tag :search, params[:search]
+      = submit_tag 'Search', :name => nil
+  
+  -# Loop through the FAQ's and display them
+  - if @faqs.count < 1
+    %p No items match your search
+  
+  - @faqs.each do |q|
+    = faq q.question, q.answer

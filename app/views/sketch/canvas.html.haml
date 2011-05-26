@@ -1,0 +1,53 @@
+#canvas
+
+-# Edit dialog
+#editDialog
+  %label#widgetTxtLbl{:for => 'widgetTxt'} Text:
+  %input#widgetTxt{:type => 'text'}
+  %label#checkedLbl{:for => 'checked'} Checked:
+  %input#checked{:type => 'checkbox'}
+  %br
+  %label{:for => 'forecolor'} Foreground:
+  %input#forecolor{:type => 'text'}
+  %br
+  %label{:for => 'backcolor'} Background:
+  %input#backcolor{:type => 'text'}
+  %br
+  %input#bold{:type => 'checkbox'}
+  %label#boldLbl{:for => 'bold'} Bold
+  &nbsp;
+  %input#italic{:type => 'checkbox'}
+  %label#italicLbl{:for => 'italic'} Italic
+  &nbsp;
+  %input#underline{:type => 'checkbox'}
+  %label#underlineLbl{:for => 'underline'} Underline
+  %br
+  %label#fontsizeLbl{:for => 'fontsize'} Font Size:
+  %input#fontsize{:type => 'text'}
+  %br
+  %label#textalignLbl{:for => 'textalign'} Text Alignment:
+  %select#textalign
+    %option{:value => 'left'} Left
+    %option{:value => 'center'} Center
+    %option{:value => 'right'} Right
+
+-# Context menu
+#contextMenu.contextMenu
+  %ul
+    %li#edit
+      %img.contextMenuImg{:src => '/images/pencil.png'}
+      Edit
+    %li#cut
+      %img.contextMenuImg{:src => '/images/cut.png'}
+      Cut
+    %li#copy
+      %img.contextMenuImg{:src => '/images/copy.png'}
+      Copy
+    %li#delete
+      %img.contextMenuImg{:src => '/images/delete.png'}
+      Delete
+    %li#rotate Rotate 90&deg;
+    %li#front Bring to Front
+    %li#forward Bring Forward
+    %li#backward Send Backward
+    %li#back Sent to Back

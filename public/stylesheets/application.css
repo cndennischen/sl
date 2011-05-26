@@ -16,6 +16,8 @@ a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
+.center { text-align: center; }
+
 div.field, div.actions {
   margin-bottom: 10px;
 }
@@ -60,11 +62,11 @@ div.field, div.actions {
   margin: 15px auto;
 }
 
-.signup_button img, .continue_button img {
+.signup_button img, #continue_button img {
   border: none;
 }
 
-.screenshot, .signup_button, .continue_button {
+.screenshot, .signup_button, #continue_button {
   background-color: transparent !important;
 }
 
@@ -185,5 +187,21 @@ div.field, div.actions {
 
 #last_deployed {
   color: green;
+  text-align: center;
+}
+
+#intro h1 {
+  font-size: x-large;
+  text-align: center;
+  color: blue;
+}
+
+#intro h2 {
+  font-size: large;
+  text-align: center;
+  color: green;
+}
+
+#intro p {
   text-align: center;
 }

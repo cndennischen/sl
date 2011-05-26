@@ -1,0 +1,66 @@
+- title @sketch.name
+= include_javascripts :editor
+
+:javascript
+  function rename() {
+    $(document.body).append('#{form_tag("/rename", :id => "renameHiddenForm").chomp}');
+    $("#renameHiddenForm").append('<input id="name" name="name" type="hidden" value="' + $("#name").val() + '" />');
+    $("#renameHiddenForm").append('<input id="id" name="id" type="hidden" value="' + #{@sketch.id} + '" />');
+    $("#renameHiddenForm").submit();
+  }
+  localStorage["data"] = '#{escape_javascript(@sketch.content).html_safe}';
+
+.toolbox
+  %button#clearBtn{:title => "Remove all widgets from the canvas"} Clear Canvas
+  %select#controlBox
+    %option{:value => "window"} Window
+    %option{:value => "phone"} Phone
+    %option{:value => "rectangle"} Rectangle
+    %option{:value => "rounded-rectangle"} Rounded Rectangle
+    %option{:value => "ellipse"} Ellipse
+    %option{:value => "button"} Button
+    %option{:value => "checkbox"} Checkbox
+    %option{:value => "radio"} Radio Button
+    %option{:value => "label"} Label
+    %option{:value => "textbox"} Text Box
+    %option{:value => "textarea"} Text Area
+    %option{:value => "progress"} Progress Bar
+    %option{:value => "link"} Link
+    %option{:value => "menu"} Menu Bar
+    %option{:value => "note"} Sticky Note
+  %button#addBtn{:title => "Add the selected type of widget to the canvas"} Add
+  %button#undoBtn{:title => "Undo the last action"} Undo
+  %button#redoBtn{:title => "Redo the last undo"} Redo
+  %button#pasteBtn{:title => "Paste the object on the clipboard to the canvas"} Paste
+  %span.box= @title
+  %button#renameBtn{:title => "Change the name of the current sketch"} Rename
+  %span.box=public_or_private
+  %button#sharingBtn{:title => "Change the publicity of the current sketch"} Change
+  %span#saved{:style => "color:green;display:none"} Saved
+  %span#saveFailed{:style => "color:red;display:none"} Save Failed
+
+  #renameDialog
+    = validates_sketch_names(:rename)
+    %form#renameForm{:onsubmit => "return validate()"}
+      %input#name{:type => "text", :value => @title}/
+      %input#rename{:type => "submit", :value => "Rename"}/
+  #sharingDialog
+    = form_tag('/sharing') do
+      = hidden_field_tag :id, @sketch.id
+      %label{:for => "public"} Public:
+      <input type="checkbox" name="public"#{' checked="checked"' if @sketch.public} id="public">
+      %br
+      = submit_tag "OK"
+      - if @sketch.public
+        %p
+          Public url:
+          %a{:href => "http://www.sketchlabhq.com/public/#{@sketch.id}"}
+            http://www.sketchlabhq.com/public/#{@sketch.id}
+
+#canvas.canvas
+  %iframe.canvasFrame{:name => "canvasFrame", :src => "/canvas"}
+
+%footer#export
+  Download as: #{link_to "PDF", "/export/#{@sketch.id}/pdf", :onclick => "exportSketch()"},
+  \#{link_to "PNG", "/export/#{@sketch.id}/png", :onclick => "exportSketch()"},
+  \#{link_to "JPEG", "/export/#{@sketch.id}/jpg", :onclick => "exportSketch()"}

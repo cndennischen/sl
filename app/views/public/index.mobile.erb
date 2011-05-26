@@ -1,7 +1,0 @@
-<div id="sketches">
-  <ul id="sketchList" data-role="listview" data-filter="true">
-    <% @sketches.each do |sketch| %>
-      <li><%= link_to sketch.name, "/public/#{sketch.id}" %></li>
-    <% end %>
-  </ul>
-</div>

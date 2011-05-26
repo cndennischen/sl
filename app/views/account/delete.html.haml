@@ -1,0 +1,13 @@
+- title 'Delete Account'
+- if current_user.plan == 'premium'
+  Please #{link_to 'downgrade', account_path} to the basic plan before deleting your account.
+- else
+  = form_tag(destroy_account_path) do
+    %p
+      Are you sure you want to delete your account?
+      All of your sketches will be permanently deleted. You cannot undo this action.
+    = check_box_tag("confirmed")
+    = label_tag(:confirmed, "Yes, I'm sure I want to delete my account.")
+    %br/
+    = submit_tag("Delete Account", :style => "color:red")
+    or #{link_to "cancel", account_path}

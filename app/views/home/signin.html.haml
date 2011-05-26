@@ -1,0 +1,9 @@
+- title 'Sign in'
+
+%p
+  You can sign in to Sketch Lab using your existing Google account
+  (if you don't already have a Google account, click
+  #{link_to 'Here', 'https://www.google.com/accounts/NewAccount'} to create one).
+  If you don't have a Sketch Lab account yet, one will automatically be created for you.
+
+= link_to(image_tag('continue.png'), '/auth/google', :id => 'continue_button')

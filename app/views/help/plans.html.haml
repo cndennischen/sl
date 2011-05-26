@@ -1,0 +1,17 @@
+- title 'Plans and Pricing'
+%h1= @title
+%p Sketch Lab offers three types of accounts ("plans"):
+%ol
+  %li Basic (Free, ad supported)
+  %li Premium ($9.99/month)
+  %li Student
+
+%h2 Basic
+%p When you sign up for Sketch Lab, you will automatically be on the basic plan until you #{link_to 'upgrade', account_path} your account. The basic plan allows you to try out the basic features of Sketch Lab for an unlimited amount of time. The basic plan has several limitations that you can remove by #{link_to 'upgrading', account_path} to the premium plan.
+
+%h2 Premium
+%p The premium plan includes all the cool features of Sketch Lab. To upgrade, go to the #{link_to 'account', account_path} page and follow the instructions under the "Subscription" section.
+
+%h2 Student
+%p Student accounts allow you to have unlimited sketches, like premium accounts. If you are a student, you can #{link_to 'submit a support ticket', 'http://sketchlab.mojohelpdesk.com/mytickets/create'} requesting a free student account. Be sure to include the name and location of the school you are a student at.
+= signup_button

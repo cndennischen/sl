@@ -1,0 +1,9 @@
+- title @sketch.name
+= include_stylesheets :publiccanvas
+= include_javascripts :publiccanvas
+
+:javascript
+  localStorage['data'] = '#{escape_javascript(@sketch.content).html_safe}';
+
+%h1= @title 
+#canvas
