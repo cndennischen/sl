@@ -1,9 +1,11 @@
 <%# Advertise premium plan to basic users %>
-<% if current_user.plan == 'basic' %>
+<% if current_user.plan != 'premium' %>
   <div id="ad">
     Upgrade to the premium plan to:
     <ul>
-      <li><%= link_to raw("Have <i>unlimited</i> sketches"), "/help/quotas" %></li>
+      <% unless current_user.plan == 'student' %>
+        <li><%= link_to raw("Have <i>unlimited</i> sketches"), "/help/quotas" %></li>
+      <% end %>
       <li><%= link_to "Remove ads", "/help/plans" %>
       <li><%= link_to "Remove footer from exported sketches", "/help/sketch_footer" %></li>
       <li><%= link_to "Easily find your sketches", "/help/searching" %></li>
