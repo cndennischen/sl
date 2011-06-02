@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'rake', '~> 0.8.7' # Problems with rake 0.9
 gem 'rails', '3.0.7'
 
 group :development, :test do
